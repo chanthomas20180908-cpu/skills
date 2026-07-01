@@ -1,0 +1,7 @@
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <h2>{{ bottom_cta.title | default(bottom_cta_title) | default('Ready to try it?') }}</h2>
+    <p>{{ bottom_cta.text | default(bottom_cta_text) | default(page_description) }}</p>
+    <a href="{{ bottom_cta.url | default(cta_url, true) | default(canonical_url + '#start', true) }}" class="btn-primary">{{ bottom_cta.button | default(bottom_cta_button) | default('Get started free') }}</a>
+  </div>
+</section>

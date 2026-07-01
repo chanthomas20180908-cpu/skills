@@ -1,0 +1,25 @@
+{% if article_sections %}
+<nav class="toc" aria-label="Table of contents">
+  <span class="toc-label">Table of contents</span>
+  <ol>
+    {% for section in article_sections %}
+    <li><a href="#section-{{ loop.index }}" data-toc-link>{{ section.title }}</a></li>
+    {% endfor %}
+    {% if media_blocks %}
+    <li><a href="#media" data-toc-link>Further viewing</a></li>
+    {% endif %}
+    {% if comparison_table %}
+    <li><a href="#comparison" data-toc-link>{{ comparison_table.title }}</a></li>
+    {% endif %}
+    {% if tool_reviews %}
+    <li><a href="#reviews" data-toc-link>In-depth reviews</a></li>
+    {% endif %}
+    {% if quick_tips %}
+    <li><a href="#tips" data-toc-link>{{ quick_tips.title }}</a></li>
+    {% endif %}
+    {% if faq_items %}
+    <li><a href="#faq" data-toc-link>FAQ</a></li>
+    {% endif %}
+  </ol>
+</nav>
+{% endif %}

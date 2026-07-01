@@ -1,0 +1,415 @@
+# Article landing page data schema
+#
+# This file documents the structured data contract for the article landing page type.
+# AI / Skill layer should produce content that matches this shape.
+# The CLI renderer injects additional build-context fields into templates/landing/article/base.html.
+# Fields marked "Renderer-injected" are supplied by `ogi` and are not produced by the skill layer.
+
+fields:
+  canonical_url:
+    type: string
+    required: false
+    default: "https://example.com/{slug}.html"
+    description: Canonical URL for the article landing page.
+
+  lang:
+    type: string
+    required: false
+    default: "en"
+    description: Renderer-injected. HTML lang attribute.
+
+  brand_name:
+    type: string
+    required: false
+    description: Renderer-injected. Brand name displayed in nav logo, page title suffix, and footer.
+
+  page_name:
+    type: string
+    required: false
+    description: Renderer-injected. Page title passed via CLI --page-name; used as fallback for title and article_lede.
+
+  page_description:
+    type: string
+    required: false
+    description: Renderer-injected. Page description passed via CLI --page-description; used as fallback for meta_description.
+
+  product_name:
+    type: string
+    required: false
+    description: Renderer-injected. Product/brand name passed via CLI --product-name; used as fallback for author.
+
+  product_description:
+    type: string
+    required: false
+    description: Renderer-injected. Product description passed via CLI --product-description.
+
+  title:
+    type: string
+    required: false
+    default: "{page_name}"
+    description: HTML <title> and Article headline.
+
+  meta_description:
+    type: string
+    required: false
+    default: "{page_description}"
+    description: Meta description and Open Graph / Twitter description.
+
+  category:
+    type: string
+    required: false
+    default: "Guide"
+    description: Article category shown as eyebrow text.
+
+  author:
+    type: string
+    required: false
+    default: "{product_name}"
+    description: Article author or publisher name.
+
+  publish_date:
+    type: string
+    required: false
+    default: "2026-06-30"
+    description: Publish date in ISO 8601 format. The skill layer should use the current date rather than this hardcoded default.
+
+  read_time:
+    type: string
+    required: false
+    default: "8 min read"
+    description: Estimated read time label shown in article meta.
+
+  article_lede:
+    type: string
+    required: false
+    default: "{page_description}"
+    description: Lead paragraph directly under the article title.
+
+  article_default_theme:
+    type: string
+    required: false
+    default: "dark"
+    description: Initial article visual theme. Supported sample values are dark and paper.
+
+  article_theme_options:
+    type: array
+    required: false
+    item_schema:
+      type: object
+      fields:
+        id:
+          type: string
+          required: true
+        label:
+          type: string
+          required: true
+    description: Optional theme switcher options shown in the article nav. Omit this field to hide the switcher.
+
+  hero_visual:
+    type: object
+    required: false
+    fields:
+      alt:
+        type: string
+        required: true
+        description: Accessible label for the code-generated hero image.
+      label:
+        type: string
+        required: false
+        description: Short label rendered over the generated image.
+      badge:
+        type: string
+        required: false
+        description: Short badge rendered in the top-right corner.
+      colors:
+        type: array
+        required: true
+        item_schema:
+          type: string
+        description: Three CSS color values used to render the single gradient image.
+    description: Code-generated top hero image. Rendered as one large gradient visual without external image assets.
+
+  article_sections:
+    type: array
+    required: true
+    item_schema:
+      type: object
+      fields:
+        title:
+          type: string
+          required: true
+        content:
+          type: string
+          required: false
+          description: HTML content for the section.
+        subsections:
+          type: array
+          required: false
+          item_schema:
+            type: object
+            fields:
+              title:
+                type: string
+                required: true
+              content:
+                type: string
+                required: true
+    description: Main article body sections.
+
+  comparison_table:
+    type: object
+    required: false
+    fields:
+      title:
+        type: string
+        required: true
+      html:
+        type: string
+        required: true
+        description: Full HTML table markup.
+    description: Side-by-side comparison table block.
+
+  tool_reviews:
+    type: array
+    required: false
+    item_schema:
+      type: object
+      fields:
+        name:
+          type: string
+          required: true
+        content:
+          type: string
+          required: true
+        score:
+          type: string
+          required: false
+          description: Optional score label such as "4.5/5".
+        pros:
+          type: array
+          required: false
+          item_schema:
+            type: string
+        cons:
+          type: array
+          required: false
+          item_schema:
+            type: string
+    description: Individual tool review cards with pros/cons.
+
+  quick_tips:
+    type: object
+    required: false
+    fields:
+      title:
+        type: string
+        required: true
+      content:
+        type: string
+        required: true
+    description: Actionable quick-start tips section.
+
+  media_blocks:
+    type: array
+    required: false
+    item_schema:
+      type: object
+      fields:
+        type:
+          type: string
+          required: true
+          description: One of generated_image, youtube, or external_link.
+        title:
+          type: string
+          required: true
+        caption:
+          type: string
+          required: false
+        url:
+          type: string
+          required: false
+          description: Required for youtube and external_link blocks.
+        label:
+          type: string
+          required: false
+          description: Short source label such as YouTube, Wikipedia, or Product site.
+        alt:
+          type: string
+          required: false
+          description: Accessible label for generated visuals or video thumbnails.
+        badge:
+          type: string
+          required: false
+          description: Short text rendered inside generated_image visuals.
+        colors:
+          type: array
+          required: false
+          item_schema:
+            type: string
+          description: Three CSS color values for generated_image visuals.
+    description: Media and link cards. Generated images are rendered by CSS. External links in media_blocks must be real, verified URLs from the user or from research and must not be fabricated. Placeholder URLs (example.com) are only acceptable for product-owned URLs in reference defaults, not in final output.
+
+  inline_cta:
+    type: object
+    required: false
+    fields:
+      title:
+        type: string
+        required: true
+      text:
+        type: string
+        required: true
+      button:
+        type: string
+        required: true
+      url:
+        type: string
+        required: true
+    description: Inline call-to-action banner inserted after the 3rd section.
+
+  faq_items:
+    type: array
+    required: true
+    item_schema:
+      type: object
+      fields:
+        question:
+          type: string
+          required: true
+        answer:
+          type: string
+          required: true
+    description: FAQ questions and answers.
+
+  sources:
+    type: array
+    required: false
+    item_schema:
+      type: object
+      fields:
+        title:
+          type: string
+          required: true
+        url:
+          type: string
+          required: true
+    description: Reference source links.
+
+  related:
+    type: array
+    required: false
+    item_schema:
+      type: object
+      fields:
+        title:
+          type: string
+          required: true
+        url:
+          type: string
+          required: true
+    description: Related reading links.
+
+  bottom_cta:
+    type: object
+    required: false
+    fields:
+      title:
+        type: string
+        required: true
+      text:
+        type: string
+        required: true
+      button:
+        type: string
+        required: true
+      url:
+        type: string
+        required: true
+    description: Bottom call-to-action section above the footer.
+
+  keywords:
+    type: array
+    required: false
+    item_schema:
+      type: string
+    description: SEO keywords for Article schema.
+
+  word_count:
+    type: integer
+    required: false
+    default: 1200
+    description: Approximate word count for Article schema.
+
+  og_image:
+    type: string
+    required: false
+    default: "https://example.com/og-image.png"
+    description: Open Graph / Twitter image URL.
+
+  # Renderer-injected build-context fields (supplied by `ogi`, not the skill layer)
+
+  cta_url:
+    type: string
+    required: false
+    description: Renderer-injected. Primary CTA URL used as fallback for inline_cta and bottom_cta links.
+
+  home_url:
+    type: string
+    required: false
+    default: "https://example.com/"
+    description: Renderer-injected. Nav logo link destination.
+
+  nav_items:
+    type: array
+    required: false
+    item_schema:
+      type: object
+      fields:
+        label:
+          type: string
+          required: true
+        url:
+          type: string
+          required: true
+    description: Renderer-injected. Navigation items array with label/url objects.
+
+  nav_cta:
+    type: string
+    required: false
+    default: "Get started"
+    description: Renderer-injected. Navigation CTA button text.
+
+  footer_links:
+    type: array
+    required: false
+    item_schema:
+      type: object
+      fields:
+        label:
+          type: string
+          required: true
+        url:
+          type: string
+          required: true
+    description: Renderer-injected. Footer link items array with label/url objects.
+
+  publish_year:
+    type: string
+    required: false
+    default: "2026"
+    description: Renderer-injected. Copyright year in footer. The skill layer should use the current year rather than this hardcoded default.
+
+  bottom_cta_title:
+    type: string
+    required: false
+    description: Renderer-injected. Deprecated fallback for bottom_cta.title; use bottom_cta.title instead.
+
+  bottom_cta_text:
+    type: string
+    required: false
+    description: Renderer-injected. Deprecated fallback for bottom_cta.text; use bottom_cta.text instead.
+
+  bottom_cta_button:
+    type: string
+    required: false
+    description: Renderer-injected. Deprecated fallback for bottom_cta.button; use bottom_cta.button instead.

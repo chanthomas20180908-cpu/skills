@@ -1,0 +1,24 @@
+<header class="top">
+  <div class="top-in">
+    <a href="{{ home_url | default('https://example.com/') }}" class="nav-logo">{{ brand_name }}</a>
+    <nav class="page-nav">
+      {% for item in nav_items | default([
+        {"label": "Products", "url": "https://example.com/tools"},
+        {"label": "Docs", "url": "https://example.com/docs"},
+        {"label": "Blog", "url": "https://example.com/blog"}
+      ]) %}
+      <a href="{{ item.url }}">{{ item.label }}</a>
+      {% endfor %}
+      <a href="{{ cta_url | default('https://example.com/#start') }}" class="nav-cta">{{ nav_cta | default('Get started') }}</a>
+      {% if article_theme_options %}
+      <div class="theme-switcher" aria-label="Article style theme">
+        {% for theme in article_theme_options %}
+        <button type="button" class="theme-option{% if theme.id == article_default_theme %} active{% endif %}" data-theme-choice="{{ theme.id }}">
+          <span>{{ theme.label }}</span>
+        </button>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,18 @@
+<header class="article-header">
+  {% if hero_visual %}
+  <div class="article-hero-visual" role="img" aria-label="{{ hero_visual.alt }}" style="--hero-a:{{ hero_visual.colors[0] | default('#0b2a7a') }};--hero-b:{{ hero_visual.colors[1] | default('#d4d4d8') }};--hero-c:{{ hero_visual.colors[2] | default('#c47a00') }};">
+    {% if hero_visual.badge %}<span class="hero-visual-badge">{{ hero_visual.badge }}</span>{% endif %}
+    {% if hero_visual.label %}<span class="hero-visual-label">{{ hero_visual.label }}</span>{% endif %}
+  </div>
+  {% endif %}
+  <div class="article-header-copy">
+    {% if category %}<span class="eyebrow">{{ category }}</span>{% endif %}
+    <h1>{{ title | default(page_name) }}</h1>
+    {% if article_lede %}<p class="lede">{{ article_lede }}</p>{% endif %}
+    <div class="article-meta">
+      <span>{{ author | default(product_name) }}</span>
+      <span>{{ publish_date | default('2026-06-30') }}</span>
+      {% if read_time %}<span>{{ read_time }}</span>{% endif %}
+    </div>
+  </div>
+</header>
