@@ -13,7 +13,8 @@ skills/
 │   ├── SKILL.md                 # Skill definition, parameters, and workflow
 │   └── references/              # Templates, schema, and reference data
 │       ├── schema.yaml          # Data contract for article landing pages
-│       ├── reference.yaml       # Default filled-in instance
+│       ├── template.yaml        # Agent-facing generation skeleton
+│       ├── reference-example.yaml # Human-readable filled example
 │       ├── base.html            # Main HTML template (rendered by `ogi`)
 │       └── components/          # Component templates (rendered by `ogi`)
 └── [future skills...]           # Additional skills to be added
@@ -34,7 +35,7 @@ Generate a single, self-contained HTML article landing page optimized for SEO/GE
 
 1. Create a new directory at the repository root using a clear, kebab-case skill name.
 2. Add `SKILL.md` with skill definition, parameters, workflow, and usage examples.
-3. Add a `references/` directory with schemas, reference instances, and any templates.
+3. Add a `references/` directory with `schema.yaml`, `template.yaml`, `reference-example.yaml`, and any templates.
 4. Keep terminology consistent within the skill.
 5. Update this `README.md` and, if needed, `CLAUDE.md`.
 

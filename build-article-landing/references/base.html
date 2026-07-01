@@ -7,14 +7,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ title | default(page_name) }} · {{ brand_name }}</title>
 <meta name="description" content="{{ meta_description | default(page_description) }}">
-<link rel="canonical" href="{{ canonical_url }}">
+<link rel="canonical" href="{{ canonical_url | default('https://example.com/', true) }}">
 <meta property="og:title" content="{{ title | default(page_name) }}">
 <meta property="og:description" content="{{ meta_description | default(page_description) }}">
 <meta property="og:type" content="article">
-<meta property="og:url" content="{{ canonical_url }}">
-<meta property="og:image" content="{{ og_image | default('https://example.com/og-image.png') }}">
+<meta property="og:url" content="{{ canonical_url | default('https://example.com/', true) }}">
+{% if og_image %}
+<meta property="og:image" content="{{ og_image }}">
+{% endif %}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{{ og_image | default('https://example.com/og-image.png') }}">
+{% if og_image %}
+<meta name="twitter:image" content="{{ og_image }}">
+{% endif %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
 <style>

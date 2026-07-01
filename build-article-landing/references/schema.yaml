@@ -10,7 +10,7 @@ fields:
     type: string
     required: false
     default: "https://example.com/{slug}.html"
-    description: Canonical URL for the article landing page.
+    description: Canonical URL for the article landing page. Product-owned URL; example.com placeholder is acceptable only when the user has not supplied a real URL.
 
   lang:
     type: string
@@ -154,7 +154,7 @@ fields:
               content:
                 type: string
                 required: true
-    description: Main article body sections.
+    description: Main article body sections. The template provides 4 sections as a starting structure; expand or condense as needed for the topic, but keep the same pattern of practical guidance.
 
   comparison_table:
     type: object
@@ -293,7 +293,7 @@ fields:
         url:
           type: string
           required: true
-    description: Reference source links.
+    description: "Reference source links. External reference URLs must be real and verified from the user or from research. example.com placeholders are not acceptable in final output. If no real URLs are available, set this field to an empty array (`sources: []`) so the renderer does not fall back to defaults."
 
   related:
     type: array
@@ -307,7 +307,7 @@ fields:
         url:
           type: string
           required: true
-    description: Related reading links.
+    description: "Related reading links. External reference URLs must be real and verified from the user or from research. example.com placeholders are not acceptable in final output. If no real URLs are available, set this field to an empty array (`related: []`) so the renderer does not fall back to defaults."
 
   bottom_cta:
     type: object
@@ -344,7 +344,7 @@ fields:
     type: string
     required: false
     default: "https://example.com/og-image.png"
-    description: Open Graph / Twitter image URL.
+    description: Open Graph / Twitter image URL. Product-owned URL; example.com placeholder is acceptable only when the user has not supplied a real URL.
 
   # Renderer-injected build-context fields (supplied by `ogi`, not the skill layer)
 
@@ -357,7 +357,7 @@ fields:
     type: string
     required: false
     default: "https://example.com/"
-    description: Renderer-injected. Nav logo link destination.
+    description: Renderer-injected. Nav logo link destination. Product-owned URL; example.com placeholder is acceptable only when the user has not supplied a real URL.
 
   nav_items:
     type: array

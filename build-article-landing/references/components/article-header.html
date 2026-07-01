@@ -11,7 +11,7 @@
     {% if article_lede %}<p class="lede">{{ article_lede }}</p>{% endif %}
     <div class="article-meta">
       <span>{{ author | default(product_name) }}</span>
-      <span>{{ publish_date | default('2026-06-30') }}</span>
+      <span>{{ publish_date }}</span>
       {% if read_time %}<span>{{ read_time }}</span>{% endif %}
     </div>
   </div>

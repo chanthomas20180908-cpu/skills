@@ -52,14 +52,18 @@ Generate a single, self-contained HTML article landing page optimized for SEO/GE
 1. **Acknowledge the request**. State that you will generate an article landing page and call `ogi landing build`.
 2. **Resolve parameters**. Ask the user if any required parameter is missing. Do not invent values without confirmation.
 3. **Load the data contract**. Read `references/schema.yaml` to know which fields the article landing page supports.
-4. **Load the reference instance**. Read `references/reference.yaml` as the default filled-in example.
+4. **Load the generation skeleton**. Read `references/template.yaml` to know the agent-facing structure. Read `references/reference-example.yaml` only if you need a human-readable filled example, but **do not copy its prose**.
 5. **Generate structured content** (only if `--content` is not provided):
-   - Use the 5 required parameters to fill placeholders like `{{product_name}}`, `{{product_description}}`, `{{page_name}}`, `{{page_description}}`.
+   - Read `references/template.yaml` as the generation skeleton.
+   - **Do not read or copy any prose from `references/reference-example.yaml`.** `reference-example.yaml` is a human-readable filled example only; it is not the generation template.
+   - Replace every `[...]` placeholder and every example sentence in `template.yaml` with content derived from the user's topic. Do not reuse creators/SEO example language.
    - Produce a YAML object that conforms to `references/schema.yaml`.
-   - Keep the same modules as `references/reference.yaml`: article lede, 8-10 sections, comparison table, 3-4 tool reviews, quick tips, inline CTA, 5-6 FAQ items, sources, related reading, bottom CTA, keywords, word count.
+   - Keep the same modules as `template.yaml`: article lede, 4 sections, comparison table, 3 tool reviews, quick tips, inline CTA, 5 FAQ items, bottom CTA, keywords, word count.
    - Use placeholder tool names (Tool A/B/C) for reviews and comparisons.
-   - Product-owned URLs (canonical URL, CTA links) may use `https://example.com/...` placeholders when the user has not provided real URLs.
+   - **Do not emit Jinja2 expressions (`{{...}}`) in the generated YAML.** `ogi` does not process them from `--content`; it only processes them in its own internal template. Replace them with plain strings before saving.
+   - Product-owned URLs (canonical URL, CTA links, `og_image`) may use `https://example.com/...` placeholders when the user has not provided real URLs.
    - External reference URLs in `media_blocks`, `sources`, and `related` must be real, verified URLs from the user or from research. Do not fabricate competitor URLs or brand names.
+   - If no real external URLs are available, set `sources: []` and `related: []`. **Do not omit these fields**, or `ogi` will fall back to its internal defaults.
    - Save the generated YAML to a temporary file, e.g., `/tmp/build-article-landing-<uuid>.yaml`.
 6. **Run the build**:
 
@@ -74,7 +78,25 @@ Generate a single, self-contained HTML article landing page optimized for SEO/GE
      --output "<output>"
    ```
 
-7. **Verify the artifact**. Check that the output HTML file exists and contains no unrendered `{{...}}` placeholders or unintended `https://example.com/...` URLs when real URLs were expected.
+7. **Verify the artifact**:
+   - Confirm the output HTML file exists.
+   - Check for unrendered `{{...}}` placeholders:
+     ```bash
+     rg '\{\{.*\}\}' "<output>"
+     ```
+   - Check for leftover reference phrases that indicate content was copied from `reference-example.yaml`:
+     ```bash
+     rg -i 'creators|SEO-ready landing page|Open Growth Intel|AI creator tools|Wikipedia' "<output>"
+     ```
+   - Check for hardcoded default date that should have been renderer-injected:
+     ```bash
+     rg '2026-06-30' "<output>"
+     ```
+   - Check for unintended `https://example.com/...` URLs in external reference sections. Product-owned URLs (canonical, CTA, og:image) may legitimately use example.com when no real URL was supplied; external references in sources/related/media must not:
+     ```bash
+     rg 'example\.com' "<output>"
+     ```
+   - If any of the above checks find unexpected matches, fix the generated YAML and rebuild.
 8. **Report** the output path and a one-line summary of what was generated.
 
 ## Example usage
@@ -96,7 +118,8 @@ Generate a single, self-contained HTML article landing page optimized for SEO/GE
 
 ## File references
 
-- `references/schema.yaml` — data contract for article landing pages
-- `references/reference.yaml` — default filled-in instance used as a template
+- `references/schema.yaml` — data contract for article landing pages (source of truth for fields and URL rules)
+- `references/template.yaml` — agent-facing generation skeleton; the AI/skill layer must start from this file
+- `references/reference-example.yaml` — human-readable filled example; **do not copy its prose into generated output**
 - `references/base.html` — main HTML template (for reference; rendering is handled by `ogi`)
 - `references/components/*.html` — component templates (for reference; rendering is handled by `ogi`)

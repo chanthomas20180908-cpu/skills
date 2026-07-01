@@ -2,20 +2,18 @@
   <div class="footer-in">
     <div class="footer-brand">
       <strong>{{ brand_name }}</strong>
-      <span>{{ product_description | default('Open Growth Intel') }}</span>
-      <p>Structured pages for product-led growth, research, and search-ready publishing.</p>
+      <span>{{ product_description }}</span>
+      <p>{{ page_description }}</p>
     </div>
     <div class="footer-nav">
+      {% if footer_links %}
       <div class="footer-links">
         <span>Explore</span>
-        {% for item in footer_links | default([
-          {"label": "Tools", "url": "https://example.com/tools"},
-          {"label": "Docs", "url": "https://example.com/docs"},
-          {"label": "Blog", "url": "https://example.com/blog"}
-        ]) %}
+        {% for item in footer_links %}
         <a href="{{ item.url }}">{{ item.label }}</a>
         {% endfor %}
       </div>
+      {% endif %}
       <div class="footer-note">
         <span>Article system</span>
         <p>Generated visuals, outbound references, and structured content blocks.</p>
@@ -23,7 +21,7 @@
     </div>
   </div>
   <div class="footer-bar">
-    <span>{{ brand_name }} © {{ publish_year | default('2026') }}</span>
-    <span>Built with Open Growth Intel</span>
+    <span>{{ brand_name }} © {{ publish_year }}</span>
+    <span>Generated article landing page</span>
   </div>
 </footer>
