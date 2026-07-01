@@ -1,0 +1,212 @@
+# Article landing page agent generation template
+#
+# This is the agent-facing skeleton for generating article landing pages.
+# The AI / skill layer must use this file as the starting structure and
+# replace every [...] placeholder with content derived from the user's
+# product and page description.
+#
+# IMPORTANT: Do NOT read or copy prose from reference-example.yaml.
+# reference-example.yaml is a human-readable filled example only.
+# This template is the source of truth for agent generation.
+#
+# URL conventions:
+# - Product-owned URLs (canonical, CTA, og_image, home_url) may use
+#   https://example.com/... placeholders when the user has not supplied real URLs.
+# - External reference URLs in media_blocks, sources, and related must be real,
+#   verified URLs from the user or from research. Do not fabricate URLs.
+# - If no real external URLs are available, keep sources and related as empty
+#   arrays (`[]`). Do not omit them, or the renderer will fall back to defaults.
+# - Do not use Jinja2 expressions ({{...}}) in the generated content YAML that
+#   is passed to `ogi`. Replace them with plain strings before saving.
+
+canonical_url: "https://example.com/[SLUG].html"
+title: "[PAGE NAME]"
+meta_description: "[PAGE DESCRIPTION]"
+category: "Guide"
+author: "[PRODUCT NAME]"
+publish_date: "[CURRENT DATE IN ISO 8601]"
+read_time: "8 min read"
+article_lede: "[PAGE DESCRIPTION]"
+article_default_theme: "dark"
+article_theme_options:
+  - id: "dark"
+    label: "Dark"
+  - id: "paper"
+    label: "Paper"
+
+hero_visual:
+  alt: "Code-generated painterly hero image for [PAGE NAME]"
+  label: "Painterly hero frame"
+  badge: "AI"
+  colors:
+    - "#0b2a7a"
+    - "#d4d4d8"
+    - "#c47a00"
+
+article_sections:
+  - title: "Introduction"
+    content: |
+      <p>[PAGE NAME] is one of the most searched topics by [TARGET AUDIENCE] who want to [DESIRED OUTCOME]. Whether you are just getting started or looking to upgrade your current workflow, this guide gives you a practical, no-fluff overview of the landscape.</p>
+      <p>This article demonstrates the expected structure for a stronger SEO page: useful sections, a comparison table, short reviews, generated media blocks, and outbound references readers can inspect.</p>
+  - title: "Why [PAGE NAME] matters"
+    content: |
+      <p>[TARGET AUDIENCE] today face two competing pressures: [PRESSURE 1] and [PRESSURE 2]. [PAGE NAME] sits at the intersection of [TOPIC RELEVANCE]. A well-chosen tool can cut [TIME OR EFFORT] while giving your work a more polished, professional feel.</p>
+      <p>[PRODUCT NAME] focuses on repeatable, search-ready pages because the right guide at the right search moment can drive long-term traffic. Media and external references make that guide more useful than text alone.</p>
+  - title: "What to look for"
+    content: |
+      <p>Before picking an option, focus on five practical criteria:</p>
+      <ul>
+        <li><strong>Workflow clarity:</strong> The tool should take you from input to output in a predictable number of steps.</li>
+        <li><strong>Export flexibility:</strong> Make sure the output format matches the platforms you publish on.</li>
+        <li><strong>Fair pricing:</strong> Free tiers are useful for testing, but paid plans should scale transparently.</li>
+        <li><strong>Support and documentation:</strong> Active docs, tutorials, and a responsive team save hours later.</li>
+        <li><strong>Source quality:</strong> Check product pages, demos, public documentation, and independent references before committing.</li>
+      </ul>
+  - title: "How to choose the right option"
+    content: |
+      <p>The best choice depends on where you are in your [USER JOURNEY]. If you are experimenting, start with a free or low-cost option and focus on learning the workflow. If you are producing regularly, invest in a tool with batch exports, templates, and collaboration features.</p>
+      <p>Use the comparison table, reviews, media examples, and outbound sources below as a shortcut. Match the tool strengths to your most common use case, then run a small test project before making a long-term decision.</p>
+  - title: "Final thoughts"
+    content: |
+      <p>[PAGE NAME] is not a one-size-fits-all decision. The right tool is the one that removes friction from your specific workflow. Start small, measure results, and iterate.</p>
+      <p>If you want a dedicated landing page for your own product, [PRODUCT NAME] can help you turn that idea into a publish-ready page quickly.</p>
+
+comparison_table:
+  title: "Side-by-side comparison"
+  html: |
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th scope="col">Feature</th>
+          <th scope="col">[Tool 1]</th>
+          <th scope="col">[Tool 2]</th>
+          <th scope="col">[Tool 3]</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Best for</th>
+          <td>[USE CASE 1]</td>
+          <td>[USE CASE 2]</td>
+          <td>[USE CASE 3]</td>
+        </tr>
+        <tr>
+          <th scope="row">Starting price</th>
+          <td>[PRICE 1]</td>
+          <td>[PRICE 2]</td>
+          <td>[PRICE 3]</td>
+        </tr>
+        <tr>
+          <th scope="row">Key strength</th>
+          <td>[STRENGTH 1]</td>
+          <td>[STRENGTH 2]</td>
+          <td>[STRENGTH 3]</td>
+        </tr>
+        <tr>
+          <th scope="row">Browser-based</th>
+          <td>[Yes/No]</td>
+          <td>[Yes/No]</td>
+          <td>[Yes/No]</td>
+        </tr>
+      </tbody>
+    </table>
+
+tool_reviews:
+  - name: "[Tool 1]"
+    score: "[X.X / 5]"
+    content: "<p>[Tool 1] is [POSITIONING STATEMENT]. [KEY STRENGTHS AND WEAKNESSES IN 1-2 SENTENCES].</p>"
+    pros:
+      - "[PRO 1]"
+      - "[PRO 2]"
+      - "[PRO 3]"
+    cons:
+      - "[CON 1]"
+      - "[CON 2]"
+  - name: "[Tool 2]"
+    score: "[X.X / 5]"
+    content: "<p>[Tool 2] targets [TARGET AUDIENCE] who need [KEY NEED]. [KEY STRENGTHS AND WEAKNESSES IN 1-2 SENTENCES].</p>"
+    pros:
+      - "[PRO 1]"
+      - "[PRO 2]"
+      - "[PRO 3]"
+    cons:
+      - "[CON 1]"
+      - "[CON 2]"
+  - name: "[Tool 3]"
+    score: "[X.X / 5]"
+    content: "<p>[Tool 3] is the [POSITIONING] pick that still delivers solid results. [KEY STRENGTHS AND WEAKNESSES IN 1-2 SENTENCES].</p>"
+    pros:
+      - "[PRO 1]"
+      - "[PRO 2]"
+      - "[PRO 3]"
+    cons:
+      - "[CON 1]"
+      - "[CON 2]"
+
+quick_tips:
+  title: "Quick-start tips"
+  content: |
+    <ol>
+      <li><strong>Start with one use case.</strong> Pick the single workflow you repeat most often and test it end to end.</li>
+      <li><strong>Use generated visuals.</strong> Add lightweight media blocks so the article is not only text.</li>
+      <li><strong>Export early and often.</strong> Verify that the output works on your target platform before investing heavily.</li>
+      <li><strong>Check external sources.</strong> Product details and pricing can change quickly.</li>
+    </ol>
+
+media_blocks:
+  - type: generated_image
+    title: "Generated workflow visual"
+    caption: "A code-rendered image block that gives the article a visual anchor without requiring uploaded assets."
+    alt: "Colorful generated workflow image"
+    badge: "AI"
+    colors:
+      - "#a7db68"
+      - "#38bdf8"
+      - "#f97316"
+  - type: generated_image
+    title: "Generated comparison visual"
+    caption: "A second visual placeholder for comparison, campaign, or tutorial sections."
+    alt: "Colorful generated comparison image"
+    badge: "SEO"
+    colors:
+      - "#f472b6"
+      - "#22c55e"
+      - "#facc15"
+
+inline_cta:
+  title: "Build your own [PAGE NAME] page"
+  text: "[PRODUCT NAME] helps [TARGET AUDIENCE] turn a simple idea into a polished, search-ready landing page in minutes."
+  button: "Start building"
+  url: "https://example.com/[SLUG].html#start"
+
+faq_items:
+  - question: "What is [PAGE NAME]?"
+    answer: "[PAGE NAME] is a curated guide from [PRODUCT NAME] that compares popular options, explains key criteria, and helps you choose the right tool for your workflow."
+  - question: "Who should read this guide?"
+    answer: "Anyone researching tools in this space, from first-time [USER TYPE] to experienced [USER TYPE] looking for a faster or more affordable alternative."
+  - question: "Why does this article include media?"
+    answer: "SEO articles are more useful when they include visual examples, demos, and links to deeper references. The generated image blocks are rendered by code, not by external image generation."
+  - question: "How should external links be selected?"
+    answer: "Use verified user-provided links or research-backed links from product sites, documentation, video platforms, and neutral references. Do not fabricate URLs."
+  - question: "Can I create a similar guide for my own product?"
+    answer: "Yes. [PRODUCT NAME] is designed to turn a short description into a structured, search-friendly landing page."
+
+sources: []
+
+related: []
+
+bottom_cta:
+  title: "Ready to build your own page?"
+  text: "Turn your product description into a structured, search-friendly landing page with [PRODUCT NAME]."
+  button: "Get started free"
+  url: "https://example.com/[SLUG].html#start"
+
+keywords:
+  - "[PAGE NAME]"
+  - "[PRODUCT NAME]"
+  - "[TOPIC KEYWORD 1]"
+  - "[TOPIC KEYWORD 2]"
+  - "comparison guide"
+
+word_count: 1200
+og_image: "https://example.com/og-image.png"
