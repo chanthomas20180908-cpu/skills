@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Freebeat 专题 · Forbes × Rolling Stone UK 媒体发布分析</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&amp;display=swap" rel="stylesheet">
+<script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));</script>
+<style>
+:root{--bg:#050b07;--grid:rgba(155,220,42,.045);--panel:#0b140e;--panel2:#0f1b13;--panel3:#111f16;--line:#213124;--line-soft:#17231a;--text:#dce6d7;--muted:#788574;--faint:#4d5a4b;--brand:#9bdc2a;--blue:#60a5fa;--amber:#e6a72a;--red:#ef6f6c;--purple:#a78bfa}
+[data-theme="light"]{--bg:#fff;--grid:rgba(26,127,55,.025);--panel:#f6f8fa;--panel2:#eaeef2;--panel3:#dde3ea;--line:#d0d7de;--line-soft:#eaeef2;--text:#1f2328;--muted:#656d76;--faint:#818c98;--brand:#1a7f37;--blue:#0969da;--amber:#b45309;--red:#cf222e;--purple:#7c3aed}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg);overscroll-behavior:none}
+body{margin:0;background:radial-gradient(circle at 18% -10%,rgba(155,220,42,.07),transparent 32%),linear-gradient(180deg,#07100a 0%,var(--bg) 38%,#030604 100%);color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'PingFang SC',monospace;font-size:14px;line-height:1.65}
+[data-theme="light"] body{background:var(--bg)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.18))}
+[data-theme="light"] body::before{opacity:.1}
+a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:3px}
+.top{position:sticky;top:0;z-index:20;background:rgba(5,11,7,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+[data-theme="light"] .top{background:rgba(246,248,250,.97)}
+.top-in{padding:12px 40px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.breadcrumb{font-size:12px;color:var(--faint);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.breadcrumb a{color:var(--faint);font-weight:700}.breadcrumb a:hover{color:var(--brand);text-decoration:none}
+.sep{color:var(--line)}.current{color:var(--brand);font-weight:950}
+.page-nav{display:flex;gap:4px;align-items:center}.page-nav a,.page-nav button{padding:6px 12px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--muted);font:850 12px inherit;white-space:nowrap;cursor:pointer}
+[data-theme="light"] .page-nav a,[data-theme="light"] .page-nav button{background:var(--panel);border-color:var(--line)}
+.page-nav a:hover,.page-nav button:hover{color:var(--brand);border-color:rgba(155,220,42,.3);text-decoration:none}
+.wrap{padding:32px 40px 80px;position:relative;z-index:1;max-width:1480px;margin:auto}
+.rpt-ident{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.rpt-product{font:950 30px/1 'JetBrains Mono',monospace;color:var(--brand);letter-spacing:-.03em}
+.rpt-period{font:800 14px/1.4 'JetBrains Mono',monospace;padding:4px 12px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.32);border-radius:5px;color:var(--blue)}
+.rpt-range{font-size:13px;color:var(--muted)}
+.page-title{margin-bottom:28px}.page-title h1{font-size:20px;font-weight:950;margin:0 0 6px;letter-spacing:-.02em}.meta{font-size:11px;color:var(--faint)}
+.sec{margin:0 0 40px}.sec[id]{scroll-margin-top:70px}
+.sec-head{display:flex;align-items:center;gap:10px;padding-bottom:11px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.num{display:inline-flex;padding:2px 8px;font-size:11px;font-weight:800;color:var(--brand);background:rgba(155,220,42,.08);border:1px solid rgba(155,220,42,.22);border-radius:5px}
+h2{font-size:17px;margin:0}
+.verdict{padding:20px 24px;background:rgba(155,220,42,.055);border:1px solid rgba(155,220,42,.25);border-left:4px solid var(--brand);border-radius:8px}
+.verdict strong{display:block;font-size:16px;margin-bottom:8px}.verdict p{margin:0;color:var(--muted);font-size:13px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.tag{font-size:11px;font-weight:800;padding:2px 9px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
+.tag.green{color:var(--brand);border-color:rgba(155,220,42,.3);background:rgba(155,220,42,.06)}.tag.amber{color:var(--amber);border-color:rgba(230,167,42,.3);background:rgba(230,167,42,.06)}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{padding:17px 19px;background:var(--panel2);border:1px solid var(--line);border-radius:8px}.card h3{margin:0 0 9px;font-size:14px}.card p{margin:0;color:var(--muted);font-size:12px}.card ul{margin:8px 0 0;padding-left:17px}.card li{margin:5px 0;font-size:12px;color:var(--muted)}
+.card.forbes{border-top:3px solid var(--blue)}.card.rolling{border-top:3px solid var(--amber)}
+.label{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+.big{font:950 27px/1.1 'JetBrains Mono',monospace;color:var(--brand);margin-bottom:7px}.big.blue{color:var(--blue)}.big.amber{color:var(--amber)}
+.tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--line)}
+.tbl{width:100%;border-collapse:collapse;font-size:12px}.tbl th{text-align:left;padding:8px 12px;font-size:10px;font-weight:800;color:var(--faint);background:var(--panel3);border-bottom:1px solid var(--line);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}.tbl td{padding:9px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top}.tbl tr:last-child td{border-bottom:0}.tbl tr:hover td{background:rgba(255,255,255,.012)}
+.status{font-weight:800}.yes{color:var(--brand)}.partial{color:var(--amber)}.no{color:var(--faint)}
+.note{margin-top:10px;padding:10px 13px;border-left:3px solid var(--amber);background:rgba(230,167,42,.05);color:var(--muted);font-size:11px;border-radius:0 6px 6px 0}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:step}
+.step{position:relative;padding:17px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;counter-increment:step}
+.step::before{content:"0" counter(step);display:block;color:var(--brand);font:800 11px 'JetBrains Mono',monospace;margin-bottom:8px}.step h3{font-size:13px;margin:0 0 7px}.step p{font-size:11px;color:var(--muted);margin:0}
+.source-list{display:flex;flex-direction:column;gap:8px}.source{display:grid;grid-template-columns:120px 1fr 110px;gap:12px;padding:11px 13px;background:var(--panel2);border:1px solid var(--line);border-radius:7px;align-items:start}.source .type{font-size:10px;font-weight:800;color:var(--faint);text-transform:uppercase}.source .desc{font-size:12px;color:var(--muted)}.source .date{text-align:right;font-size:10px;color:var(--faint)}
+.boundary{padding:15px 18px;background:rgba(239,111,108,.045);border:1px solid rgba(239,111,108,.2);border-radius:8px}.boundary h3{margin:0 0 8px;font-size:13px;color:var(--red)}.boundary ul{margin:0;padding-left:17px}.boundary li{font-size:12px;color:var(--muted);margin:4px 0}
+@media(max-width:900px){.top-in,.wrap{padding-left:18px;padding-right:18px}.g2,.g3,.steps{grid-template-columns:1fr}.source{grid-template-columns:1fr}.source .date{text-align:left}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div class="breadcrumb">
+      <a href="../../../record_center/site/index.html">增长记录中心</a><span class="sep">/</span>
+      <a href="../../../record_center/site/domains/d00-competitive-intelligence.html">竞品情报 D00</a><span class="sep">/</span>
+      <span class="current">Freebeat · Media Placement</span>
+    </div>
+    <nav class="page-nav">
+      <a href="../../../record_center/site/domains/d00-competitive-intelligence.html">← 情报库</a>
+      <button id="theme-toggle" onclick="toggleTheme()" title="切换亮/暗色">☀</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-title">
+    <div class="rpt-ident">
+      <span class="rpt-product">Freebeat</span>
+      <span class="rpt-period">MEDIA</span>
+      <span class="rpt-range">Forbes × Rolling Stone UK</span>
+    </div>
+    <h1>媒体发布路径、门槛、成本与竞品覆盖分析</h1>
+    <div class="meta">核验日期：2026-06-15 · 研究对象：2026-05-29 Forbes 专题与 2026-06-04 Rolling Stone UK 专题</div>
+  </div>
+
+  <section class="sec" id="verdict">
+    <div class="sec-head"><span class="num">§0</span><h2>结论</h2></div>
+    <div class="verdict">
+      <strong>OhYesAI 可以复制这组媒体组合，但当前更适合买 Rolling Stone UK 合作稿，不适合把 Forbes 专题当成可直接购买的确定性资源。</strong>
+      <p>Rolling Stone UK 页面明确标记商业合作；Forbes 页面是 Contributor 署名专题，未标记赞助，不能据此判断 Freebeat 购买了该报道。当前 OhYesAI 仍处于海外预发布阶段，若缺少真实海外用户、产品数据和合作背书，两站同时投放的品牌价值大于获客价值。</p>
+      <div class="tags"><span class="tag green">技术上可执行</span><span class="tag amber">当前 ROI 偏低</span><span class="tag">先补数据资产</span><span class="tag">两篇不是两次独立产品测评</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="nature">
+    <div class="sec-head"><span class="num">§1</span><h2>两篇内容的真实属性</h2></div>
+    <div class="grid g2">
+      <div class="card forbes">
+        <div class="label">Forbes · 2026-05-29</div>
+        <h3>Contributor 署名专题</h3>
+        <ul>
+          <li>作者 Vivian Toh，页面身份为 Forbes Contributor。</li>
+          <li>正文包含创始人采访、公司经营数据和产品叙事。</li>
+          <li>页面未出现 Sponsored、BrandVoice 或 Partnership 标记。</li>
+          <li>指向 Freebeat 的正文链接带 <code>nofollow</code>。</li>
+          <li>结论：属于 Contributor 编辑内容；是否存在公关代理或商业关系，公开页面无法证明。</li>
+        </ul>
+      </div>
+      <div class="card rolling">
+        <div class="label">Rolling Stone UK · 2026-06-04</div>
+        <h3>明确标记的合作内容</h3>
+        <ul>
+          <li>标题下明确写有 <strong>In partnership with Hummingbird</strong>。</li>
+          <li>正文叙事、标题和核心数据与 Forbes 文章高度一致。</li>
+          <li>正文提供 Freebeat 首页与实时产品页链接。</li>
+          <li>结论：商业合作属性明确，但页面本身不能证明由谁付费、具体金额或 Hummingbird 的角色。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">判断：这更像一次统一消息包驱动的跨媒体 PR 分发，而不是两家媒体分别完成的独立产品评测。两篇都没有公开性能测试方法，也没有验证延迟、质量、用户数或转化率。</div>
+  </section>
+
+  <section class="sec" id="cost">
+    <div class="sec-head"><span class="num">§2</span><h2>门槛与成本</h2></div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="label">Rolling Stone UK 合作稿</div>
+        <div class="big amber">$1.5K–4K</div>
+        <p>第三方服务商公开报价从约 $1,500 起，单篇合理询价区间估计为 $1,500–4,000。通常提供撰稿、审核、合作标记与发布；最终价格需向媒体销售方或代理询价。</p>
+      </div>
+      <div class="card">
+        <div class="label">Forbes 编辑报道 / Contributor</div>
+        <div class="big blue">$0 / 不保证</div>
+        <p>真正 earned media 不收刊登费，但需要新闻价值和记者关系。第三方 PR 服务自报约 $3,000–10,000+，购买的是策划与投递，不应承诺指定作者或保证无标记专题。</p>
+      </div>
+      <div class="card">
+        <div class="label">复制两站组合</div>
+        <div class="big">$5K–15K</div>
+        <p>作为完整 PR 项目的预算预估，包含叙事、英文素材、媒体沟通和至少一个合作发布。不是两家媒体官方报价，也不代表 Forbes 必然刊登。</p>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:14px">
+      <table class="tbl">
+        <thead><tr><th>路径</th><th>硬门槛</th><th>软门槛</th><th>确定性</th><th>适合当前 OhYesAI</th></tr></thead>
+        <tbody>
+          <tr><td>Rolling Stone UK 合作内容</td><td>预算、合规主体、可审核素材</td><td>音乐 / 文化相关故事、英文成片与产品页</td><td class="status yes">高</td><td class="status partial">可以做，但应等正式上线</td></tr>
+          <tr><td>Forbes Contributor 专题</td><td>无公开付费准入标准</td><td>独特产品事件、创始人访问、可信经营数据</td><td class="status partial">中低</td><td class="status no">当前证据不足</td></tr>
+          <tr><td>Forbes Technology Council</td><td>官方要求年收入或融资至少 $1M</td><td>高管资历与审核</td><td class="status yes">通过后稳定</td><td class="status no">不是本次专题的同类路径</td></tr>
+          <tr><td>Forbes Business Council</td><td>官方要求年收入或融资至少 $500K</td><td>创始人 / 高管身份与审核</td><td class="status yes">通过后稳定</td><td class="status no">适合思想领导力，不适合产品软文</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec" id="coverage">
+    <div class="sec-head"><span class="num">§3</span><h2>竞品与两站相关内容量</h2></div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>品牌</th><th>Forbes</th><th>Rolling Stone UK</th><th>内容性质</th><th>判断</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Freebeat.ai</strong></td><td class="status yes">1 篇专题</td><td class="status yes">1 篇合作专题</td><td>同标题、同核心叙事</td><td>该垂直赛道中覆盖最完整</td></tr>
+          <tr><td><strong>PixVerse</strong></td><td class="status partial">1 篇专题 + 至少 1 次提及</td><td class="status no">0</td><td>产品更新与行业报道</td><td>Forbes 可见度高于其他同类</td></tr>
+          <tr><td><strong>Kaiber</strong></td><td class="status partial">至少 3 次提及</td><td class="status no">0</td><td>工具清单或案例提及，未发现品牌专题</td><td>历史品牌认知，不等于当前 SEO 强度</td></tr>
+          <tr><td><strong>Neural Frames</strong></td><td class="status no">0</td><td class="status no">0</td><td>精确品牌检索无结果</td><td>两站仍有明显空位</td></tr>
+          <tr><td><strong>VidMuse</strong></td><td class="status no">0</td><td class="status no">0</td><td>精确品牌检索无结果</td><td>无相关覆盖</td></tr>
+          <tr><td><strong>DomoAI</strong></td><td class="status no">0</td><td class="status no">0</td><td>精确品牌检索无结果</td><td>无相关覆盖</td></tr>
+          <tr><td><strong>Revid.ai</strong></td><td class="status no">0</td><td class="status no">0</td><td>精确品牌检索无结果</td><td>无相关覆盖</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">统计口径：截至 2026-06-15 的 Google 精确品牌 site 检索与页面复核。它是公开索引下限，不是媒体后台完整数据库；旧文、未索引页、地区版内容可能遗漏。</div>
+  </section>
+
+  <section class="sec" id="readiness">
+    <div class="sec-head"><span class="num">§4</span><h2>OhYesAI 当前准备度</h2></div>
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="color:var(--brand)">已有资产</h3>
+        <ul>
+          <li>明确的 AI 音乐视频定位与英文全球预发布页。</li>
+          <li>音频上传、参考图、故事板编辑、节拍同步和长 MV 工作流。</li>
+          <li>已有竞品差异化方向和可演示的用户样例。</li>
+          <li>Rolling Stone UK 的音乐文化受众与产品品类匹配。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--red)">关键缺口</h3>
+        <ul>
+          <li>海外版本尚未正式开放，支付、基础设施和本地支持仍待确认。</li>
+          <li>缺少可公开验证的海外用户数、生成量、留存和付费转化。</li>
+          <li>缺少知名音乐人、厂牌、发行平台或行业公司的合作背书。</li>
+          <li>缺少足以支撑 Forbes 专题的单一重大事件，而不只是功能集合。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sequence">
+    <div class="sec-head"><span class="num">§5</span><h2>建议执行顺序</h2></div>
+    <div class="steps">
+      <div class="step"><h3>先正式上线</h3><p>英文产品入口、注册、支付、退款、隐私和版权说明全部可用，避免媒体流量落到等待页。</p></div>
+      <div class="step"><h3>积累证据包</h3><p>至少准备海外 beta 用户、10 个授权案例、产品演示、可核验使用数据和创始人采访材料。</p></div>
+      <div class="step"><h3>先测合作稿</h3><p>用 $1.5K–4K 预算测试 Rolling Stone UK 或同级音乐媒体，观察品牌搜索、注册和引用增长。</p></div>
+      <div class="step"><h3>再冲 Forbes</h3><p>以真实发布事件、增长数字或行业合作做 earned pitch；不把“保证无标记 Forbes 专题”作为采购条件。</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="sources">
+    <div class="sec-head"><span class="num">§6</span><h2>信源</h2></div>
+    <div class="source-list">
+      <a class="source" href="https://www.forbes.com/sites/viviantoh/2026/05/29/how-freebeatai-made-music-videos-live/" target="_blank"><span class="type">主信源</span><span class="desc">Forbes · How freebeat.ai Made Music Videos Live</span><span class="date">2026-05-29</span></a>
+      <a class="source" href="https://www.rollingstone.co.uk/culture/how-freebeat-ai-made-music-videos-live-61878/" target="_blank"><span class="type">主信源</span><span class="desc">Rolling Stone UK · How freebeat.ai Made Music Videos Live · In partnership with Hummingbird</span><span class="date">2026-06-04</span></a>
+      <a class="source" href="https://www.forbes.com/connect/content-design-studio/" target="_blank"><span class="type">官方产品</span><span class="desc">Forbes Content &amp; Design Studio · BrandVoice 商业内容路径</span><span class="date">核验 2026-06-15</span></a>
+      <a class="source" href="https://www.forbes.com/connect/media-kits/" target="_blank"><span class="type">官方产品</span><span class="desc">Forbes Media Kit · 广告产品、档期与规格入口</span><span class="date">核验 2026-06-15</span></a>
+      <a class="source" href="https://councils.forbes.com/forbestechcouncil" target="_blank"><span class="type">官方门槛</span><span class="desc">Forbes Technology Council · 年收入或融资至少 $1M</span><span class="date">核验 2026-06-15</span></a>
+      <a class="source" href="https://councils.forbes.com/forbesbusinesscouncil" target="_blank"><span class="type">官方门槛</span><span class="desc">Forbes Business Council · 年收入或融资至少 $500K</span><span class="date">核验 2026-06-15</span></a>
+      <a class="source" href="https://www.badenbower.com/get-in-rolling-stone-magazine" target="_blank"><span class="type">第三方报价</span><span class="desc">Baden Bower · Rolling Stone 国际版合作内容，公开宣传价从 $1,500/月起</span><span class="date">核验 2026-06-15</span></a>
+      <a class="source" href="https://getonforbes.com/get-featured-on-forbes/" target="_blank"><span class="type">第三方报价</span><span class="desc">GetOnForbes · PR 支持市场区间与时间投入说明</span><span class="date">核验 2026-06-15</span></a>
+    </div>
+  </section>
+
+  <section class="sec" id="boundary">
+    <div class="boundary">
+      <h3>确认边界</h3>
+      <ul>
+        <li>无法从公开页面确认 Freebeat 是否为 Forbes 文章付费，也无法确认其公关代理、合同或实际成本。</li>
+        <li>Rolling Stone UK 的合作标记能证明商业合作属性，但不能证明付款方和成交价格。</li>
+        <li>所有成本数字均为第三方公开宣传价或市场估算，不是 Forbes、Rolling Stone UK 或 Stream Publishing 的正式报价。</li>
+        <li>媒体覆盖数量是搜索引擎公开索引下限，不代表两家媒体的完整历史数据库。</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<script>(function(){function applyTheme(t){document.documentElement.setAttribute('data-theme',t);var b=document.getElementById('theme-toggle');if(b)b.textContent=t==='light'?'◑':'☀'}var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');applyTheme(s);window.toggleTheme=function(){var t=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';localStorage.setItem('theme',t);applyTheme(t)}})();</script>
+</body>
+</html>

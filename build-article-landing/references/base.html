@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- Include paths use `landing/components/` because they reference the internal
-     template namespace of the `ogi` CLI renderer, not the local skill directory. -->
 <html lang="{{ lang | default('en') }}" data-article-theme="{{ article_default_theme | default('dark', true) }}">
 <head>
 <meta charset="utf-8">
@@ -346,16 +344,16 @@ a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline;text
 </head>
 <body>
 
-{% include 'landing/components/nav.html' %}
+{% include 'components/nav.html' %}
 
 <main class="article-wrap">
-  {% include 'landing/components/article-header.html' %}
+  {% include 'components/article-header.html' %}
 
   <div class="article-layout">
-    {% include 'landing/components/article-toc.html' %}
+    {% include 'components/article-toc.html' %}
 
     <div class="article-flow">
-      {% include 'landing/components/article-sections.html' %}
+      {% include 'components/article-sections.html' %}
 
       {% if media_blocks %}
       <section class="media-grid" id="media" aria-label="Article media">
@@ -481,12 +479,12 @@ a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline;text
       </section>
       {% endif %}
 
-      {% include 'landing/components/bottom-cta.html' %}
+      {% include 'components/bottom-cta.html' %}
     </div>
   </div>
 </main>
 
-{% include 'landing/components/footer.html' %}
+{% include 'components/footer.html' %}
 <script>
 (() => {
   const root = document.documentElement;
@@ -568,5 +566,6 @@ a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline;text
   syncFromScroll();
 })();
 </script>
+{{ schemas | safe }}
 </body>
 </html>

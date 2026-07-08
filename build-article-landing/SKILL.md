@@ -2,7 +2,7 @@
 name: build-article-landing
 description: Generate a SEO-ready article landing page (listicle, alternatives guide, tool comparison) from a short product/page description. Activates on /build-article-landing or when the user asks to build an article landing page, generate a listicle page, make an alternatives guide, or similar.
 license: MIT
-compatibility: Compatible with shell-capable coding agents; requires local `ogi` CLI (Python 3.10+).
+compatibility: Compatible with shell-capable coding agents; requires Python 3.10+ with `jinja2` and `pyyaml`.
 metadata:
   author: tangyuan
   version: "1.0.0"
@@ -37,39 +37,38 @@ Generate a single, self-contained HTML article landing page optimized for SEO/GE
 
 ## Prerequisites
 
-1. The `ogi` CLI must be installed and on `PATH`:
+1. Python 3.10+ must be available.
+
+2. Install the skill's Python dependencies:
 
    ```bash
-   cd /path/to/open-growth-intel
-   pip install -r cli/requirements.txt
-   pip install -e .
+   pip install -r build-article-landing/requirements.txt
    ```
 
-2. This skill is compatible with shell-capable coding agents that can run local CLI commands. It reads files inside its own directory and runs standard shell commands. The `ogi` CLI must be installed locally; rendering is not performed by this skill itself.
+3. This skill is compatible with shell-capable coding agents that can run local Python scripts. Rendering is performed by `build-article-landing/render.py` using the templates in `build-article-landing/references/`.
 
 ## Workflow
 
-1. **Acknowledge the request**. State that you will generate an article landing page and call `ogi landing build`.
+1. **Acknowledge the request**. State that you will generate an article landing page and run `build-article-landing/render.py`.
 2. **Resolve parameters**. Ask the user if any required parameter is missing. Do not invent values without confirmation.
 3. **Load the data contract**. Read `references/schema.yaml` to know which fields the article landing page supports.
-4. **Load the generation skeleton**. Read `references/template.yaml` to know the agent-facing structure. Read `references/reference-example.yaml` only if you need a human-readable filled example, but **do not copy its prose**.
+4. **Load the generation skeleton**. Read `references/template.yaml` to know the agent-facing structure. Read `references/reference-example.yaml` only if you want to understand the historical `ogi` renderer reference template; it contains Jinja2 placeholders and is **not** the agent generation template.
 5. **Generate structured content** (only if `--content` is not provided):
    - Read `references/template.yaml` as the generation skeleton.
-   - **Do not read or copy any prose from `references/reference-example.yaml`.** `reference-example.yaml` is a human-readable filled example only; it is not the generation template.
+   - **Do not read or copy content from `references/reference-example.yaml`.** `reference-example.yaml` is the historical `ogi` renderer reference template (it contains Jinja2 placeholders); it is not the agent generation template.
    - Replace every `[...]` placeholder and every example sentence in `template.yaml` with content derived from the user's topic. Do not reuse creators/SEO example language.
    - Produce a YAML object that conforms to `references/schema.yaml`.
    - Keep the same modules as `template.yaml`: article lede, 4 sections, comparison table, 3 tool reviews, quick tips, inline CTA, 5 FAQ items, bottom CTA, keywords, word count.
    - Use placeholder tool names (Tool A/B/C) for reviews and comparisons.
-   - **Do not emit Jinja2 expressions (`{{...}}`) in the generated YAML.** `ogi` does not process them from `--content`; it only processes them in its own internal template. Replace them with plain strings before saving.
+   - **Do not emit Jinja2 expressions (`{{...}}`) in the generated YAML.** The local renderer does not process them from `--content`; it only renders them in the HTML templates. Replace them with plain strings before saving.
    - Product-owned URLs (canonical URL, CTA links, `og_image`) may use `https://example.com/...` placeholders when the user has not provided real URLs.
    - External reference URLs in `media_blocks`, `sources`, and `related` must be real, verified URLs from the user or from research. Do not fabricate competitor URLs or brand names.
-   - If no real external URLs are available, set `sources: []` and `related: []`. **Do not omit these fields**, or `ogi` will fall back to its internal defaults.
+   - If no real external URLs are available, set `sources: []` and `related: []`. **Do not omit these fields**, or the renderer may fall back to old default links.
    - Save the generated YAML to a temporary file, e.g., `/tmp/build-article-landing-<uuid>.yaml`.
 6. **Run the build**:
 
    ```bash
-   ogi landing build \
-     --type article \
+   python3 build-article-landing/render.py \
      --product-name "<product-name>" \
      --product-description "<product-description>" \
      --page-name "<page-name>" \
@@ -118,8 +117,10 @@ Generate a single, self-contained HTML article landing page optimized for SEO/GE
 
 ## File references
 
+- `render.py` — local Jinja2 renderer that builds the final HTML from `references/base.html`, components, and `--content` YAML
+- `requirements.txt` — Python dependencies for `render.py` (`jinja2`, `pyyaml`)
 - `references/schema.yaml` — data contract for article landing pages (source of truth for fields and URL rules)
 - `references/template.yaml` — agent-facing generation skeleton; the AI/skill layer must start from this file
-- `references/reference-example.yaml` — human-readable filled example; **do not copy its prose into generated output**
-- `references/base.html` — main HTML template (for reference; rendering is handled by `ogi`)
-- `references/components/*.html` — component templates (for reference; rendering is handled by `ogi`)
+- `references/reference-example.yaml` — historical `ogi` renderer reference template (for human reference only; contains Jinja2 placeholders). This is **not** the agent generation template.
+- `references/base.html` — main HTML template (rendered by `build-article-landing/render.py`)
+- `references/components/*.html` — component templates (rendered by `build-article-landing/render.py`)

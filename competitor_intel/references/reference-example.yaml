@@ -1,0 +1,108 @@
+report_metadata:
+  title: "NeuralFrames 双周竞品动作报告"
+  competitor: "neuralframes"
+  date_range: "2026-05-29 ~ 2026-06-12"
+  generated_at: "2026-06-12"
+  event_count: 1
+  confirmation_summary: "1 个事件，其中 1 个已二次确认"
+
+events:
+  - event_id: "E01"
+    event_name: "官网发布两篇 AI 音乐视频工具比较文章"
+    category: "seo_content"
+    occurred_at: "2026-06-05"
+    time_basis: "官方 Blog 索引显示的文章发布日期"
+    discovered_at: "2026-06-12"
+    facts:
+      - "发布《Neural Frames vs Freebeat: Which AI Music Video Generator Should You Use in 2026?》。"
+      - "文章比较 NeuralFrames 与 Freebeat 的音频分析、交互方式、lip sync、生成模型、分辨率、输入方式、音乐生成和价格。"
+    primary_source:
+      name: "NeuralFrames 两篇官方文章"
+      attribution: "NeuralFrames"
+      type: "官方文章页"
+      date: "页面正文未单独显示日期"
+      url: "https://www.neuralframes.com/post/neural-frames-vs-freebeat-which-ai-music-video-generator-should-you-use-in-2026"
+      proven_fact: "文章标题、正文结构、比较项目和榜单内容"
+    secondary_source:
+      name: "NeuralFrames Blog 索引"
+      attribution: "NeuralFrames"
+      type: "官方内容索引"
+      date: "2026-06-05"
+      url: "https://www.neuralframes.com/blog"
+      proven_fact: "两篇文章均进入官方 Blog，日期均为 05/06/2026"
+    source_relationship: "同源佐证"
+    verification_status: "⚠️ 部分确认"
+    verified_scope: "两篇文章已公开发布；标题、发布日期和正文内容可访问。"
+    unverified_scope: "文章带来的搜索排名、访问量、转化和实际业务效果。"
+
+excluded_signals:
+  pending:
+    - signal: "Neural Tunes 上线"
+      content: "官方公告日期为 2026-04-28"
+      reason: "早于本期起始日 2026-05-29"
+      next_action: "下期若仍在窗口内则重新评估"
+  dismissed: []
+
+giq_checklist:
+  - question: "本期有哪些新 SEO 落地页或内容发布？"
+    result: "有已确认事件"
+    event_ids_or_note: "E01"
+  - question: "付费广告素材或落地页有变化吗？"
+    result: "未覆盖"
+    event_ids_or_note: "Meta 广告库和 Google Ads Transparency 未成功采集"
+
+sources:
+  - source_id: "S01"
+    name: "Neural Frames vs Freebeat"
+    attribution: "NeuralFrames"
+    type: "官方文章"
+    source_date: "2026-06-05"
+    fetched_at: "2026-06-12"
+    supported_events: ["E01"]
+    proven_fact: "文章标题、正文和比较项目"
+
+source_usage_boundary:
+  - source_type: "官方文章与页面"
+    how_used: "确认官方公开发布的内容、页面当前展示内容"
+    cannot_prove: "不能独立证明产品效果、流量或转化"
+  - source_type: "官方 Sitemap"
+    how_used: "确认 URL 存在及官方记录的更新时间"
+    cannot_prove: "lastmod 不能自动等同首次上线时间"
+
+source_execution_ledger:
+  - source_id: "L01"
+    source_group: "官网与自有内容"
+    platform: "NeuralFrames Blog"
+    account_or_entry: "https://www.neuralframes.com/blog"
+    query_or_action: "访问 Blog 索引并核对时间窗内文章"
+    period: "2026-05-29 ~ 2026-06-12"
+    executed_at: "2026-06-12T10:00:00Z"
+    result_count: 2
+    status: "已覆盖-发现事件"
+    failure_reason: ""
+    candidate_event_ids: ["E01"]
+  - source_id: "L02"
+    source_group: "付费广告"
+    platform: "Meta Ad Library"
+    account_or_entry: ""
+    query_or_action: "品牌名 + 广告主 + 域名检索"
+    period: "2026-05-29 ~ 2026-06-12"
+    executed_at: "2026-06-12T10:30:00Z"
+    result_count: 0
+    status: "未覆盖"
+    failure_reason: "需要可用登录态或页面 ID"
+    candidate_event_ids: []
+
+coverage_summary:
+  source_groups:
+    - "官网与自有内容"
+    - "官方社媒与视频"
+    - "社区、评论与 Creator"
+    - "发布、分发、合作与媒体"
+    - "付费广告"
+    - "开发者与公开技术记录"
+  total_channels: 6
+  covered: 1
+  partial: 0
+  uncovered: 1
+  not_applicable: 0

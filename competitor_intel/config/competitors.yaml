@@ -1,0 +1,412 @@
+competitors:
+
+  - name: neuralframes
+    display: NeuralFrames
+    aliases:
+      - "Neural Frames"
+      - "NeuralFrames"
+    domains:
+      - "neuralframes.com"
+    giq:
+      - "本周期有哪些新 SEO 落地页或内容发布？"
+      - "付费广告素材或落地页有变化吗？"
+      - "定价 / Free tier 有调整吗？"
+      - "有没有新的 KOL/Creator 合作或社媒高互动内容？"
+      - "产品有新版本或重大功能更新吗？"
+    monitoring:
+      priority: full
+      action_scope:
+        - website
+        - product
+        - pricing
+        - seo_content
+        - social
+        - paid_ads
+        - reviews
+        - creator
+        - partnerships
+        - media
+        - developer
+      state_mode: structured_crud
+      change_types:
+        - created
+        - content_updated
+        - commercial_updated
+        - removed
+        - metadata_only
+        - unverified
+      deletion_confirmation_runs: 2
+      mass_lastmod_threshold: 200
+      sitemap_policy: "URL 新增/消失可作为线索；lastmod 单独变化不得写成内容更新"
+      content_policy: "关键页每次提取；文章页建立轻量指纹；正文变化时才保留前后压缩文本"
+    sources:
+      website:
+        pages:
+          - https://www.neuralframes.com/
+          - https://www.neuralframes.com/pricing
+          - https://www.neuralframes.com/blog
+          - https://www.neuralframes.com/product
+          - https://www.neuralframes.com/about
+          - https://www.neuralframes.com/shortform-studio
+          - https://www.neuralframes.com/ai-music-video-generator
+          - https://www.neuralframes.com/features/autopilot
+          - https://www.neuralframes.com/tunes
+        discovery_paths:
+          - sitemap
+          - rss
+          - changelog
+          - help_center
+          - newsletter_archive
+      social:
+        x:
+          account_url: https://x.com/neuralframes
+          search_terms: ["NeuralFrames", "\"Neural Frames\"", "neuralframes.com"]
+        youtube:
+          channel_url: null
+          search_terms: ["NeuralFrames", "\"Neural Frames\""]
+        linkedin:
+          company_url: null
+          people_urls: []
+          search_terms: ["NeuralFrames", "\"Neural Frames\""]
+        tiktok:
+          account_url: null
+          search_terms: ["NeuralFrames", "\"Neural Frames\""]
+        instagram:
+          account_url: null
+          search_terms: ["NeuralFrames", "\"Neural Frames\""]
+      launch_and_distribution:
+        product_hunt_url: null
+        marketplaces: []
+        search_terms:
+          - "NeuralFrames launch"
+          - "\"Neural Frames\" partnership"
+          - "NeuralFrames integration"
+      reviews:
+        g2_url: null
+        trustpilot_url: https://www.trustpilot.com/review/neuralframes.com
+        capterra_url: null
+        app_store_url: null
+        google_play_url: null
+      media:
+        search_terms:
+          - "NeuralFrames interview"
+          - "\"Neural Frames\" funding"
+          - "NeuralFrames ARR"
+          - "NeuralFrames revenue"
+      github:
+        repo: null  # 闭源，跳过
+      reddit:
+        keywords:
+          - "neuralframes"
+          - "neural frames"
+        subreddits:
+          - "AIVideo"
+          - "artificial"
+          - "VideoEditing"
+          - "midjourney"
+      ads:
+        meta_page_id: null  # 待补充
+        search_name: "NeuralFrames"
+        advertiser_names:
+          - "NeuralFrames"
+          - "Neural Frames"
+        domains:
+          - "neuralframes.com"
+      hn:
+        keywords:
+          - "neuralframes"
+          - "neural frames"
+
+  - name: freebeat
+    display: Freebeat
+    aliases:
+      - "Freebeat"
+      - "Freebeat AI"
+      - "freebeat.ai"
+    domains:
+      - "freebeat.ai"
+    giq:
+      - "本周期有哪些新 SEO 落地页或内容发布？"
+      - "付费广告素材或卖点有变化吗？"
+      - "定价 / Free tier 有调整吗？"
+      - "有没有新的社媒营销动作或高互动内容？"
+      - "产品有新功能或能力更新吗？"
+    monitoring:
+      priority: full
+      action_scope:
+        - website
+        - product
+        - pricing
+        - seo_content
+        - social
+        - paid_ads
+        - reviews
+        - creator
+        - partnerships
+        - media
+        - developer
+      state_mode: structured_crud
+      change_types:
+        - created
+        - content_updated
+        - commercial_updated
+        - removed
+        - metadata_only
+        - unverified
+      deletion_confirmation_runs: 2
+      mass_lastmod_threshold: 200
+      sitemap_policy: "排除用户生成 Gallery 的逐页监控；其余 Sitemap 保存完整 URL；lastmod 单独变化不得写成内容更新"
+      content_policy: "核心产品页每次提取；Articles/Blogs 建立轻量指纹；正文变化时才保留前后压缩文本"
+    sources:
+      website:
+        pages:
+          - https://freebeat.ai/
+          - https://freebeat.ai/pricing
+          - https://freebeat.ai/blogs
+          - https://freebeat.ai/tools
+          - https://freebeat.ai/agent
+          - https://freebeat.ai/music-video-generator
+          - https://freebeat.ai/realtime
+          - https://freebeat.ai/cli
+        discovery_paths:
+          - sitemap
+          - rss
+          - changelog
+          - help_center
+          - newsletter_archive
+      social:
+        x:
+          account_url: https://x.com/freebeat10
+          search_terms: ["Freebeat", "\"Freebeat AI\"", "freebeat.ai"]
+        youtube:
+          channel_url: https://www.youtube.com/@freebeat_ai
+          search_terms: ["Freebeat", "\"Freebeat AI\"", "freebeat.ai"]
+        linkedin:
+          company_url: https://www.linkedin.com/company/freebeat-ai
+          people_urls: []
+          search_terms: ["Freebeat", "\"Freebeat AI\"", "freebeat.ai"]
+        tiktok:
+          account_url: null
+          search_terms: ["Freebeat", "\"Freebeat AI\"", "freebeat.ai"]
+        instagram:
+          account_url: https://www.instagram.com/freebeat.ai/
+          search_terms: ["Freebeat", "\"Freebeat AI\"", "freebeat.ai"]
+      launch_and_distribution:
+        product_hunt_url: null
+        marketplaces: []
+        search_terms:
+          - "\"Freebeat AI\" launch"
+          - "freebeat.ai partnership"
+          - "\"Freebeat AI\" integration"
+      reviews:
+        g2_url: null
+        trustpilot_url: https://www.trustpilot.com/review/freebeat.ai
+        capterra_url: null
+        app_store_url: null
+        google_play_url: null
+      media:
+        search_terms:
+          - "\"Freebeat AI\" interview"
+          - "freebeat.ai funding"
+          - "\"Freebeat AI\" ARR"
+          - "\"Freebeat AI\" revenue"
+      github:
+        repo: null
+      reddit:
+        keywords:
+          - "freebeat"
+          - "freebeat.ai"
+        subreddits:
+          - "AIVideo"
+          - "artificial"
+          - "VideoEditing"
+          - "MusicProduction"
+      ads:
+        meta_page_id: null
+        search_name: "Freebeat AI"
+        advertiser_names:
+          - "Freebeat AI"
+          - "Freebeat"
+        domains:
+          - "freebeat.ai"
+      hn:
+        keywords:
+          - "freebeat"
+
+  - name: vidmuse
+    display: Vidmuse
+    aliases:
+      - "Vidmuse"
+      - "VidMuse"
+      - "VidMuse AI"
+      - "vidmuse.ai"
+    domains:
+      - "vidmuse.ai"
+    giq:
+      - "本周期有哪些新 SEO 落地页或内容发布？"
+      - "付费广告素材或卖点有变化吗？"
+      - "定价 / Free tier 有调整吗？"
+      - "有没有新的 Creator、Affiliate 或社媒营销动作？"
+      - "产品有新功能、模型或模板更新吗？"
+    sources:
+      website:
+        pages:
+          - https://vidmuse.ai/
+          - https://vidmuse.ai/en/pricing
+          - https://vidmuse.ai/blog
+          - https://vidmuse.ai/templates
+        discovery_paths:
+          - sitemap
+          - rss
+          - changelog
+          - help_center
+          - newsletter_archive
+      social:
+        x:
+          account_url: https://x.com/vidmuse_ai
+          search_terms: ["Vidmuse", "\"VidMuse AI\"", "vidmuse.ai"]
+        youtube:
+          channel_url: https://www.youtube.com/@VidMuseAI
+          search_terms: ["Vidmuse", "\"VidMuse AI\"", "vidmuse.ai"]
+        linkedin:
+          company_url: https://www.linkedin.com/company/vidmuse-ai/
+          people_urls: []
+          search_terms: ["Vidmuse", "\"VidMuse AI\"", "vidmuse.ai"]
+        tiktok:
+          account_url: https://www.tiktok.com/@vidmuse_ai
+          search_terms: ["Vidmuse", "\"VidMuse AI\"", "vidmuse.ai"]
+        instagram:
+          account_url: https://www.instagram.com/vidmuse_ai/
+          search_terms: ["Vidmuse", "\"VidMuse AI\"", "vidmuse.ai"]
+      launch_and_distribution:
+        product_hunt_url: null
+        marketplaces: []
+        search_terms:
+          - "\"VidMuse AI\" launch"
+          - "vidmuse.ai partnership"
+          - "\"VidMuse AI\" integration"
+          - "vidmuse affiliate"
+          - "vidmuse referral"
+      reviews:
+        g2_url: null
+        trustpilot_url: null
+        capterra_url: null
+        app_store_url: null
+        google_play_url: null
+      media:
+        search_terms:
+          - "\"VidMuse AI\" interview"
+          - "vidmuse.ai funding"
+          - "\"VidMuse AI\" review"
+          - "\"VidMuse AI\" tutorial"
+      github:
+        repo: null
+      reddit:
+        keywords:
+          - "vidmuse"
+          - "vidmuse.ai"
+        subreddits:
+          - "AIVideo"
+          - "SunoAI"
+          - "VideoEditing"
+          - "aivideogenerator"
+      ads:
+        meta_page_id: null
+        search_name: "VidMuse AI"
+        advertiser_names:
+          - "VidMuse AI"
+          - "Vidmuse"
+        domains:
+          - "vidmuse.ai"
+      hn:
+        keywords:
+          - "vidmuse"
+          - "vidmuse.ai"
+
+  - name: tunee
+    display: Tunee
+    aliases:
+      - "Tunee"
+      - "Tunee AI"
+      - "Tunee Music"
+      - "tunee.ai"
+    domains:
+      - "tunee.ai"
+    giq:
+      - "本周期有哪些新 SEO 落地页或内容发布？"
+      - "付费广告素材或卖点有变化吗？"
+      - "定价 / Free tier 有调整吗？"
+      - "有没有新的 Creator、社区或社媒营销动作？"
+      - "产品、Agent、Skills 或音乐生成能力有新更新吗？"
+    sources:
+      website:
+        pages:
+          - https://tunee.ai/
+          - https://tunee.ai/pricing
+          - https://tunee.ai/faq
+        discovery_paths:
+          - sitemap
+          - rss
+          - changelog
+          - help_center
+          - newsletter_archive
+      social:
+        x:
+          account_url: https://x.com/tunee_ai
+          search_terms: ["Tunee", "\"Tunee AI\"", "tunee.ai"]
+        youtube:
+          channel_url: https://www.youtube.com/@tunee_aiagent
+          search_terms: ["Tunee", "\"Tunee AI\"", "tunee.ai"]
+        linkedin:
+          company_url: null
+          people_urls: []
+          search_terms: ["Tunee", "\"Tunee AI\"", "tunee.ai"]
+        tiktok:
+          account_url: https://www.tiktok.com/@tunee_ai
+          search_terms: ["Tunee", "\"Tunee AI\"", "tunee.ai"]
+        instagram:
+          account_url: https://www.instagram.com/tunee_aiagent/
+          search_terms: ["Tunee", "\"Tunee AI\"", "tunee.ai"]
+      launch_and_distribution:
+        product_hunt_url: null
+        marketplaces: []
+        search_terms:
+          - "\"Tunee AI\" launch"
+          - "tunee.ai partnership"
+          - "\"Tunee AI\" integration"
+          - "\"Tunee AI\" skills"
+      reviews:
+        g2_url: null
+        trustpilot_url: null
+        capterra_url: null
+        app_store_url: null
+        google_play_url: null
+      media:
+        search_terms:
+          - "\"Tunee AI\" interview"
+          - "tunee.ai funding"
+          - "\"Tunee AI\" review"
+          - "\"Tunee AI\" tutorial"
+      github:
+        repo: https://github.com/tuneeai/free-music-generator
+      reddit:
+        keywords:
+          - "tunee.ai"
+          - "\"Tunee AI\""
+        subreddits:
+          - "AI_Music"
+          - "SunoAI"
+          - "MusicProduction"
+          - "LocalLLaMA"
+      ads:
+        meta_page_id: null
+        search_name: "Tunee AI"
+        advertiser_names:
+          - "Tunee AI"
+          - "Tunee"
+        domains:
+          - "tunee.ai"
+      hn:
+        keywords:
+          - "tunee.ai"
+          - "tunee ai"

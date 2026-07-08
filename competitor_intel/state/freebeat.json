@@ -1,0 +1,231 @@
+{
+  "last_run": "2026-06-15",
+  "website": {
+    "homepage": {
+      "tagline": "Turn Music & Ideas into Viral Videos In One Click",
+      "cta": "Music Video"
+    },
+    "pricing": {
+      "snapshot_date": "2026-06-15",
+      "currency": "USD",
+      "billing": "weekly_and_monthly",
+      "free_tier": true,
+      "note": "促销价格活跃中（7-DAY UNLIMITED with 30% off），以下为折后价",
+      "plans": {
+        "basic": {
+          "billing_cycle": "weekly",
+          "price_per_week": 4.99,
+          "price_original": 6.99,
+          "credits": "1990/week",
+          "resolution": "720p",
+          "watermark": false,
+          "suno_v5": "unlimited (7-day promo)",
+          "mureka_v9": "unlimited (7-day promo)"
+        },
+        "pro": {
+          "billing_cycle": "monthly",
+          "price_per_month": 26.99,
+          "price_original": 34.99,
+          "credits": "10000/month",
+          "resolution": "720p",
+          "watermark": false,
+          "suno_v5": "unlimited (7-day promo)",
+          "mureka_v9": "unlimited (7-day promo)"
+        },
+        "pro_plus": {
+          "billing_cycle": "monthly",
+          "price_per_month": 39.99,
+          "price_original": 49.99,
+          "credits": "19000/month",
+          "resolution": "1080p",
+          "watermark": false,
+          "note": "The smart choice for pro creating daily"
+        }
+      }
+    },
+    "blog_posts": [
+      "https://freebeat.ai/blogs/From-song-to-screen-instantly-introducing-the-world's-fist-ai-music-video-agent",
+      "https://freebeat.ai/blogs/google's-veo-is-here-a-revolutionary-video-model-redefining-reality-now-on-freebeat-ai",
+      "https://freebeat.ai/blogs/ai-music-generators-unleash-your-inner-composer-in-mins",
+      "https://freebeat.ai/blogs/the-best-ai-image-generators-for-2025-ai-image",
+      "https://freebeat.ai/blogs/the-best-ai-video-generators-for-2025-ai-video-models",
+      "https://freebeat.ai/blogs/ai-image-editing-reimagined-the-power-of-flux-kontext-max",
+      "https://freebeat.ai/blogs/discover-the-future-top-5-ai-music-generators-in-2025",
+      "https://freebeat.ai/blogs/top-ai-video-creation-tools-for-content-creators-in-2025"
+    ],
+    "sitemap": {
+      "snapshot_date": "2026-06-15",
+      "sitemap_url": "https://freebeat.ai/sitemap.xml",
+      "sitemap_structure": "index → pages / tool-details / seo-landings / blogs / articles / gallery",
+      "key_pages": [
+        "https://freebeat.ai/",
+        "https://freebeat.ai/pricing",
+        "https://freebeat.ai/tools",
+        "https://freebeat.ai/agent",
+        "https://freebeat.ai/music-video-generator",
+        "https://freebeat.ai/music-video-maker",
+        "https://freebeat.ai/text-to-video",
+        "https://freebeat.ai/suno-to-video",
+        "https://freebeat.ai/spotify-to-video",
+        "https://freebeat.ai/soundcloud-to-video",
+        "https://freebeat.ai/lyrics-video-generator",
+        "https://freebeat.ai/music-visualizer",
+        "https://freebeat.ai/audio-visualizer",
+        "https://freebeat.ai/face-swap",
+        "https://freebeat.ai/character-swap",
+        "https://freebeat.ai/lip-sync-video",
+        "https://freebeat.ai/video-upscaler",
+        "https://freebeat.ai/image-upscaler",
+        "https://freebeat.ai/affiliate-program",
+        "https://freebeat.ai/blogs"
+      ],
+      "genre_subpages": [
+        "https://freebeat.ai/music-video-maker/ai-drill-video-generator",
+        "https://freebeat.ai/music-video-maker/ai-edm-video-generator",
+        "https://freebeat.ai/music-video-maker/ai-hip-hop-video-generator",
+        "https://freebeat.ai/music-video-maker/ai-jazz-video-generator",
+        "https://freebeat.ai/music-video-maker/ai-lofi-video-generator",
+        "https://freebeat.ai/music-video-maker/ai-metal-video-generator",
+        "https://freebeat.ai/music-video-maker/ai-phonk-video-generator",
+        "https://freebeat.ai/music-video-maker/ai-pop-video-generator",
+        "https://freebeat.ai/music-video-maker/ai-rap-video-generator",
+        "https://freebeat.ai/music-video-maker/ai-rock-video-generator",
+        "https://freebeat.ai/music-video-maker/ai-techno-video-generator"
+      ],
+      "lastmod_notes": {
+        "note": "所有 pages/sitemap.xml 条目 lastmod 均为今日（2026-06-15），疑为自动生成时间戳，非真实更新时间",
+        "blogs_oldest": "2025-07-08",
+        "blogs_newest": "2026-06-15"
+      }
+    }
+  },
+  "github": {
+    "last_release": null,
+    "last_issue_checked": null
+  },
+  "reddit": {
+    "last_post_ts": null
+  },
+  "hn": {
+    "last_story_id": null,
+    "last_story_id_ts": null
+  },
+  "ads": {
+    "last_seen_ad_ids": []
+  },
+  "schema_version": 2,
+  "monitoring": {
+    "mode": "all_public_actions",
+    "last_sync": "2026-06-15",
+    "inventory_file": "state/inventory/freebeat.jsonl",
+    "fingerprints_file": "state/fingerprints/freebeat.jsonl",
+    "content_store_file": "state/content/freebeat.json.gz",
+    "changes_file": "state/changes/freebeat.jsonl",
+    "removal_confirmation_runs": 2,
+    "mass_lastmod_threshold": 200,
+    "excluded_from_item_inventory": [
+      "https://freebeat.ai/gallery/sitemap/0.xml",
+      "https://freebeat.ai/gallery/sitemap/1.xml",
+      "https://freebeat.ai/gallery/sitemap/10.xml",
+      "https://freebeat.ai/gallery/sitemap/11.xml",
+      "https://freebeat.ai/gallery/sitemap/12.xml",
+      "https://freebeat.ai/gallery/sitemap/2.xml",
+      "https://freebeat.ai/gallery/sitemap/3.xml",
+      "https://freebeat.ai/gallery/sitemap/4.xml",
+      "https://freebeat.ai/gallery/sitemap/5.xml",
+      "https://freebeat.ai/gallery/sitemap/6.xml",
+      "https://freebeat.ai/gallery/sitemap/7.xml",
+      "https://freebeat.ai/gallery/sitemap/8.xml",
+      "https://freebeat.ai/gallery/sitemap/9.xml"
+    ],
+    "current_counts": {
+      "active_urls": 8747,
+      "new_urls": 0,
+      "pending_missing": 0,
+      "removed_urls": 0,
+      "lastmod_changed": 0,
+      "metadata_only_or_unverified": 0
+    },
+    "current_content_counts": {
+      "checked_pages": 12,
+      "content_updated": 0,
+      "commercial_updated": 0,
+      "pending_confirmation": 0,
+      "fetch_errors": 0
+    },
+    "sitemap_roots": [
+      "https://freebeat.ai/sitemap.xml"
+    ],
+    "always_fingerprint": [
+      "https://freebeat.ai/",
+      "https://freebeat.ai/pricing",
+      "https://freebeat.ai/blogs",
+      "https://freebeat.ai/tools",
+      "https://freebeat.ai/agent",
+      "https://freebeat.ai/music-video-generator",
+      "https://freebeat.ai/music-video-maker",
+      "https://freebeat.ai/suno-to-video",
+      "https://freebeat.ai/lyrics-video-generator",
+      "https://freebeat.ai/music-visualizer",
+      "https://freebeat.ai/realtime",
+      "https://freebeat.ai/cli"
+    ],
+    "content_change_confirmation_runs": 2,
+    "change_types": [
+      "created",
+      "content_updated",
+      "commercial_updated",
+      "removed",
+      "metadata_only",
+      "unverified"
+    ],
+    "channels": {
+      "website": {
+        "mode": "automated_crud",
+        "storage": "state/inventory/freebeat.jsonl"
+      },
+      "product_and_pricing": {
+        "mode": "automated_fingerprint",
+        "storage": "state/fingerprints/freebeat.jsonl"
+      },
+      "seo_content": {
+        "mode": "automated_fingerprint",
+        "storage": "state/fingerprints/freebeat.jsonl"
+      },
+      "social": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/freebeat.jsonl"
+      },
+      "paid_ads": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/freebeat.jsonl"
+      },
+      "reviews": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/freebeat.jsonl"
+      },
+      "creator_and_partnerships": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/freebeat.jsonl"
+      },
+      "media": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/freebeat.jsonl"
+      },
+      "developer": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/freebeat.jsonl"
+      }
+    },
+    "action_record_schema": [
+      "observed_at",
+      "competitor",
+      "type",
+      "channel",
+      "url",
+      "before",
+      "after",
+      "evidence"
+    ]
+  }
+}

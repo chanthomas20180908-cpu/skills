@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NeuralFrames 专题 · Hazel Savage 顾问引入 × ARR 披露</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));</script>
+<style>
+:root{--bg:#050b07;--bg-grid:rgba(155,220,42,.045);--panel:#0b140e;--panel2:#0f1b13;--panel3:#111f16;--line:#213124;--line-soft:#17231a;--text:#dce6d7;--muted:#788574;--faint:#4d5a4b;--brand:#9bdc2a;--blue:#60a5fa;--amber:#e6a72a;--red:#ef6f6c;--purple:#a78bfa;}
+[data-theme="light"]{--bg:#ffffff;--bg-grid:rgba(26,127,55,.025);--panel:#f6f8fa;--panel2:#eaeef2;--panel3:#dde3ea;--line:#d0d7de;--line-soft:#eaeef2;--text:#1f2328;--muted:#656d76;--faint:#818c98;--brand:#1a7f37;--blue:#0969da;--amber:#b45309;--red:#cf222e;--purple:#7c3aed;}
+[data-theme="light"] body{background:var(--bg);}
+[data-theme="light"] body::before{opacity:.1;}
+[data-theme="light"] .top{background:rgba(246,248,250,.97);border-bottom-color:var(--line);}
+[data-theme="light"] .page-nav a{background:var(--panel);border-color:var(--line);}
+#theme-toggle{background:none;border:1px solid var(--line);color:var(--muted);cursor:pointer;border-radius:6px;padding:2px 9px;font-size:13px;font-family:inherit;transition:all .12s;flex-shrink:0;}
+#theme-toggle:hover{border-color:var(--purple);color:var(--purple);}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg);overscroll-behavior:none}
+body{margin:0;background:radial-gradient(circle at 18% -10%,rgba(167,139,250,.07),transparent 32%),linear-gradient(180deg,#08070f 0%,var(--bg) 38%,#030604 100%);color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'PingFang SC',monospace;font-size:14px;line-height:1.65;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(var(--bg-grid) 1px,transparent 1px),linear-gradient(90deg,var(--bg-grid) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.18));}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px;opacity:.9}
+.top{position:sticky;top:0;z-index:20;background:rgba(5,7,11,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.top-in{padding:12px 40px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.breadcrumb{font-size:12px;color:var(--faint);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.breadcrumb a{color:var(--faint);font-weight:700}
+.breadcrumb a:hover{color:var(--purple);text-decoration:none}
+.breadcrumb .sep{color:var(--line)}
+.breadcrumb .current{color:var(--purple);font-weight:950;font-family:'JetBrains Mono',monospace}
+.page-nav{display:flex;gap:4px;align-items:center}
+.page-nav a{padding:6px 12px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--muted);font-size:12px;font-weight:850;white-space:nowrap;transition:all .14s}
+.page-nav a:hover{background:var(--panel2);color:var(--purple);border-color:rgba(167,139,250,.3);text-decoration:none}
+.wrap{padding:32px 40px 80px;position:relative;z-index:1}
+.page-title{margin-bottom:28px}
+.page-title h1{font-size:20px;font-weight:950;margin:0 0 6px;letter-spacing:-.02em;color:var(--text)}
+.page-title .meta{font-size:11px;color:var(--faint)}
+.rpt-ident{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.rpt-product{font-size:30px;font-weight:950;color:var(--brand);letter-spacing:-.03em;font-family:'JetBrains Mono',monospace;line-height:1}
+.rpt-period{font-size:15px;font-weight:800;padding:4px 12px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.32);border-radius:5px;color:var(--purple);font-family:'JetBrains Mono',monospace;line-height:1.4;flex-shrink:0}
+.rpt-range{font-size:14px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.01em}
+.sec{margin:0 0 40px}
+.sec[id]{scroll-margin-top:70px}
+.sec-head{display:flex;align-items:center;gap:10px;padding-bottom:11px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.num{display:inline-flex;align-items:center;padding:2px 8px;font-size:11px;font-weight:800;color:var(--purple);letter-spacing:.06em;background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.22);border-radius:5px;font-family:'JetBrains Mono',monospace}
+h2{font-size:17px;margin:0;letter-spacing:-.01em}
+/* verdict */
+.verdict-card{padding:20px 24px;background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.28);border-left:4px solid var(--purple);border-radius:8px;margin-bottom:12px}
+.verdict-main{font-size:15px;font-weight:700;color:var(--text);line-height:1.7;margin-bottom:10px}
+.verdict-sub{font-size:13px;color:var(--muted);line-height:1.65}
+.verdict-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.vtag{font-size:11px;font-weight:700;padding:2px 9px;border-radius:4px;border:1px solid}
+.vtag-conf{color:var(--brand);border-color:rgba(155,220,42,.3);background:rgba(155,220,42,.06)}
+.vtag-type{color:var(--purple);border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.06)}
+/* tables */
+.tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--line)}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;padding:8px 12px;font-size:10px;font-weight:800;color:var(--faint);background:var(--panel3);border-bottom:1px solid var(--line);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.tbl td{padding:8px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--text)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(255,255,255,.012)}
+/* event cards */
+.ev-card{margin-bottom:14px;border-radius:8px;border:1px solid var(--line);overflow:hidden}
+.ev-card.done{border-left:3px solid rgba(155,220,42,.42)}
+.ev-hdr{padding:11px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel3);border-bottom:1px solid var(--line-soft)}
+.ev-id{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;padding:2px 8px;background:rgba(155,220,42,.07);border:1px solid rgba(155,220,42,.18);border-radius:4px;color:var(--brand);flex-shrink:0}
+.ev-date{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;flex-shrink:0}
+.ev-title{font-size:13px;font-weight:700;color:var(--text);flex:1;min-width:180px}
+.ev-stat{font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;flex-shrink:0}
+.ev-stat.done{background:rgba(155,220,42,.08);border:1px solid rgba(155,220,42,.2);color:var(--brand)}
+.ev-meta{padding:5px 16px;display:flex;flex-wrap:wrap;gap:18px;background:rgba(0,0,0,.1);border-bottom:1px solid var(--line-soft)}
+.ev-mi{font-size:11px;color:var(--faint)}
+.ev-mi strong{color:var(--muted);font-weight:700}
+.ev-body{padding:14px 16px}
+.ev-body ul{margin:4px 0 10px;padding-left:16px;line-height:1.85}
+.ev-body li{margin:2px 0;color:var(--text);font-size:13px}
+.src-details{margin-top:10px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.src-details summary{padding:6px 12px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;background:var(--panel3);list-style:none;display:flex;align-items:center;gap:6px;user-select:none;outline:none}
+.src-details summary::-webkit-details-marker{display:none}
+.src-details summary::before{content:"▶";font-size:9px;color:var(--faint);transition:transform .1s;flex-shrink:0}
+.src-details[open] summary::before{transform:rotate(90deg)}
+.src-details summary:hover{color:var(--brand)}
+.src-inner{overflow-x:auto}
+.src-tbl{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
+.src-tbl th{padding:6px 10px;font-size:10px;font-weight:800;color:var(--faint);background:var(--panel3);letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line);text-align:left;word-break:break-word}
+.src-tbl th:first-child{width:88px}
+.src-tbl td{padding:6px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--text);word-break:break-word;overflow-wrap:break-word}
+.src-tbl tr:last-child td{border-bottom:none}
+.src-tbl .rl{font-size:10px;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.ev-verdict{margin-top:10px;padding:10px 12px;background:rgba(0,0,0,.14);border-radius:6px;display:flex;flex-direction:column;gap:4px}
+.v-rel{font-size:11px;color:var(--faint)}
+.v-rel strong{color:var(--muted)}
+.v-ok{font-size:12px;color:var(--brand);line-height:1.65}
+.v-no{font-size:12px;color:var(--muted);line-height:1.65}
+/* profile timeline */
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.profile-bio{padding:18px 20px;background:var(--panel2);border:1px solid var(--line);border-radius:8px}
+.profile-bio h3{margin:0 0 12px;font-size:14px;font-weight:800;color:var(--purple)}
+.timeline{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line-soft)}
+.tl-item:last-child{border-bottom:none}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--faint);flex-shrink:0;margin-top:5px}
+.tl-dot.active{background:var(--purple)}
+.tl-content{flex:1}
+.tl-year{font-size:10px;font-weight:800;color:var(--faint);font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+.tl-role{font-size:13px;color:var(--text);font-weight:700;margin:1px 0}
+.tl-desc{font-size:12px;color:var(--muted);line-height:1.55}
+/* credit asset */
+.credit-card{padding:14px 16px;background:var(--panel2);border:1px solid var(--line);border-radius:8px}
+.credit-card h3{margin:0 0 10px;font-size:13px;font-weight:800;color:var(--text)}
+.credit-row{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line-soft)}
+.credit-row:last-child{border-bottom:none}
+.credit-label{font-size:11px;font-weight:700;color:var(--faint);width:90px;flex-shrink:0;padding-top:1px}
+.credit-val{font-size:12px;color:var(--muted);line-height:1.55;flex:1}
+/* analysis blocks */
+.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.a-block{padding:16px 18px;background:var(--panel2);border:1px solid var(--line);border-radius:8px}
+.a-block h3{margin:0 0 10px;font-size:13px;font-weight:800;color:var(--amber);letter-spacing:.02em}
+.a-block ul{margin:0;padding-left:16px;line-height:1.8}
+.a-block li{font-size:12px;color:var(--muted);margin:2px 0}
+.a-block li strong{color:var(--text)}
+/* disclosure chain */
+.chain{display:flex;align-items:flex-start;gap:0;margin:12px 0;flex-wrap:wrap}
+.chain-node{padding:10px 14px;background:var(--panel3);border:1px solid var(--line);border-radius:6px;font-size:12px;line-height:1.5;min-width:160px;flex:1}
+.chain-node .cn-label{font-size:10px;font-weight:800;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.chain-node .cn-val{color:var(--text);font-weight:700}
+.chain-node .cn-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.chain-arrow{display:flex;align-items:center;padding:0 8px;color:var(--faint);font-size:16px;font-weight:700;flex-shrink:0;align-self:center}
+/* intent cards */
+.intent-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.intent-card{padding:16px 18px;border-radius:8px;border:1px solid}
+.intent-card.primary{background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.28)}
+.intent-card.secondary{background:rgba(96,165,250,.05);border-color:rgba(96,165,250,.22)}
+.intent-card h3{margin:0 0 8px;font-size:13px;font-weight:800}
+.intent-card.primary h3{color:var(--purple)}
+.intent-card.secondary h3{color:var(--blue)}
+.intent-card p{margin:0;font-size:12px;color:var(--muted);line-height:1.65}
+/* implication */
+.imp-box{padding:14px 18px;background:rgba(155,220,42,.05);border:1px solid rgba(155,220,42,.2);border-radius:8px}
+.imp-box h3{margin:0 0 8px;font-size:13px;font-weight:800;color:var(--brand)}
+.imp-box ul{margin:0;padding-left:16px;line-height:1.8}
+.imp-box li{font-size:12px;color:var(--muted);margin:3px 0}
+.imp-box li strong{color:var(--text)}
+@media(max-width:900px){
+  .top-in,.wrap{padding-left:18px;padding-right:18px}
+  .profile-grid,.analysis-grid,.intent-grid{grid-template-columns:1fr}
+  .chain{flex-direction:column}
+  .chain-arrow{transform:rotate(90deg);padding:4px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="breadcrumb">
+      <a href="../../../record_center/site/index.html">增长记录中心</a>
+      <span class="sep">/</span>
+      <a href="../../../record_center/site/domains/d00-competitive-intelligence.html">竞品情报 D00</a>
+      <span class="sep">/</span>
+      <a href="../../../record_center/site/domains/d00-intel-reports.html">报告档案</a>
+      <span class="sep">/</span>
+      <span class="current">NF · 专题</span>
+    </div>
+    <nav class="page-nav">
+      <a href="../../../record_center/site/domains/d00-intel-reports.html">← 报告矩阵</a>
+      <a href="neuralframes_2026-06-12_retest.html" target="_blank">← B1 双周报告</a>
+      <button id="theme-toggle" onclick="toggleTheme()" title="切换亮/暗色">☀</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="page-title">
+    <div class="rpt-ident">
+      <span class="rpt-product">NeuralFrames</span>
+      <span class="rpt-period">专题</span>
+      <span class="rpt-range">2026-06-02 · 顾问引入 × ARR 披露</span>
+    </div>
+    <h1>Hazel Savage 顾问引入与 ARR 披露专题分析</h1>
+    <div class="meta">分析时间：2026-06-15 · 基于 B1 双周报告 E03、E04 事件展开 · 补充 Musiio 背景调研 · 事实口径：只记录来源直接支持的内容，战略意图部分为有依据的推断</div>
+  </div>
+
+  <!-- 核心结论 -->
+  <section class="sec" id="verdict">
+    <div class="sec-head"><span class="num">结论</span><h2>核心结论</h2></div>
+    <div class="verdict-card">
+      <div class="verdict-main">Neural Frames 在同一天（2026-06-02）完成两个动作：引入音乐行业内部人 Hazel Savage 担任战略顾问，并借助 Music Ally 报道 + Hazel 本人 LinkedIn 背书，将 $5M ARR 口径从「单一媒体报道」升格为「双源独立确认」。两个事件协同放大了公信力信号，且成本极低。</div>
+      <div class="verdict-sub">两个事件在时间上紧密绑定，Hazel Savage 的身份既是顾问任命本身的主角，又是 ARR 口径的二次确认来源——同一个人在同一时间窗口完成了两重背书功能。</div>
+      <div class="verdict-tags">
+        <span class="vtag vtag-conf">置信度：高（已二次确认）</span>
+        <span class="vtag vtag-type">事件类型：公关 + 组织动作</span>
+        <span class="vtag vtag-type">信源：Music Ally + 当事人 LinkedIn</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- §1 事件链 -->
+  <section class="sec" id="events">
+    <div class="sec-head"><span class="num">§1</span><h2>事件链时间轴</h2></div>
+
+    <div class="tbl-wrap" style="margin-bottom:16px">
+      <table class="tbl">
+        <thead>
+          <tr><th>日期</th><th>ID</th><th>事件</th><th>类别</th><th>关联</th><th>确认状态</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026-06-02</td>
+            <td><a href="#e03">E03</a></td>
+            <td>Music Ally 报道 ARR 已超过 $5M，用户 40,000+，视频 200 万+</td>
+            <td>经营信息</td>
+            <td style="color:var(--purple);font-size:11px">Hazel 为二次信源</td>
+            <td style="color:var(--brand)">✅ 已二次确认</td>
+          </tr>
+          <tr>
+            <td>2026-06-02</td>
+            <td><a href="#e04">E04</a></td>
+            <td>Hazel Savage 被任命为 Neural Frames 战略顾问</td>
+            <td>组织动作</td>
+            <td style="color:var(--purple);font-size:11px">与 E03 同日披露</td>
+            <td style="color:var(--brand)">✅ 已二次确认</td>
+          </tr>
+          <tr>
+            <td>2026-06-04</td>
+            <td>—</td>
+            <td>Hazel Savage 在个人 LinkedIn 独立发帖，写明"Currently at $5m ARR"并宣布顾问身份</td>
+            <td>当事人背书</td>
+            <td style="color:var(--purple);font-size:11px">E03 的二次信源</td>
+            <td style="color:var(--brand)">✅ 原帖可查</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- E03 -->
+    <div class="ev-card done" id="e03">
+      <div class="ev-hdr">
+        <span class="ev-id">E03</span>
+        <span class="ev-date">2026-06-02</span>
+        <span class="ev-title">Music Ally 报道公司披露 ARR 已超过 500 万美元</span>
+        <span class="ev-stat done">✅ 已二次确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong>经营信息</span>
+        <span class="ev-mi"><strong>时间依据：</strong>Music Ally 原创报道发布时间</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Music Ally 报道 Neural Frames 的 annual run rate 已超过 500 万美元。</li>
+          <li>报道同时写明平台已被超过 40,000 名音乐人使用，并累计创建超过 200 万个视频。</li>
+          <li>Hazel Savage 随后在个人 LinkedIn 帖子中公开写明 Neural Frames "Currently at $5m ARR"。</li>
+          <li>ARR、用户数和视频数均属于公司或关联人士公开披露，不是经审计财务数据。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Music Ally 原创报道</td><td>Hazel Savage LinkedIn 原帖</td></tr>
+                <tr><td class="rl">来源归属</td><td>Music Ally</td><td>Hazel Savage</td></tr>
+                <tr><td class="rl">来源类型</td><td>行业媒体原创报道</td><td>当事人个人原帖</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-02 12:30 UTC</td><td>2026-06-04</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://musically.com/2026/06/02/ai-music-videos-startup-neural-frames-hits-5m-annual-run-rate/" target="_blank">打开 →</a></td><td><a href="https://www.linkedin.com/posts/hazelrebeccasavage_ai-audio-startups-activity-7468317951402782722-wxdN" target="_blank">打开 →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>报道 $5M ARR、40,000+ 音乐人和 2M+ 视频</td><td>独立账号重复公开 $5M ARR 口径</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>独立信源</div>
+          <div class="v-ok">✅ 已确认范围：至少两名独立发布者公开发布了 $5M ARR 口径；Music Ally 报道了 40,000+ 音乐人和 2M+ 视频口径。</div>
+          <div class="v-no">◎ 未确认：ARR 计算方式、统计截止时间及数据真实性未获审计材料确认；用户数和视频数没有第二份独立证据。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E04 -->
+    <div class="ev-card done" id="e04">
+      <div class="ev-hdr">
+        <span class="ev-id">E04</span>
+        <span class="ev-date">2026-06-02</span>
+        <span class="ev-title">Hazel Savage 被任命为战略顾问</span>
+        <span class="ev-stat done">✅ 已二次确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong>组织动作</span>
+        <span class="ev-mi"><strong>时间依据：</strong>Music Ally 首次明确报道日期</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Music Ally 明确写明 Musiio 创始人 Hazel Savage 被任命为 Neural Frames 的 strategic advisor。</li>
+          <li>Hazel Savage 在个人 LinkedIn 公开宣布正在与 Neural Frames 合作，并使用 #advisor 标签。</li>
+          <li>Neural Frames 创始人 Nicolai Klemke 在该 LinkedIn 帖子下公开回复欢迎其加入。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Music Ally 原创报道</td><td>Hazel Savage LinkedIn 原帖</td></tr>
+                <tr><td class="rl">来源归属</td><td>Music Ally</td><td>Hazel Savage</td></tr>
+                <tr><td class="rl">来源类型</td><td>行业媒体原创报道</td><td>当事人个人原帖及公开评论</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-02</td><td>2026-06-04</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://musically.com/2026/06/02/ai-music-videos-startup-neural-frames-hits-5m-annual-run-rate/" target="_blank">打开 →</a></td><td><a href="https://www.linkedin.com/posts/hazelrebeccasavage_ai-audio-startups-activity-7468317951402782722-wxdN" target="_blank">打开 →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>明确写明战略顾问任命</td><td>当事人确认合作，创始人公开确认加入</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>独立信源</div>
+          <div class="v-ok">✅ 已确认范围：Hazel Savage 已加入 Neural Frames 并担任顾问角色。</div>
+          <div class="v-no">◎ 未确认：顾问合同期限、具体职责、薪酬和投入时间。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §2 人物画像 -->
+  <section class="sec" id="profile">
+    <div class="sec-head"><span class="num">§2</span><h2>人物画像：Hazel Savage</h2></div>
+
+    <div class="profile-grid">
+      <div class="profile-bio">
+        <h3>职业轨迹</h3>
+        <ul class="timeline">
+          <li class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-year">早期</div>
+              <div class="tl-role">Shazam → Pandora → Universal Music Group</div>
+              <div class="tl-desc">音乐科技与版权主流平台积累，建立行业人脉与商务资源</div>
+            </div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-dot active"></div>
+            <div class="tl-content">
+              <div class="tl-year">2018 — 2022</div>
+              <div class="tl-role">Musiio 联合创始人 &amp; CEO</div>
+              <div class="tl-desc">与 Aron Pettersson 联合创办，新加坡注册；客户覆盖 Hipgnosis、Epidemic Sound、Sony Music、BeatStars、Jamendo；2021 年估值达 $10M；2022 年 5 月被 SoundCloud 收购（金额未披露）</div>
+            </div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-dot active"></div>
+            <div class="tl-content">
+              <div class="tl-year">2022 — 2025</div>
+              <div class="tl-role">SoundCloud VP of Music Intelligence</div>
+              <div class="tl-desc">随收购加入 SoundCloud，主导音乐元数据与 AI 发现能力整合；Musiio 以 B2B 形态继续对外服务</div>
+            </div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-dot active"></div>
+            <div class="tl-content">
+              <div class="tl-year">2026-06</div>
+              <div class="tl-role">Neural Frames 战略顾问</div>
+              <div class="tl-desc">现任职位，2026-06-02 由 Music Ally 首次报道，Nicolai Klemke（NF 创始人）公开欢迎加入</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="credit-card">
+          <h3>信用资产分析</h3>
+          <div class="credit-row">
+            <div class="credit-label">行业角色</div>
+            <div class="credit-val">非技术创始人，产品 / 商务型操盘手；公开表示「不投生成式音乐 AI，不是粉丝」——立场鲜明，不被视为 AI 炒作者</div>
+          </div>
+          <div class="credit-row">
+            <div class="credit-label">B端客户网络</div>
+            <div class="credit-val">Hipgnosis、Epidemic Sound、Sony Music、BeatStars 等版权与授权平台，均为 Musiio 历史客户，关系可复用</div>
+          </div>
+          <div class="credit-row">
+            <div class="credit-label">媒体可信度</div>
+            <div class="credit-val">Music Ally、Music Week、MBW 等行业媒体有历史报道；顾问任命被行业媒体主动报道，而非付费软文</div>
+          </div>
+          <div class="credit-row">
+            <div class="credit-label">背书独立性</div>
+            <div class="credit-val">她的 LinkedIn ARR 背书来自独立账号发帖，与 Music Ally 报道在时间上分离（+2 天），在形式上独立——构成二次确认的法定条件</div>
+          </div>
+          <div class="credit-row">
+            <div class="credit-label">局限</div>
+            <div class="credit-val">Musiio 是 B2B 音乐元数据工具，与 Neural Frames 的 C 端/创作者定位存在市场错位；顾问具体职责未公开确认</div>
+          </div>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--panel2);border:1px solid rgba(167,139,250,.25);border-radius:8px">
+          <div style="font-size:11px;font-weight:800;color:var(--purple);letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px">Musiio 产品概览</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.7">B2B AI 音乐元数据基础设施。核心能力：<strong style="color:var(--text)">AI 自动打标签</strong>（BPM / 曲风 / 情绪 / 调性 / 命中潜力）、<strong style="color:var(--text)">音频相似度搜索</strong>、<strong style="color:var(--text)">自动歌单生成</strong>。西方流行音乐准确率 &gt;99%。已训练全球曲库。<br><br>2022 年被 SoundCloud 收购后以独立 B2B 业务继续运营，服务 Hipgnosis / Epidemic Sound / Sony Music / BeatStars / Jamendo 等。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §3 ARR 披露机制 -->
+  <section class="sec" id="disclosure">
+    <div class="sec-head"><span class="num">§3</span><h2>ARR 披露机制分析</h2></div>
+
+    <p style="font-size:13px;color:var(--muted);margin:0 0 16px">本节拆解 $5M ARR 口径如何从单一媒体报道演变为「已二次确认」状态，以及这一机制的结构性特征。</p>
+
+    <div class="chain">
+      <div class="chain-node">
+        <div class="cn-label">一次披露</div>
+        <div class="cn-val">Music Ally 报道</div>
+        <div class="cn-sub">2026-06-02 12:30 UTC<br>行业媒体原创报道<br>ARR / 用户数 / 视频数</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node">
+        <div class="cn-label">二次独立确认</div>
+        <div class="cn-val">Hazel Savage LinkedIn</div>
+        <div class="cn-sub">2026-06-04<br>当事人个人账号<br>"Currently at $5m ARR"</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node">
+        <div class="cn-label">创始人公开确认</div>
+        <div class="cn-val">Nicolai Klemke 评论</div>
+        <div class="cn-sub">LinkedIn 帖子下<br>欢迎 Hazel 加入<br>隐性背书 ARR 口径</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-node" style="border-color:rgba(155,220,42,.3);background:rgba(155,220,42,.05)">
+        <div class="cn-label" style="color:var(--brand)">结果</div>
+        <div class="cn-val" style="color:var(--brand)">✅ 已二次确认</div>
+        <div class="cn-sub">两个独立账号公开发布同一口径，满足独立信源条件</div>
+      </div>
+    </div>
+
+    <div class="analysis-grid" style="margin-top:16px">
+      <div class="a-block">
+        <h3>为何构成「已二次确认」</h3>
+        <ul>
+          <li><strong>信源独立性：</strong>Music Ally（第三方媒体）与 Hazel Savage（个人账号）发布主体不同，不存在转载关系</li>
+          <li><strong>时间分离：</strong>两次发布间隔 2 天（06-02 vs 06-04），非同步操作</li>
+          <li><strong>口径一致：</strong>两处均明确写明「$5M ARR」，数字精确匹配</li>
+          <li><strong>当事人身份：</strong>Hazel 作为顾问是利益相关方，但在法律意义上是独立发布者</li>
+        </ul>
+      </div>
+      <div class="a-block">
+        <h3>未确认事项（确认边界）</h3>
+        <ul>
+          <li><strong>ARR 计算方式：</strong>MRR×12 / 最近 12 个月滚动 / 其他口径，未披露</li>
+          <li><strong>统计截止时间：</strong>报道日期（06-02）或更早，未说明</li>
+          <li><strong>审计背书：</strong>无第三方审计或投资人确认材料</li>
+          <li><strong>40,000 用户 / 200 万视频：</strong>仅 Music Ally 一处，无第二份独立证据</li>
+          <li><strong>Hazel 的利益关系：</strong>顾问身份意味着她有动机正面背书，不构成完全中立的独立来源</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- §4 战略意图 -->
+  <section class="sec" id="intent">
+    <div class="sec-head"><span class="num">§4</span><h2>战略意图解读</h2></div>
+    <p style="font-size:12px;color:var(--faint);margin:0 0 14px">以下为基于事实的有依据推断，非直接证据。</p>
+
+    <div class="intent-grid">
+      <div class="intent-card primary">
+        <h3>推断 A · B端渠道与行业可信度</h3>
+        <p>Hazel 带来的核心资产是 Musiio 时代积累的 B 端客户网络（Hipgnosis / Epidemic Sound / Sony Music）以及音乐行业媒体的正面认知。NF 若计划推进与版权方、授权平台或音乐发行商的 B 端合作，Hazel 是最短路径的开门资源。她公开表态「不投生成式 AI」的立场，反而为 NF 提供了「行业老兵信任」背书——恰好弥补 NF 作为纯 AI 工具的行业信任缺口。</p>
+      </div>
+      <div class="intent-card secondary">
+        <h3>推断 B · 融资前公信力操作</h3>
+        <p>$5M ARR 口径在顾问任命的同一天被主动对外披露，节奏高度一致。行业内顾问引入 + ARR 披露组合通常出现在融资路演前的「公信力建仓」阶段：用行业知名人士背书替代纯财务证明，降低早期投资人的尽调成本。当前无直接证据表明 NF 正在融资，但这一节奏与融资前操作高度吻合。</p>
+      </div>
+    </div>
+
+    <div class="imp-box">
+      <h3>对我们的观察意义</h3>
+      <ul>
+        <li><strong>NF 在主动建立音乐行业 B 端势能：</strong>连续动作包括 Hazel 顾问引入（E04）、SXSW London 活动（E05）、ARR 披露（E03）——三者共同指向一个对外建立行业可信度的明确节奏。</li>
+        <li><strong>竞品信号价值：</strong>$5M ARR 若属实，意味着 NF 已具备一定规模的付费用户基础，不是单纯流量型产品。需结合其定价与用户数交叉核验。</li>
+        <li><strong>Hazel 的行业关系可追踪：</strong>她的 Musiio 客户（Hipgnosis / Epidemic Sound）是 NF 潜在 B 端进入点。若这些平台开始集成 NF 功能，将是 NF B 端拓展的早期信号。</li>
+        <li><strong>目前无需行动：</strong>这是一个观测性信号，尚未构成竞争威胁升级。建议在 B2 双周报告中持续跟踪 Hazel 的公开动态（LinkedIn / 行业媒体）及 NF 是否出现 B 端产品或 API 动作。</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<script>(function(){function applyTheme(t){document.documentElement.setAttribute('data-theme',t);var b=document.getElementById('theme-toggle');if(b)b.textContent=t==='light'?'◑':'☀';}var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');applyTheme(s);window.toggleTheme=function(){var t=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';localStorage.setItem('theme',t);applyTheme(t);};})();</script>
+</body>
+</html>

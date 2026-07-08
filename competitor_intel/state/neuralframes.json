@@ -1,0 +1,216 @@
+{
+  "last_run": "2026-06-15",
+  "website": {
+    "homepage": {
+      "tagline": "The Synthesizer for the Visual World",
+      "cta": "Visualize Your Music Now"
+    },
+    "pricing": {
+      "snapshot_date": "2026-06-15",
+      "currency": "EUR",
+      "billing": "monthly",
+      "free_tier": false,
+      "plans": {
+        "knight": {
+          "price_per_month": 26,
+          "credits": 2400,
+          "upscaling_1080p": true,
+          "upscaling_4k": false
+        },
+        "ninja": {
+          "price_per_month": 66,
+          "credits": 7200,
+          "upscaling_1080p": true,
+          "upscaling_4k": true
+        },
+        "nirvana": {
+          "price_per_month": 199,
+          "credits": 24000,
+          "upscaling_1080p": true,
+          "upscaling_4k": true
+        }
+      },
+      "shared_features": [
+        "25 fps",
+        "credits roll over up to 300% monthly allocation",
+        "unlimited storage"
+      ]
+    },
+    "blog_latest_url": "https://www.neuralframes.com/post/neural-frames-vs-freebeat-which-ai-music-video-generator-should-you-use-in-2026",
+    "blog_posts": [
+      "https://www.neuralframes.com/post/neural-frames-vs-freebeat-which-ai-music-video-generator-should-you-use-in-2026",
+      "https://www.neuralframes.com/post/10-best-ai-music-video-generators-for-creative-control-2026"
+    ],
+    "sitemap": {
+      "snapshot_date": "2026-06-15",
+      "sitemap_url": "https://www.neuralframes.com/sitemap-0.xml",
+      "tool_pages": [
+        "https://www.neuralframes.com/tools/ai-album-cover-generator",
+        "https://www.neuralframes.com/tools/ai-cartoon-generator",
+        "https://www.neuralframes.com/tools/ai-image-description-generator",
+        "https://www.neuralframes.com/tools/ai-lyrics-generator",
+        "https://www.neuralframes.com/tools/ai-movie-poster-generator",
+        "https://www.neuralframes.com/tools/ai-style-transfer",
+        "https://www.neuralframes.com/tools/album-name-generator",
+        "https://www.neuralframes.com/tools/audio-to-video",
+        "https://www.neuralframes.com/tools/band-name-generator",
+        "https://www.neuralframes.com/tools/diss-track-generator",
+        "https://www.neuralframes.com/tools/image-to-prompt",
+        "https://www.neuralframes.com/tools/mp3-to-mp4",
+        "https://www.neuralframes.com/tools/music-visualizer",
+        "https://www.neuralframes.com/tools/rap-lyrics-generator",
+        "https://www.neuralframes.com/tools/song-title-generator",
+        "https://www.neuralframes.com/tools/stable-diffusion-prompt-generator"
+      ],
+      "shortform_studio_templates": [
+        "https://www.neuralframes.com/shortform-studio-analog-memory",
+        "https://www.neuralframes.com/shortform-studio-anime-dreamcut",
+        "https://www.neuralframes.com/shortform-studio-emotional-singing",
+        "https://www.neuralframes.com/shortform-studio-feeling-lucky",
+        "https://www.neuralframes.com/shortform-studio-found-footage",
+        "https://www.neuralframes.com/shortform-studio-lofi-scapes",
+        "https://www.neuralframes.com/shortform-studio-loop-video",
+        "https://www.neuralframes.com/shortform-studio-mecha-noir",
+        "https://www.neuralframes.com/shortform-studio-outlaw-biker-pov"
+      ],
+      "key_pages": [
+        "https://www.neuralframes.com/",
+        "https://www.neuralframes.com/pricing",
+        "https://www.neuralframes.com/blog",
+        "https://www.neuralframes.com/product",
+        "https://www.neuralframes.com/about",
+        "https://www.neuralframes.com/shortform-studio",
+        "https://www.neuralframes.com/ai-music-video-generator",
+        "https://www.neuralframes.com/audio-visualizer",
+        "https://www.neuralframes.com/text-to-video-ai",
+        "https://www.neuralframes.com/image-to-video-ai",
+        "https://www.neuralframes.com/lyric-video-maker",
+        "https://www.neuralframes.com/suno-to-video",
+        "https://www.neuralframes.com/trippy-visuals",
+        "https://www.neuralframes.com/features/autopilot",
+        "https://www.neuralframes.com/features/kling-ai-video-generator",
+        "https://www.neuralframes.com/clip-editing",
+        "https://www.neuralframes.com/tunes",
+        "https://www.neuralframes.com/discover"
+      ],
+      "lastmod_notes": {
+        "2026-06-09": "16个工具页+9个ShortForm模板页批量更新（推测：撤Seedance2横幅）",
+        "2026-06-10": "shortform-studio主页上线（Short-Form Studio正式发布）",
+        "2026-06-11": "核心产品页批量更新（about/pricing/product等）"
+      }
+    }
+  },
+  "github": {
+    "last_release": null,
+    "last_issue_checked": null
+  },
+  "reddit": {
+    "last_post_ts": 1781002921
+  },
+  "hn": {
+    "last_story_id": 43252493,
+    "last_story_id_ts": 1741081362
+  },
+  "ads": {
+    "last_seen_ad_ids": []
+  },
+  "schema_version": 2,
+  "monitoring": {
+    "mode": "all_public_actions",
+    "last_sync": "2026-06-15",
+    "inventory_file": "state/inventory/neuralframes.jsonl",
+    "fingerprints_file": "state/fingerprints/neuralframes.jsonl",
+    "content_store_file": "state/content/neuralframes.json.gz",
+    "changes_file": "state/changes/neuralframes.jsonl",
+    "removal_confirmation_runs": 2,
+    "mass_lastmod_threshold": 200,
+    "excluded_from_item_inventory": [],
+    "current_counts": {
+      "active_urls": 581,
+      "new_urls": 0,
+      "pending_missing": 0,
+      "removed_urls": 0,
+      "lastmod_changed": 0,
+      "metadata_only_or_unverified": 0
+    },
+    "current_content_counts": {
+      "checked_pages": 10,
+      "content_updated": 0,
+      "commercial_updated": 0,
+      "pending_confirmation": 0,
+      "fetch_errors": 0
+    },
+    "sitemap_roots": [
+      "https://www.neuralframes.com/sitemap-0.xml"
+    ],
+    "always_fingerprint": [
+      "https://www.neuralframes.com/",
+      "https://www.neuralframes.com/pricing",
+      "https://www.neuralframes.com/blog",
+      "https://www.neuralframes.com/product",
+      "https://www.neuralframes.com/about",
+      "https://www.neuralframes.com/shortform-studio",
+      "https://www.neuralframes.com/ai-music-video-generator",
+      "https://www.neuralframes.com/audio-visualizer",
+      "https://www.neuralframes.com/features/autopilot",
+      "https://www.neuralframes.com/tunes"
+    ],
+    "content_change_confirmation_runs": 2,
+    "change_types": [
+      "created",
+      "content_updated",
+      "commercial_updated",
+      "removed",
+      "metadata_only",
+      "unverified"
+    ],
+    "channels": {
+      "website": {
+        "mode": "automated_crud",
+        "storage": "state/inventory/neuralframes.jsonl"
+      },
+      "product_and_pricing": {
+        "mode": "automated_fingerprint",
+        "storage": "state/fingerprints/neuralframes.jsonl"
+      },
+      "seo_content": {
+        "mode": "automated_fingerprint",
+        "storage": "state/fingerprints/neuralframes.jsonl"
+      },
+      "social": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/neuralframes.jsonl"
+      },
+      "paid_ads": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/neuralframes.jsonl"
+      },
+      "reviews": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/neuralframes.jsonl"
+      },
+      "creator_and_partnerships": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/neuralframes.jsonl"
+      },
+      "media": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/neuralframes.jsonl"
+      },
+      "developer": {
+        "mode": "report_source_ledger",
+        "storage": "state/changes/neuralframes.jsonl"
+      }
+    },
+    "action_record_schema": [
+      "observed_at",
+      "competitor",
+      "type",
+      "channel",
+      "url",
+      "before",
+      "after",
+      "evidence"
+    ]
+  }
+}

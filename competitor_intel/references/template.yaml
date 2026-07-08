@@ -1,0 +1,90 @@
+# Agent generation skeleton for competitor_intel reports.
+# Fill in all {{placeholders}} before rendering to Markdown.
+
+report_metadata:
+  title: "{{competitor_display}} 双周竞品动作报告"
+  competitor: "{{competitor_key}}"
+  date_range: "{{start_date}} ~ {{end_date}}"
+  generated_at: "{{generated_at}}"
+  event_count: 0
+  confirmation_summary: ""
+
+events:
+  - event_id: "E01"
+    event_name: ""
+    category: ""  # seo_content | product_update | pricing_change | paid_ad | social_content | creator_partnership | community_signal | launch_distribution | media_coverage
+    occurred_at: ""
+    time_basis: ""
+    discovered_at: ""
+    facts:
+      - ""
+    primary_source:
+      name: ""
+      attribution: ""
+      type: ""
+      date: ""
+      url: ""
+      proven_fact: ""
+    secondary_source:
+      name: ""
+      attribution: ""
+      type: ""
+      date: ""
+      url: ""
+      proven_fact: ""
+    source_relationship: ""  # 独立信源 | 同源佐证 | 转述或副本 | 无二次信源
+    verification_status: ""  # ✅ 已二次确认 | ⚠️ 部分确认 | ◯ 单一来源 | ❌ 来源冲突
+    verified_scope: ""
+    unverified_scope: ""
+
+excluded_signals:
+  pending:
+    - signal: ""
+      content: ""
+      reason: ""
+      next_action: ""
+  dismissed:
+    - signal: ""
+      result: ""
+      reason: ""
+
+giq_checklist:
+  - question: ""
+    result: ""  # 有已确认事件 | 有待确认线索 | 未采集到 | 未覆盖
+    event_ids_or_note: ""
+
+sources:
+  - source_id: "S01"
+    name: ""
+    attribution: ""
+    type: ""
+    source_date: ""
+    fetched_at: ""
+    supported_events: []
+    proven_fact: ""
+
+source_usage_boundary:
+  - source_type: ""
+    how_used: ""
+    cannot_prove: ""
+
+source_execution_ledger:
+  - source_id: "L01"
+    source_group: ""
+    platform: ""
+    account_or_entry: ""
+    query_or_action: ""
+    period: ""
+    executed_at: ""
+    result_count: 0
+    status: ""  # 已覆盖-发现事件 | 已覆盖-未采集到事件 | 部分覆盖 | 未覆盖 | 不适用
+    failure_reason: ""
+    candidate_event_ids: []
+
+coverage_summary:
+  source_groups: []
+  total_channels: 0
+  covered: 0
+  partial: 0
+  uncovered: 0
+  not_applicable: 0

@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VidMuse B1 · 双周竞品动作报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));</script>
+<style>
+:root{--bg:#050b07;--bg-grid:rgba(155,220,42,.045);--panel:#0b140e;--panel2:#0f1b13;--panel3:#111f16;--line:#213124;--line-soft:#17231a;--text:#dce6d7;--muted:#788574;--faint:#4d5a4b;--brand:#9bdc2a;--blue:#60a5fa;--amber:#e6a72a;--red:#ef6f6c;--purple:#a78bfa;}
+[data-theme="light"]{--bg:#ffffff;--bg-grid:rgba(26,127,55,.025);--panel:#f6f8fa;--panel2:#eaeef2;--panel3:#dde3ea;--line:#d0d7de;--line-soft:#eaeef2;--text:#1f2328;--muted:#656d76;--faint:#818c98;--brand:#1a7f37;--blue:#0969da;--amber:#b45309;--red:#cf222e;--purple:#7c3aed;}
+[data-theme="light"] body{background:var(--bg);}[data-theme="light"] body::before{opacity:.1;}[data-theme="light"] .top{background:rgba(246,248,250,.97);border-bottom-color:var(--line);}[data-theme="light"] .page-nav a{background:var(--panel);border-color:var(--line);}[data-theme="light"] .ev-meta{background:rgba(26,127,55,.04);}[data-theme="light"] .ev-verdict{background:rgba(26,127,55,.06);}
+#theme-toggle{background:none;border:1px solid var(--line);color:var(--muted);cursor:pointer;border-radius:6px;padding:2px 9px;font-size:13px;font-family:inherit;transition:all .12s;flex-shrink:0;}#theme-toggle:hover{border-color:var(--amber);color:var(--amber);}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg);overscroll-behavior:none}
+body{margin:0;background:radial-gradient(circle at 18% -10%,rgba(230,167,42,.06),transparent 32%),linear-gradient(180deg,#07100a 0%,var(--bg) 38%,#030604 100%);color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'PingFang SC',monospace;font-size:14px;line-height:1.65;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(var(--bg-grid) 1px,transparent 1px),linear-gradient(90deg,var(--bg-grid) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.18));}
+a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:3px;opacity:.9}
+.top{position:sticky;top:0;z-index:20;background:rgba(5,11,7,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.top-in{padding:12px 40px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.breadcrumb{font-size:12px;color:var(--faint);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.breadcrumb a{color:var(--faint);font-weight:700}.breadcrumb a:hover{color:var(--amber);text-decoration:none}.breadcrumb .sep{color:var(--line)}.breadcrumb .current{color:var(--amber);font-weight:950;font-family:'JetBrains Mono',monospace}
+.page-nav{display:flex;gap:4px;align-items:center}.page-nav a{padding:6px 12px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--muted);font-size:12px;font-weight:850;white-space:nowrap;transition:all .14s}.page-nav a:hover{background:var(--panel2);color:var(--amber);border-color:rgba(230,167,42,.3);text-decoration:none}
+.wrap{padding:32px 40px 80px;position:relative;z-index:1}
+.page-title{margin-bottom:28px}.page-title h1{font-size:20px;font-weight:950;margin:0 0 6px;letter-spacing:-.02em;color:var(--text)}.page-title .meta{font-size:11px;color:var(--faint)}
+.rpt-ident{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.rpt-product{font-size:30px;font-weight:950;color:var(--amber);letter-spacing:-.03em;font-family:'JetBrains Mono',monospace;line-height:1}
+.rpt-period{font-size:15px;font-weight:800;padding:4px 12px;background:rgba(230,167,42,.1);border:1px solid rgba(230,167,42,.32);border-radius:5px;color:var(--amber);font-family:'JetBrains Mono',monospace;line-height:1.4;flex-shrink:0}
+.rpt-range{font-size:14px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.01em}
+.sec{margin:0 0 40px}.sec[id]{scroll-margin-top:70px}.sec-head{display:flex;align-items:center;gap:10px;padding-bottom:11px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.num{display:inline-flex;align-items:center;padding:2px 8px;font-size:11px;font-weight:800;color:var(--brand);letter-spacing:.06em;background:rgba(191,255,0,.08);border:1px solid rgba(191,255,0,.22);border-radius:5px;font-family:'JetBrains Mono',monospace}
+h2{font-size:17px;margin:0;letter-spacing:-.01em}
+.grid{display:grid;gap:10px}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.metric{padding:14px 16px;background:var(--panel2);border:1px solid var(--line);border-top:3px solid var(--faint);border-radius:8px}.metric strong{display:block;font-size:30px;line-height:1;margin-bottom:5px;color:var(--brand);font-family:'JetBrains Mono',monospace;letter-spacing:-.03em}.metric span{font-size:11px;color:var(--muted)}
+.metric.amber strong{color:var(--amber)}.metric.amber{border-top-color:var(--amber)}.metric.blue strong{color:var(--blue)}.metric.blue{border-top-color:var(--blue)}.metric.faint strong{color:var(--faint)}.metric.faint{border-top-color:var(--faint)}
+.tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--line)}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}.tbl th{text-align:left;padding:8px 12px;font-size:10px;font-weight:800;color:var(--faint);background:var(--panel3);border-bottom:1px solid var(--line);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}.tbl td{padding:8px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--text)}.tbl tr:last-child td{border-bottom:none}.tbl tr:hover td{background:rgba(255,255,255,.012)}
+.ev-card{margin-bottom:14px;border-radius:8px;border:1px solid var(--line);overflow:hidden}.ev-card.done{border-left:3px solid rgba(155,220,42,.42)}.ev-card.part{border-left:3px solid rgba(230,167,42,.42)}.ev-card.single{border-left:3px solid rgba(77,90,75,.38)}
+.ev-hdr{padding:11px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel3);border-bottom:1px solid var(--line-soft)}
+.ev-id{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;padding:2px 8px;background:rgba(230,167,42,.07);border:1px solid rgba(230,167,42,.18);border-radius:4px;color:var(--amber);flex-shrink:0}
+.ev-date{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;flex-shrink:0}.ev-title{font-size:13px;font-weight:700;color:var(--text);flex:1;min-width:180px}
+.ev-stat{font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;flex-shrink:0}.ev-stat.done{background:rgba(155,220,42,.08);border:1px solid rgba(155,220,42,.2);color:var(--brand)}.ev-stat.part{background:rgba(230,167,42,.07);border:1px solid rgba(230,167,42,.2);color:var(--amber)}.ev-stat.single{background:rgba(77,90,75,.06);border:1px solid rgba(77,90,75,.18);color:var(--faint)}
+.ev-meta{padding:5px 16px;display:flex;flex-wrap:wrap;gap:18px;background:rgba(0,0,0,.1);border-bottom:1px solid var(--line-soft)}.ev-mi{font-size:11px;color:var(--faint)}.ev-mi strong{color:var(--muted);font-weight:700}.cat-tag{display:inline-block;font-size:11px;font-weight:800;padding:1px 7px;border-radius:4px;letter-spacing:.03em;vertical-align:middle;line-height:1.6}.cat-green{background:rgba(155,220,42,.1);border:1px solid rgba(155,220,42,.35);color:var(--brand)}.cat-blue{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.35);color:var(--blue)}.cat-amber{background:rgba(230,167,42,.1);border:1px solid rgba(230,167,42,.35);color:var(--amber)}.cat-purple{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.35);color:var(--purple)}[data-theme="light"] .cat-green{background:rgba(26,127,55,.08);border-color:rgba(26,127,55,.3);color:var(--brand)}[data-theme="light"] .cat-blue{background:rgba(9,105,218,.08);border-color:rgba(9,105,218,.3);color:var(--blue)}[data-theme="light"] .cat-amber{background:rgba(180,83,9,.08);border-color:rgba(180,83,9,.3);color:var(--amber)}[data-theme="light"] .cat-purple{background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.3);color:var(--purple)}
+.ev-body{padding:14px 16px}.ev-body ul{margin:4px 0 10px;padding-left:16px;line-height:1.85}.ev-body li{margin:2px 0;color:var(--text);font-size:13px}
+.src-details{margin-top:10px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.src-details summary{padding:6px 12px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;background:rgba(230,167,42,.07);list-style:none;display:flex;align-items:center;gap:6px;user-select:none;outline:none}.src-details summary::-webkit-details-marker{display:none}.src-details summary::before{content:"▶";font-size:9px;color:var(--faint);transition:transform .1s;flex-shrink:0}.src-details[open] summary::before{transform:rotate(90deg)}.src-details summary:hover{color:var(--amber)}
+.src-inner{overflow-x:auto}.src-tbl{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}.src-tbl th{padding:6px 10px;font-size:10px;font-weight:800;color:var(--faint);background:rgba(230,167,42,.07);letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line);text-align:left;word-break:break-word}[data-theme="light"] .src-tbl th{background:rgba(180,83,9,.06)}.src-tbl th:first-child{width:88px}.src-tbl td{padding:6px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--text);word-break:break-word;overflow-wrap:break-word}.src-tbl tr:last-child td{border-bottom:none}.src-tbl .rl{font-size:10px;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.ev-verdict{margin-top:10px;padding:10px 12px;background:rgba(0,0,0,.14);border-radius:6px;display:flex;flex-direction:column;gap:4px}.v-rel{font-size:11px;color:var(--faint)}.v-rel strong{color:var(--muted)}.v-ok{font-size:12px;color:var(--brand);line-height:1.65}.v-no{font-size:12px;color:var(--muted);line-height:1.65}
+.led-full{color:var(--brand);font-weight:700}.led-part{color:var(--amber);font-weight:700}.led-none{color:var(--faint);font-weight:700}.led-na{color:var(--faint);opacity:.5;font-weight:700}
+.gap-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;counter-reset:gap}.gap-list li{padding:10px 14px;background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:6px;font-size:13px;color:var(--muted);line-height:1.6;counter-increment:gap}.gap-list li::before{content:counter(gap)". ";color:var(--amber);font-weight:700}
+@media(max-width:900px){.top-in,.wrap{padding-left:18px;padding-right:18px}.g4{grid-template-columns:repeat(2,1fr)}.ev-hdr{flex-direction:column;align-items:flex-start;gap:5px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div class="breadcrumb">
+      <a href="../../../record_center/site/index.html">增长记录中心</a>
+      <span class="sep">/</span>
+      <a href="../../../record_center/site/domains/d00-competitive-intelligence.html">竞品情报 D00</a>
+      <span class="sep">/</span>
+      <a href="../../../record_center/site/domains/d00-intel-reports.html">报告档案</a>
+      <span class="sep">/</span>
+      <span class="current">VM · B1</span>
+    </div>
+    <nav class="page-nav">
+      <a href="../../../record_center/site/domains/d00-intel-reports.html">← 报告矩阵</a>
+      <a href="vidmuse_2026-06-12.md" target="_blank">MD 原文</a>
+      <button id="theme-toggle" onclick="toggleTheme()" title="切换亮/暗色">☀</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-title">
+    <div class="rpt-ident">
+      <span class="rpt-product">VidMuse</span>
+      <span class="rpt-period">B1</span>
+      <span class="rpt-range">2026-05-29 ~ 2026-06-12</span>
+    </div>
+    <h1>双周竞品动作报告</h1>
+    <div class="meta">调研时间：2026-06-12 · 独立调查，不与历史报告或其他竞品比较 · 覆盖不完整（广告库未取得结果）</div>
+  </div>
+
+  <section class="sec" id="overview">
+    <div class="grid g4" style="margin-bottom:0">
+      <div class="metric amber"><strong>9</strong><span>个事件记录</span></div>
+      <div class="metric"><strong>1✅ 5⚠️ 1◯</strong><span>确认分布（已确认 / 部分 / 单一）</span></div>
+      <div class="metric blue"><strong>19</strong><span>条信源记录</span></div>
+      <div class="metric faint"><strong>21</strong><span>条渠道台账<br>14完整 4部分 2未覆盖 1不适用</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="timeline">
+    <div class="sec-head"><span class="num">§1</span><h2>本期事件时间线</h2></div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>日期</th><th>ID</th><th>已发生事件</th><th>分类</th><th>确认状态</th></tr></thead>
+        <tbody>
+          <tr><td>2026-05-29 ~ 2026-06-11</td><td><a href="#e01">E01</a></td><td>Blog 栏目发布 20 篇内容</td><td>SEO / 内容</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-02</td><td><a href="#e02">E02</a></td><td>VidMuse 2.0 分阶段开放公告</td><td>产品发布</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-09</td><td><a href="#e03">E03</a></td><td>产品展示三种工作区布局选项</td><td>产品更新</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-08 ~ 2026-06-10</td><td><a href="#e04">E04</a></td><td>5 位不同平台 Creator 同期分发品牌内容</td><td>Creator 分发</td><td style="color:var(--brand)">✅ 已二次确认</td></tr>
+          <tr><td>2026-06-05</td><td><a href="#e05">E05</a></td><td>官方发布完整音乐视频成品案例（翻唱 + 纯音乐）</td><td>产品内容 / 社媒</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-02</td><td><a href="#e06">E06</a></td><td>Reddit Staff 在 r/RedditStaff 置顶 World Costume 模板帖</td><td>社区运营</td><td style="color:var(--faint)">◯ 单一来源</td></tr>
+          <tr><td>2026-06-05 ~ 06-10</td><td><a href="#e08">E08</a></td><td>Trustpilot 周期内新增 6 条用户评论（均分 1.7/5，公司 0 回复）</td><td>社区信号</td><td style="color:var(--faint)">◯ 单一信源</td></tr>
+          <tr><td>2026-06-09</td><td><a href="#e09">E09</a></td><td>r/musicians 用户发帖测评 AI 音乐视频工具并提及 VidMuse</td><td>社区信号</td><td style="color:var(--faint)">◯ 单一信源</td></tr>
+          <tr><td>2026-06-06</td><td><a href="#e07">E07</a></td><td>Skill + CLI 工具更新，GitHub 推送 release</td><td>开发者工具 / 产品更新</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec" id="events">
+    <div class="sec-head"><span class="num">§2</span><h2>事件详细记录</h2></div>
+
+    <!-- E01 -->
+    <div class="ev-card part" id="e01">
+      <div class="ev-hdr"><span class="ev-id">E01</span><span class="ev-date">2026-05-29 ~ 2026-06-11</span><span class="ev-title">Blog 栏目发布 20 篇内容</span><span class="ev-stat part">⚠️ 部分确认</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-blue cat-tag">SEO / 内容</span></span><span class="ev-mi"><strong>时间依据：</strong>官方 Blog Sitemap 的 lastmod</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>Blog Sitemap 在本周期记录 20 个 URL 更新：5 月 29 日 2 篇、6 月 1 日 2 篇、6 月 2 日 3 篇、6 月 4 日 2 篇、6 月 5 日 3 篇、6 月 8 日 3 篇、6 月 9 日 3 篇、6 月 11 日 2 篇。</li>
+          <li>主题涵盖 AI music video、对比类（vs Suno/vs CapCut/vs Runway）、使用场景（翻唱、歌词视频、创作者工作流）、平台攻略（YouTube Shorts）。</li>
+          <li>页面可访问；lastmod 只能证明更新时间，不能证明每篇首次发布日期。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>VidMuse Blog Sitemap</td><td>20 个实际文章页</td></tr>
+          <tr><td class="rl">来源归属</td><td>VidMuse</td><td>VidMuse</td></tr>
+          <tr><td class="rl">来源类型</td><td>官方技术记录</td><td>官方文章</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-05-29 ~ 2026-06-11</td><td>与 Sitemap 相同</td></tr>
+          <tr><td class="rl">链接</td><td><a href="https://vidmuse.ai/blog-sitemap.xml" target="_blank">Blog Sitemap →</a></td><td><a href="https://vidmuse.ai/blog/ai-music-video-generator" target="_blank">Blog 示例 →</a></td></tr>
+          <tr><td class="rl">证明内容</td><td>URL 数量和更新时间</td><td>页面存在及正文内容</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：20 个文章 URL 存在，并在本周期具有官方更新时间记录。</div>
+          <div class="v-no">◎ 未确认：首次发布时间、自然搜索收录、排名、流量和转化。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E02 -->
+    <div class="ev-card part" id="e02">
+      <div class="ev-hdr"><span class="ev-id">E02</span><span class="ev-date">2026-06-02</span><span class="ev-title">VidMuse 2.0 分阶段开放公告</span><span class="ev-stat part">⚠️ 部分确认</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-green cat-tag">产品发布</span></span><span class="ev-mi"><strong>时间依据：</strong>官方 Blog 文章发布日期</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>官方 Blog 在 6 月 2 日发布 VidMuse 2.0 公告文章，介绍 2.0 将分阶段向现有用户开放。</li>
+          <li>公告提到新增 Workspace 2.0 布局、更快生成速度和扩展的模型能力。</li>
+          <li>文章强调"分阶段"开放，早期访问用户优先；未提及具体时间节点或完整技术规格。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>VidMuse 官方 Blog 文章</td><td>VidMuse 官方产品页</td></tr>
+          <tr><td class="rl">来源归属</td><td>VidMuse</td><td>VidMuse</td></tr>
+          <tr><td class="rl">来源类型</td><td>官方公告</td><td>官方产品页</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-06-02</td><td>页面抓取 2026-06-12</td></tr>
+          <tr><td class="rl">链接</td><td><a href="https://vidmuse.ai/blog/vidmuse-2-0" target="_blank">2.0 公告 →</a></td><td><a href="https://vidmuse.ai/" target="_blank">首页 →</a></td></tr>
+          <tr><td class="rl">证明内容</td><td>发布日期、版本名称和分阶段描述</td><td>首页当前是否已展示 2.0 入口</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：VidMuse 在 6 月 2 日发布了 2.0 分阶段开放公告。</div>
+          <div class="v-no">◎ 未确认：2.0 完整上线时间、实际能力提升幅度、用户接受率。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E03 -->
+    <div class="ev-card part" id="e03">
+      <div class="ev-hdr"><span class="ev-id">E03</span><span class="ev-date">2026-06-09</span><span class="ev-title">产品展示三种工作区布局选项</span><span class="ev-stat part">⚠️ 部分确认</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-green cat-tag">产品更新</span></span><span class="ev-mi"><strong>时间依据：</strong>官方 Blog 文章发布日期</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>官方 Blog 在 6 月 9 日发布 Workspace 布局文章，展示三种布局选项：横向时间轴、分屏、全屏专注模式。</li>
+          <li>文章配有截图，说明用户可在创作过程中切换布局而无需重新加载。</li>
+          <li>该功能与 E02 中 Workspace 2.0 公告内容对应。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>VidMuse Workspace 布局文章</td><td>VidMuse 2.0 公告文章（E02）</td></tr>
+          <tr><td class="rl">来源归属</td><td>VidMuse</td><td>VidMuse</td></tr>
+          <tr><td class="rl">来源类型</td><td>官方 Blog</td><td>官方公告</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-06-09</td><td>2026-06-02</td></tr>
+          <tr><td class="rl">链接</td><td><a href="https://vidmuse.ai/blog/vidmuse-workspace" target="_blank">Workspace 文章 →</a></td><td><a href="https://vidmuse.ai/blog/vidmuse-2-0" target="_blank">2.0 公告 →</a></td></tr>
+          <tr><td class="rl">证明内容</td><td>布局选项说明和配图</td><td>Workspace 2.0 功能范围</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：VidMuse 官方披露三种工作区布局及截图。</div>
+          <div class="v-no">◎ 未确认：功能对实际创作效率的影响、用户采用比例。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E04 -->
+    <div class="ev-card done" id="e04">
+      <div class="ev-hdr"><span class="ev-id">E04</span><span class="ev-date">2026-06-08 ~ 2026-06-10</span><span class="ev-title">5 位不同平台 Creator 同期分发品牌内容</span><span class="ev-stat done">✅ 已二次确认</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-blue cat-tag">Creator 分发</span></span><span class="ev-mi"><strong>时间依据：</strong>各 Creator 内容发布日期</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>同期发现 5 位不同账号的 Creator 发布了涉及 VidMuse 的内容，覆盖 YouTube、TikTok、Instagram 三个平台。</li>
+          <li>内容形式包括教程、工作流演示和产品对比，部分内容带有推广链接或折扣码。</li>
+          <li>5 个账号来自独立主体（不同频道名、不同平台风格），集中在 3 天内发布。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>Creator A（YouTube）+ Creator B（TikTok）</td><td>Creator C/D/E（Instagram × 3）</td></tr>
+          <tr><td class="rl">来源归属</td><td>独立 Creator × 2</td><td>独立 Creator × 3</td></tr>
+          <tr><td class="rl">来源类型</td><td>第三方视频</td><td>第三方 Reel</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-06-08 ~ 2026-06-09</td><td>2026-06-09 ~ 2026-06-10</td></tr>
+          <tr><td class="rl">证明内容</td><td>不同平台、不同账号在同一时间窗口发布，确认 Creator 活动</td><td>额外 3 个独立来源印证同期发布</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>独立信源（5 个不同账号/平台）</div>
+          <div class="v-ok">✅ 已确认范围：至少 5 位不同 Creator 在 3 天内发布了涉及 VidMuse 的内容，跨 YouTube/TikTok/Instagram。</div>
+          <div class="v-no">◎ 未确认：是否有付费合作协议、具体合作规模、每条内容的互动量和转化。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E05 -->
+    <div class="ev-card part" id="e05">
+      <div class="ev-hdr"><span class="ev-id">E05</span><span class="ev-date">2026-06-05</span><span class="ev-title">官方发布完整音乐视频成品案例（翻唱 + 纯音乐）</span><span class="ev-stat part">⚠️ 部分确认</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-blue cat-tag">产品内容 / 社媒</span></span><span class="ev-mi"><strong>时间依据：</strong>YouTube uploadDate 与 Instagram 原帖日期</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>官方 YouTube 在 6 月 5 日发布完整成品音乐视频，内容包括翻唱版本（含歌词字幕同步）和纯音乐配视频版本，时长均超过 3 分钟。</li>
+          <li>官方 Instagram 同日发布同一内容的剪辑版。</li>
+          <li>视频说明描述使用 VidMuse 2.0 生成，但未提供可验证的生成流程截图。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>VidMuse 官方 YouTube</td><td>VidMuse 官方 Instagram</td></tr>
+          <tr><td class="rl">来源归属</td><td>VidMuse</td><td>VidMuse</td></tr>
+          <tr><td class="rl">来源类型</td><td>官方视频</td><td>官方社媒</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-06-05</td><td>2026-06-05</td></tr>
+          <tr><td class="rl">证明内容</td><td>成品视频内容和上传日期</td><td>同内容在 Instagram 的发布</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：VidMuse 在 6 月 5 日通过两个官方渠道发布了完整音乐视频成品案例。</div>
+          <div class="v-no">◎ 未确认：视频生成的实际流程、使用 VidMuse 2.0 的声明是否可独立核实。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E06 -->
+    <div class="ev-card single" id="e06">
+      <div class="ev-hdr"><span class="ev-id">E06</span><span class="ev-date">2026-06-02</span><span class="ev-title">Reddit Staff 在 r/RedditStaff 置顶 World Costume 模板帖</span><span class="ev-stat single">◯ 单一来源</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-purple cat-tag">社区运营</span></span><span class="ev-mi"><strong>时间依据：</strong>Reddit 帖子时间戳</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>在 r/RedditStaff 发现一个由 Reddit Staff 账号发布的置顶帖，内容为 VidMuse 的 World Costume 模板教学和示例。</li>
+          <li>帖子格式为官方内容展示，含模板链接和操作说明。</li>
+          <li>仅找到该 Reddit 帖子作为信源，未在 VidMuse 官方渠道找到对应声明。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>r/RedditStaff 帖子</td><td>无</td></tr>
+          <tr><td class="rl">来源归属</td><td>Reddit Staff（非 VidMuse 官方）</td><td>—</td></tr>
+          <tr><td class="rl">来源类型</td><td>社区帖子</td><td>—</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-06-02</td><td>—</td></tr>
+          <tr><td class="rl">证明内容</td><td>模板存在及 Reddit Staff 的推广行为</td><td>—</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>单一来源</div>
+          <div class="v-ok">✅ 已确认范围：Reddit Staff 在 r/RedditStaff 于 6 月 2 日发布了涉及 VidMuse World Costume 模板的帖子。</div>
+          <div class="v-no">◎ 未确认：VidMuse 是否有付费合作或内容合作协议；该推广是否源于 VidMuse 主动策划。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E07 -->
+    <div class="ev-card part" id="e07">
+      <div class="ev-hdr"><span class="ev-id">E07</span><span class="ev-date">2026-06-06</span><span class="ev-title">Skill + CLI 工具更新，GitHub 推送 release</span><span class="ev-stat part">⚠️ 部分确认</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-green cat-tag">开发者工具 / 产品更新</span></span><span class="ev-mi"><strong>时间依据：</strong>GitHub release 时间戳</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>GitHub 仓库在 6 月 6 日推送了 CLI 和 Skill 相关 release，包含 API 接口更新和文档补充。</li>
+          <li>Release 说明中列出新增的 Skill 动作类型和 CLI 参数选项。</li>
+          <li>官方文档页在同日也发生更新（Sitemap lastmod 记录），但文档内容与 GitHub release 说明的关系无法独立核实。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>VidMuse GitHub Release</td><td>VidMuse 官方文档页</td></tr>
+          <tr><td class="rl">来源归属</td><td>VidMuse</td><td>VidMuse</td></tr>
+          <tr><td class="rl">来源类型</td><td>官方 GitHub release</td><td>官方文档</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-06-06</td><td>2026-06-06 (Sitemap lastmod)</td></tr>
+          <tr><td class="rl">证明内容</td><td>release 日期和变更摘要</td><td>同日文档页更新时间</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同组织信源</div>
+          <div class="v-ok">✅ 已确认范围：VidMuse 在 6 月 6 日通过 GitHub release 记录了 CLI 和 Skill 的更新。</div>
+          <div class="v-no">◎ 未确认：变更对使用中用户的实际影响、开发者采用率。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- E08 -->
+    <div class="ev-card" id="e08">
+      <div class="ev-hdr">
+        <span class="ev-id">E08</span>
+        <span class="ev-date">2026-06-05 ~ 2026-06-10</span>
+        <span class="ev-title">Trustpilot 周期内新增 6 条用户评论（均分 1.7/5，公司 0 回复）</span>
+        <span class="ev-stat">◯ 单一信源</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-purple">社区信号</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>Trustpilot 各评论页面日期</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-15（补采）</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>周期内 Trustpilot 新增 6 条评论：6/5 ★5、6/6 ★1、6/8 ★3、6/9 ★1、6/9 ★2、6/10 ★1。</li>
+          <li>总量快照：过去 12 个月 107 条，全站约 170 条，均分 1.7/5。</li>
+          <li>高频投诉：credit 消耗超预算、AI 忽略用户指令、退款流程无响应。</li>
+          <li>唯一 ★5 评论（6/5）：称赞团队处理新手误操作的专业度和工作流流畅。</li>
+          <li>VidMuse 公司对以上 6 条评论均无回复。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Trustpilot VidMuse 评论页</td><td>未取得</td></tr>
+                <tr><td class="rl">来源归属</td><td>Trustpilot 平台用户</td><td>—</td></tr>
+                <tr><td class="rl">来源类型</td><td>评论平台原始记录</td><td>—</td></tr>
+                <tr><td class="rl">来源时间</td><td>6/5、6/6、6/8、6/9×2、6/10</td><td>—</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://www.trustpilot.com/review/vidmuse.ai" target="_blank">打开 →</a></td><td>—</td></tr>
+                <tr><td class="rl">证明内容</td><td>评论日期、评分、原文摘要及公司回复状态</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>单一信源</div>
+          <div class="v-ok">◎ 已确认范围：6 条评论在指定日期已公开发布，内容和评分可读取。</div>
+          <div class="v-no">◎ 未确认：评论者身份、实际使用过程、评价客观性。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E09 -->
+    <div class="ev-card" id="e09">
+      <div class="ev-hdr">
+        <span class="ev-id">E09</span>
+        <span class="ev-date">2026-06-09</span>
+        <span class="ev-title">r/musicians 用户发帖测评 AI 音乐视频工具并提及 VidMuse</span>
+        <span class="ev-stat">◯ 单一信源</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-purple">社区信号</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>Reddit 帖子发布时间</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-15（补采）</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Reddit 用户在 r/musicians 发布《What tools work best for creating AI music videos?》，自述已测试 Neural Frames、Suno 和 VidMuse。</li>
+          <li>帖子共获得 13 条评论；评论区主要讨论是否应使用 AI 视频工具，无针对 VidMuse 的深度功能评价。</li>
+          <li>发帖者表示 Neural Frames 效果最佳，VidMuse 被纳入对比但未给出具体评分。</li>
+          <li>无赞助或 Affiliate 披露，帖子作者为独立音乐人。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Reddit r/musicians 帖子</td><td>未取得</td></tr>
+                <tr><td class="rl">来源归属</td><td>Reddit 用户 Hot-Geologist1502</td><td>—</td></tr>
+                <tr><td class="rl">来源类型</td><td>用户原帖</td><td>—</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-09</td><td>—</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://www.reddit.com/r/musicians/comments/1u10ko6/what_tools_work_best_for_creating_ai_music_videos/" target="_blank">打开 →</a></td><td>—</td></tr>
+                <tr><td class="rl">证明内容</td><td>帖子已发布、VidMuse 被提及、13 条评论</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>单一信源</div>
+          <div class="v-ok">◎ 已确认范围：该帖子在 6 月 9 日已发布，VidMuse 被纳入多工具对比讨论。</div>
+          <div class="v-no">◎ 未确认：实际使用深度、测试版本、对其他用户决策的影响。</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="sec" id="excluded">
+    <div class="sec-head"><span class="num">§3</span><h2>时间未确认或未纳入线索</h2></div>
+    <p style="color:var(--faint);font-size:0.85rem;margin:0 0 1rem"><strong>待跟踪</strong>：发现信号但时间未确认或采集受限，下期继续追踪。<strong>已排除</strong>：经判断确认不纳入，不再追踪。</p>
+    <h3 style="font-size:0.95rem;margin:0 0 0.5rem;color:var(--fg)">3A. 待跟踪线索</h3>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>线索</th><th>信号内容</th><th>原因</th><th>建议下期动作</th></tr></thead><tbody>
+      <tr><td>Creator 付费关系</td><td>E04 记录的 Creator 均有专属入口和积分</td><td>未取得统一的赞助或 Affiliate 披露，无法升级为 creator_partnership</td><td>下期检查各 Creator 视频描述是否有赞助披露</td></tr>
+      <tr><td>r/vidmuse Staff 低互动社区帖（6/4、6/6、6/7、6/10、6/11）</td><td>Staff 发布 Slice of Life 动画演示、NBA 话题、Y2K 风格等；6/11 帖子揭示 Outfit Transition 新模板</td><td>所有帖子评论数为 0，互动极低；Outfit Transition 未有独立官方公告</td><td>下期关注 Outfit Transition 模板是否有更高互动内容或独立公告</td></tr>
+    </tbody></table></div>
+    <h3 style="font-size:0.95rem;margin:1rem 0 0.5rem;color:var(--fg)">3B. 已排除线索</h3>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>线索</th><th>排除理由</th></tr></thead><tbody>
+      <tr><td>r/vidmuse 用户帖（5/29）</td><td>0 评论，未达 community_signal ≥3 回复入账门槛</td></tr>
+      <tr><td>Pricing 变更</td><td>只有 6 月 12 日当前快照，无历史价格记录，不能判断价格变化</td></tr>
+      <tr><td>Sitemap 53 个 URL</td><td>lastmod 只能证明更新时间，且包含多语言版本，不写成 53 个新页面</td></tr>
+      <tr><td>Discord 社区动态</td><td>未找到公开可访问的 Discord 入口，无法采集</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="sec" id="giq">
+    <div class="sec-head"><span class="num">§4</span><h2>GIQ 核对</h2></div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>问题</th><th>结果</th><th>事件 ID / 说明</th></tr></thead><tbody>
+      <tr><td>本周期有哪些新 SEO 落地页或内容发布？</td><td style="color:var(--brand)">有已确认事件</td><td>E01；lastmod 只确认更新时间</td></tr>
+      <tr><td>付费广告素材或卖点有变化吗？</td><td style="color:var(--faint)">未覆盖</td><td>Meta 被真人验证拦截；Google Ads 未返回可审计结果</td></tr>
+      <tr><td>定价 / Free tier 有调整吗？</td><td style="color:var(--faint)">未采集到</td><td>只有当前价格快照</td></tr>
+      <tr><td>有没有新的社媒营销动作或高互动内容？</td><td style="color:var(--brand)">有已确认事件</td><td>E04、E05、E06</td></tr>
+      <tr><td>产品有新功能或能力更新吗？</td><td style="color:var(--brand)">有已确认事件</td><td>E02、E03、E07</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="sec" id="sources">
+    <div class="sec-head"><span class="num">§5</span><h2>信源总表（19 条）</h2></div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>ID</th><th>信源与链接</th><th>归属</th><th>类型</th><th>来源时间</th><th>支撑事件</th><th>证明内容</th></tr></thead><tbody>
+      <tr><td>S01</td><td><a href="https://vidmuse.ai/blog-sitemap.xml" target="_blank">Blog Sitemap</a></td><td>VidMuse</td><td>官方技术记录</td><td>2026-05-29 ~ 2026-06-11</td><td>E01</td><td>20 个 URL 与更新时间</td></tr>
+      <tr><td>S02</td><td><a href="https://vidmuse.ai/blog/ai-music-video-generator" target="_blank">Blog 示例页</a></td><td>VidMuse</td><td>官方文章</td><td>本周期</td><td>E01</td><td>页面存在及内容</td></tr>
+      <tr><td>S03</td><td><a href="https://vidmuse.ai/blog/vidmuse-2-0" target="_blank">VidMuse 2.0 公告</a></td><td>VidMuse</td><td>官方公告</td><td>2026-06-02</td><td>E02</td><td>2.0 分阶段开放描述</td></tr>
+      <tr><td>S04</td><td><a href="https://vidmuse.ai/" target="_blank">VidMuse 首页</a></td><td>VidMuse</td><td>官方页面</td><td>当前页面</td><td>E02</td><td>首页 2.0 入口展示</td></tr>
+      <tr><td>S05</td><td><a href="https://vidmuse.ai/blog/vidmuse-workspace" target="_blank">Workspace 布局文章</a></td><td>VidMuse</td><td>官方 Blog</td><td>2026-06-09</td><td>E03</td><td>三种布局截图与说明</td></tr>
+      <tr><td>S06</td><td>Creator A YouTube（5 位 Creator 之一）</td><td>独立 Creator</td><td>第三方视频</td><td>2026-06-08</td><td>E04</td><td>教程内容和发布日期</td></tr>
+      <tr><td>S07</td><td>Creator B TikTok（5 位 Creator 之一）</td><td>独立 Creator</td><td>第三方 TikTok</td><td>2026-06-09</td><td>E04</td><td>演示内容和发布日期</td></tr>
+      <tr><td>S08</td><td>Creator C/D/E Instagram（5 位 Creator 之三）</td><td>独立 Creator × 3</td><td>第三方 Reel</td><td>2026-06-09 ~ 2026-06-10</td><td>E04</td><td>3 个独立账号的发布记录</td></tr>
+      <tr><td>S09</td><td>VidMuse 官方 YouTube（成品案例）</td><td>VidMuse</td><td>官方视频</td><td>2026-06-05</td><td>E05</td><td>完整 MV 内容和上传日期</td></tr>
+      <tr><td>S10</td><td>VidMuse 官方 Instagram（成品案例）</td><td>VidMuse</td><td>官方 Reel</td><td>2026-06-05</td><td>E05</td><td>剪辑版和发布日期</td></tr>
+      <tr><td>S11</td><td>r/RedditStaff World Costume 帖子</td><td>Reddit Staff</td><td>Reddit 帖子</td><td>2026-06-02</td><td>E06</td><td>模板内容和帖子日期</td></tr>
+      <tr><td>S12</td><td>VidMuse GitHub Repository Release</td><td>VidMuse</td><td>GitHub release</td><td>2026-06-06</td><td>E07</td><td>release 时间和变更内容</td></tr>
+      <tr><td>S13</td><td><a href="https://vidmuse.ai/sitemap.xml" target="_blank">总 Sitemap</a></td><td>VidMuse</td><td>官方技术记录</td><td>2026-06-12</td><td>E01~E07</td><td>全站 URL 结构</td></tr>
+      <tr><td>S14</td><td>VidMuse 官方文档页</td><td>VidMuse</td><td>官方文档</td><td>2026-06-06</td><td>E07</td><td>同日更新时间</td></tr>
+      <tr><td>S15</td><td>Trustpilot VidMuse 评论</td><td>Trustpilot 用户</td><td>评论记录</td><td>本周期多日</td><td>未纳入</td><td>用户评论</td></tr>
+      <tr><td>S16</td><td><a href="https://vidmuse.ai/pricing" target="_blank">VidMuse Pricing 页</a></td><td>VidMuse</td><td>官方定价页</td><td>当前快照</td><td>未纳入</td><td>当前价格</td></tr>
+      <tr><td>S17</td><td>VidMuse 对比博客（多篇）</td><td>VidMuse</td><td>官方 Blog</td><td>本周期</td><td>E01</td><td>对比类内容存在</td></tr>
+      <tr><td>S18</td><td>VidMuse Instagram 官方账号（品牌内容）</td><td>VidMuse</td><td>官方社媒</td><td>本周期多日</td><td>E05</td><td>多条品牌帖</td></tr>
+      <tr><td>S19</td><td>VidMuse YouTube 频道（品牌内容）</td><td>VidMuse</td><td>官方频道</td><td>本周期</td><td>E05</td><td>频道上传记录</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="sec" id="ledger">
+    <div class="sec-head"><span class="num">§6</span><h2>信源采集执行台账（21 条）</h2></div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>ID</th><th>信源/平台</th><th>检索动作</th><th style="text-align:right">候选数</th><th>状态</th><th>事件/失败原因</th></tr></thead><tbody>
+      <tr><td>L01</td><td>官网 / 产品</td><td>访问首页、Pricing、2.0 入口和产品说明</td><td style="text-align:right">4</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E02、E03</td></tr>
+      <tr><td>L02</td><td>Blog / Articles</td><td>检查 Blog 列表和 Sitemap</td><td style="text-align:right">20</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E01</td></tr>
+      <tr><td>L03</td><td>Sitemap</td><td>解析总 Sitemap 和子 Sitemap</td><td style="text-align:right">200+</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E01、E07</td></tr>
+      <tr><td>L04</td><td>Changelog / Release Notes</td><td>探测公开 changelog 入口</td><td style="text-align:right">0</td><td><span class="led-part">部分覆盖</span></td><td>官网未发现独立 changelog 页</td></tr>
+      <tr><td>L05</td><td>X</td><td>检查官方账号周期时间线</td><td style="text-align:right">0</td><td><span class="led-part">部分覆盖</span></td><td>账号存在，动态加载失败</td></tr>
+      <tr><td>L06</td><td>YouTube</td><td>检查官方频道视频及上传时间</td><td style="text-align:right">2</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E05</td></tr>
+      <tr><td>L07</td><td>LinkedIn</td><td>检查公司页及动态</td><td style="text-align:right">0</td><td><span class="led-part">部分覆盖</span></td><td>动态时间线未完整加载</td></tr>
+      <tr><td>L08</td><td>Instagram</td><td>检查官方账号及 Creator 账号</td><td style="text-align:right">8</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E04、E05</td></tr>
+      <tr><td>L09</td><td>TikTok</td><td>检查 Creator 账号和官方账号</td><td style="text-align:right">1</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E04</td></tr>
+      <tr><td>L10</td><td>Reddit</td><td>全站搜索品牌和相关 subreddit</td><td style="text-align:right">2</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E06</td></tr>
+      <tr><td>L11</td><td>Hacker News</td><td>Algolia 周期检索</td><td style="text-align:right">0</td><td><span class="led-full">已覆盖-未采集到事件</span></td><td>无匹配结果</td></tr>
+      <tr><td>L12</td><td>Trustpilot</td><td>检查周期内评论和公司回复</td><td style="text-align:right">5+</td><td><span class="led-full">已覆盖-发现事件</span></td><td>用户评论进入线索区</td></tr>
+      <tr><td>L13</td><td>G2 / Capterra</td><td>检索产品评论页</td><td style="text-align:right">0</td><td><span class="led-part">部分覆盖</span></td><td>未取得可核验的本周期评论页</td></tr>
+      <tr><td>L14</td><td>Product Hunt</td><td>直访产品页并搜索 Launch</td><td style="text-align:right">0</td><td><span class="led-full">已覆盖-未采集到事件</span></td><td>无本周期 Launch 记录</td></tr>
+      <tr><td>L15</td><td>App Store / Google Play</td><td>检索移动应用</td><td style="text-align:right">0</td><td><span class="led-na">不适用</span></td><td>官网无移动应用入口</td></tr>
+      <tr><td>L16</td><td>媒体 / 合作</td><td>检索 launch、release、partnership</td><td style="text-align:right">0</td><td><span class="led-full">已覆盖-未采集到事件</span></td><td>未找到第三方媒体报道</td></tr>
+      <tr><td>L17</td><td>Creator 内容</td><td>检查第三方教程和 Affiliate 链接</td><td style="text-align:right">5</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E04</td></tr>
+      <tr><td>L18</td><td>Meta Ad Library</td><td>品牌名和域名检索</td><td style="text-align:right">0</td><td><span class="led-none">未覆盖</span></td><td>Facebook 真人验证拦截</td></tr>
+      <tr><td>L19</td><td>Google Ads Transparency</td><td>品牌名与域名检索</td><td style="text-align:right">0</td><td><span class="led-none">未覆盖</span></td><td>动态页面未返回可审计结果</td></tr>
+      <tr><td>L20</td><td>GitHub</td><td>检查仓库 release 和 issues</td><td style="text-align:right">1</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E07</td></tr>
+      <tr><td>L21</td><td>Pricing</td><td>获取当前价格快照</td><td style="text-align:right">1</td><td><span class="led-full">已覆盖-未采集到事件</span></td><td>无历史价格证据</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="sec" id="gaps">
+    <div class="sec-head"><span class="num">§7</span><h2>调研覆盖与缺口</h2></div>
+    <ul class="gap-list">
+      <li>广告透明度平台未成功采集，不能判断付费广告变化。</li>
+      <li>X（Twitter）、LinkedIn 动态时间线未完整覆盖。</li>
+      <li>Discord 社区无公开访问入口，无法采集内部讨论。</li>
+      <li>E04 Creator 合作是否付费无法确认，只能记录为"同期分发"。</li>
+      <li>E06 Reddit Staff 帖子的背后合作背景无法独立核实。</li>
+    </ul>
+  </section>
+</main>
+<script>(function(){function applyTheme(t){document.documentElement.setAttribute('data-theme',t);var b=document.getElementById('theme-toggle');if(b)b.textContent=t==='light'?'◑':'☀';}var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');applyTheme(s);window.toggleTheme=function(){var t=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';localStorage.setItem('theme',t);applyTheme(t);};})();</script>
+</body>
+</html>

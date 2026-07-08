@@ -1,0 +1,200 @@
+schema_version: "1.0.0"
+skill: competitor_intel
+description: Data contract for bi-weekly competitor growth intelligence Markdown reports.
+
+fields:
+  report_metadata:
+    type: object
+    required: true
+    description: Top-level report metadata.
+    fields:
+      title:
+        type: string
+        required: true
+        description: Report title, e.g. "{Competitor} 双周竞品动作报告".
+      competitor:
+        type: string
+        required: true
+        description: Competitor key from config/competitors.yaml.
+      date_range:
+        type: string
+        required: true
+        description: Bi-weekly window, e.g. "2026-05-29 ~ 2026-06-12".
+      generated_at:
+        type: string
+        required: true
+        description: ISO-8601 date when the report was generated.
+      event_count:
+        type: integer
+        required: true
+        description: Number of events in the main timeline.
+      confirmation_summary:
+        type: string
+        required: true
+        description: Human-readable summary, e.g. "4 个事件，其中 1 个已二次确认、2 个部分确认、1 个单一来源".
+
+  events:
+    type: array
+    required: true
+    description: Time-ordered list of confirmed or partially confirmed events.
+    item_schema:
+      event_id:
+        type: string
+        required: true
+        description: Unique ID, e.g. "E01".
+      event_name:
+        type: string
+        required: true
+        description: Short, factual event title.
+      category:
+        type: string
+        required: true
+        enum:
+          - seo_content
+          - product_update
+          - pricing_change
+          - paid_ad
+          - social_content
+          - creator_partnership
+          - community_signal
+          - launch_distribution
+          - media_coverage
+        description: Event category.
+      occurred_at:
+        type: string
+        required: true
+        description: Date or datetime the event occurred.
+      time_basis:
+        type: string
+        required: true
+        description: How occurred_at was determined, e.g. "页面发布时间", "sitemap lastmod".
+      discovered_at:
+        type: string
+        required: true
+        description: Date the source was accessed.
+      facts:
+        type: array
+        required: true
+        item_type: string
+        description: Bullet list of source-directly-supported facts.
+      primary_source:
+        $ref: "#/fields/source"
+        required: true
+        description: Main source for the event.
+      secondary_source:
+        $ref: "#/fields/source"
+        required: false
+        description: Secondary source if available.
+      source_relationship:
+        type: string
+        required: true
+        enum:
+          - 独立信源
+          - 同源佐证
+          - 转述或副本
+          - 无二次信源
+        description: Relationship between primary and secondary source.
+      verification_status:
+        type: string
+        required: true
+        enum:
+          - "✅ 已二次确认"
+          - "⚠️ 部分确认"
+          - "◯ 单一来源"
+          - "❌ 来源冲突"
+        description: Confirmation status.
+      verified_scope:
+        type: string
+        required: true
+        description: What the evidence jointly confirms.
+      unverified_scope:
+        type: string
+        required: true
+        description: What remains unconfirmed.
+
+  source:
+    type: object
+    required: false
+    description: Reusable source structure.
+    fields:
+      name:
+        type: string
+        required: true
+        description: Source name, e.g. "NeuralFrames Sitemap".
+      attribution:
+        type: string
+        required: true
+        description: Organization or account that owns the source.
+      type:
+        type: string
+        required: true
+        description: Source type, e.g. "官方技术记录", "用户原始帖子".
+      date:
+        type: string
+        required: false
+        description: Source date or "页面未标注".
+      url:
+        type: string
+        required: true
+        description: Direct URL.
+      proven_fact:
+        type: string
+        required: true
+        description: What this source directly proves.
+
+  source_execution_ledger:
+    type: array
+    required: true
+    description: Audit log of every required channel investigation.
+    item_schema:
+      source_id:
+        type: string
+        required: true
+        description: Ledger entry ID, e.g. "L01".
+      source_group:
+        type: string
+        required: true
+        description: High-level group, e.g. "官网与自有内容".
+      platform:
+        type: string
+        required: true
+        description: Platform or channel name.
+      account_or_entry:
+        type: string
+        required: false
+        description: Account URL or entry point.
+      query_or_action:
+        type: string
+        required: true
+        description: Query or action performed.
+      period:
+        type: string
+        required: true
+        description: Investigation period.
+      executed_at:
+        type: string
+        required: true
+        description: ISO-8601 timestamp.
+      result_count:
+        type: integer
+        required: true
+        description: Number of candidates found.
+      status:
+        type: string
+        required: true
+        enum:
+          - 已覆盖-发现事件
+          - 已覆盖-未采集到事件
+          - 部分覆盖
+          - 未覆盖
+          - 不适用
+        description: Coverage status.
+      failure_reason:
+        type: string
+        required: false
+        description: Reason for partial/no coverage.
+      candidate_event_ids:
+        type: array
+        required: false
+        item_type: string
+        description: IDs of events supported by this ledger entry.

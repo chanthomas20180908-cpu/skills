@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NeuralFrames B1 · 双周竞品情报报告（复测）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));</script>
+<style>
+:root{--bg:#050b07;--bg-grid:rgba(155,220,42,.045);--panel:#0b140e;--panel2:#0f1b13;--panel3:#111f16;--line:#213124;--line-soft:#17231a;--text:#dce6d7;--muted:#788574;--faint:#4d5a4b;--brand:#9bdc2a;--blue:#60a5fa;--amber:#e6a72a;--red:#ef6f6c;--purple:#a78bfa;}
+[data-theme="light"]{--bg:#ffffff;--bg-grid:rgba(26,127,55,.025);--panel:#f6f8fa;--panel2:#eaeef2;--panel3:#dde3ea;--line:#d0d7de;--line-soft:#eaeef2;--text:#1f2328;--muted:#656d76;--faint:#818c98;--brand:#1a7f37;--blue:#0969da;--amber:#b45309;--red:#cf222e;--purple:#7c3aed;}
+[data-theme="light"] body{background:var(--bg);}
+[data-theme="light"] body::before{opacity:.1;}
+[data-theme="light"] .top{background:rgba(246,248,250,.97);border-bottom-color:var(--line);}
+[data-theme="light"] .page-nav a{background:var(--panel);border-color:var(--line);}
+[data-theme="light"] .ev-meta{background:rgba(26,127,55,.04);}
+[data-theme="light"] .ev-verdict{background:rgba(26,127,55,.06);}
+#theme-toggle{background:none;border:1px solid var(--line);color:var(--muted);cursor:pointer;border-radius:6px;padding:2px 9px;font-size:13px;font-family:inherit;transition:all .12s;flex-shrink:0;}
+#theme-toggle:hover{border-color:var(--brand);color:var(--brand);}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg);overscroll-behavior:none}
+body{margin:0;background:radial-gradient(circle at 18% -10%,rgba(155,220,42,.09),transparent 32%),linear-gradient(180deg,#07100a 0%,var(--bg) 38%,#030604 100%);color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'PingFang SC',monospace;font-size:14px;line-height:1.65;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(var(--bg-grid) 1px,transparent 1px),linear-gradient(90deg,var(--bg-grid) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.18));}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px;opacity:.9}
+.top{position:sticky;top:0;z-index:20;background:rgba(5,11,7,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.top-in{padding:12px 40px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.breadcrumb{font-size:12px;color:var(--faint);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.breadcrumb a{color:var(--faint);font-weight:700}
+.breadcrumb a:hover{color:var(--brand);text-decoration:none}
+.breadcrumb .sep{color:var(--line)}
+.breadcrumb .current{color:var(--brand);font-weight:950;font-family:'JetBrains Mono',monospace}
+.page-nav{display:flex;gap:4px;align-items:center}
+.page-nav a{padding:6px 12px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--muted);font-size:12px;font-weight:850;white-space:nowrap;transition:all .14s}
+.page-nav a:hover{background:var(--panel2);color:var(--brand);border-color:rgba(191,255,0,.3);text-decoration:none}
+.wrap{padding:32px 40px 80px;position:relative;z-index:1}
+.page-title{margin-bottom:28px}
+.page-title h1{font-size:20px;font-weight:950;margin:0 0 6px;letter-spacing:-.02em;color:var(--text)}
+.page-title .meta{font-size:11px;color:var(--faint)}
+.rpt-ident{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.rpt-product{font-size:30px;font-weight:950;color:var(--brand);letter-spacing:-.03em;font-family:'JetBrains Mono',monospace;line-height:1}
+.rpt-period{font-size:15px;font-weight:800;padding:4px 12px;background:rgba(155,220,42,.1);border:1px solid rgba(155,220,42,.32);border-radius:5px;color:var(--brand);font-family:'JetBrains Mono',monospace;line-height:1.4;flex-shrink:0}
+.rpt-range{font-size:14px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.01em}
+.sec{margin:0 0 40px}
+.sec[id]{scroll-margin-top:70px}
+.sec-head{display:flex;align-items:center;gap:10px;padding-bottom:11px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.num{display:inline-flex;align-items:center;padding:2px 8px;font-size:11px;font-weight:800;color:var(--brand);letter-spacing:.06em;background:rgba(191,255,0,.08);border:1px solid rgba(191,255,0,.22);border-radius:5px;font-family:'JetBrains Mono',monospace}
+h2{font-size:17px;margin:0;letter-spacing:-.01em}
+.grid{display:grid;gap:10px}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.metric{padding:14px 16px;background:var(--panel2);border:1px solid var(--line);border-top:3px solid var(--faint);border-radius:8px}
+.metric strong{display:block;font-size:30px;line-height:1;margin-bottom:5px;color:var(--brand);font-family:'JetBrains Mono',monospace;letter-spacing:-.03em}
+.metric span{font-size:11px;color:var(--muted)}
+.metric.amber strong{color:var(--amber)}.metric.amber{border-top-color:var(--amber)}
+.metric.blue strong{color:var(--blue)}.metric.blue{border-top-color:var(--blue)}
+.metric.faint strong{color:var(--faint)}.metric.faint{border-top-color:var(--faint)}
+.tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--line)}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;padding:8px 12px;font-size:10px;font-weight:800;color:var(--faint);background:var(--panel3);border-bottom:1px solid var(--line);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.tbl td{padding:8px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--text)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(255,255,255,.012)}
+/* event cards */
+.ev-card{margin-bottom:14px;border-radius:8px;border:1px solid var(--line);overflow:hidden}
+.ev-card.done{border-left:3px solid rgba(155,220,42,.42)}
+.ev-card.part{border-left:3px solid rgba(230,167,42,.42)}
+.ev-card.single{border-left:3px solid rgba(77,90,75,.38)}
+.ev-hdr{padding:11px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel3);border-bottom:1px solid var(--line-soft)}
+.ev-id{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;padding:2px 8px;background:rgba(155,220,42,.07);border:1px solid rgba(155,220,42,.18);border-radius:4px;color:var(--brand);flex-shrink:0}
+.ev-date{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;flex-shrink:0}
+.ev-title{font-size:13px;font-weight:700;color:var(--text);flex:1;min-width:180px}
+.ev-stat{font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;flex-shrink:0}
+.ev-stat.done{background:rgba(155,220,42,.08);border:1px solid rgba(155,220,42,.2);color:var(--brand)}
+.ev-stat.part{background:rgba(230,167,42,.07);border:1px solid rgba(230,167,42,.2);color:var(--amber)}
+.ev-stat.single{background:rgba(77,90,75,.06);border:1px solid rgba(77,90,75,.18);color:var(--faint)}
+.ev-meta{padding:5px 16px;display:flex;flex-wrap:wrap;gap:18px;background:rgba(0,0,0,.1);border-bottom:1px solid var(--line-soft)}
+.ev-mi{font-size:11px;color:var(--faint)}
+.ev-mi strong{color:var(--muted);font-weight:700}
+.cat-tag{display:inline-block;font-size:11px;font-weight:800;padding:1px 7px;border-radius:4px;letter-spacing:.03em;vertical-align:middle;line-height:1.6}
+.cat-green{background:rgba(155,220,42,.1);border:1px solid rgba(155,220,42,.35);color:var(--brand)}
+.cat-blue{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.35);color:var(--blue)}
+.cat-amber{background:rgba(230,167,42,.1);border:1px solid rgba(230,167,42,.35);color:var(--amber)}
+.cat-purple{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.35);color:var(--purple)}
+[data-theme="light"] .cat-green{background:rgba(26,127,55,.08);border-color:rgba(26,127,55,.3);color:var(--brand)}
+[data-theme="light"] .cat-blue{background:rgba(9,105,218,.08);border-color:rgba(9,105,218,.3);color:var(--blue)}
+[data-theme="light"] .cat-amber{background:rgba(180,83,9,.08);border-color:rgba(180,83,9,.3);color:var(--amber)}
+[data-theme="light"] .cat-purple{background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.3);color:var(--purple)}
+.ev-body{padding:14px 16px}
+.ev-body ul{margin:4px 0 10px;padding-left:16px;line-height:1.85}
+.ev-body li{margin:2px 0;color:var(--text);font-size:13px}
+.src-details{margin-top:10px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.src-details summary{padding:6px 12px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;background:rgba(230,167,42,.07);list-style:none;display:flex;align-items:center;gap:6px;user-select:none;outline:none}
+[data-theme="light"] .src-details summary{background:rgba(180,83,9,.06)}
+.src-details summary::-webkit-details-marker{display:none}
+.src-details summary::before{content:"▶";font-size:9px;color:var(--faint);transition:transform .1s;flex-shrink:0}
+.src-details[open] summary::before{transform:rotate(90deg)}
+.src-details summary:hover{color:var(--brand)}
+.src-inner{overflow-x:auto}
+.src-tbl{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
+.src-tbl th{padding:6px 10px;font-size:10px;font-weight:800;color:var(--faint);background:rgba(230,167,42,.07);letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line);text-align:left;word-break:break-word}
+[data-theme="light"] .src-tbl th{background:rgba(180,83,9,.06)}
+.src-tbl th:first-child{width:88px}
+.src-tbl td{padding:6px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--text);word-break:break-word;overflow-wrap:break-word}
+.src-tbl tr:last-child td{border-bottom:none}
+.src-tbl .rl{font-size:10px;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.ev-verdict{margin-top:10px;padding:10px 12px;background:rgba(0,0,0,.14);border-radius:6px;display:flex;flex-direction:column;gap:4px}
+.v-rel{font-size:11px;color:var(--faint)}
+.v-rel strong{color:var(--muted)}
+.v-ok{font-size:12px;color:var(--brand);line-height:1.65}
+.v-no{font-size:12px;color:var(--muted);line-height:1.65}
+/* ledger */
+.led-full{color:var(--brand);font-weight:700}
+.led-part{color:var(--amber);font-weight:700}
+.led-none{color:var(--faint);font-weight:700}
+.led-na{color:var(--faint);opacity:.5;font-weight:700}
+/* gap list */
+.gap-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;counter-reset:gap}
+.gap-list li{padding:10px 14px;background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:6px;font-size:13px;color:var(--muted);line-height:1.6;counter-increment:gap}
+.gap-list li::before{content:counter(gap)". ";color:var(--amber);font-weight:700}
+@media(max-width:900px){
+  .top-in,.wrap{padding-left:18px;padding-right:18px}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .ev-hdr{flex-direction:column;align-items:flex-start;gap:5px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="breadcrumb">
+      <a href="../../../record_center/site/index.html">增长记录中心</a>
+      <span class="sep">/</span>
+      <a href="../../../record_center/site/domains/d00-competitive-intelligence.html">竞品情报 D00</a>
+      <span class="sep">/</span>
+      <a href="../../../record_center/site/domains/d00-intel-reports.html">报告档案</a>
+      <span class="sep">/</span>
+      <span class="current">NF · B1</span>
+    </div>
+    <nav class="page-nav">
+      <a href="../../../record_center/site/domains/d00-intel-reports.html">← 报告矩阵</a>
+      <a href="neuralframes_2026-06-12_retest.md" target="_blank">MD 原文</a>
+      <button id="theme-toggle" onclick="toggleTheme()" title="切换亮/暗色">☀</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="page-title">
+    <div class="rpt-ident">
+      <span class="rpt-product">NeuralFrames</span>
+      <span class="rpt-period">B1</span>
+      <span class="rpt-range">2026-05-29 ~ 2026-06-12</span>
+    </div>
+    <h1>双周竞品情报报告（复测验证版）</h1>
+    <div class="meta">调研时间：2026-06-12 · 独立调查，不与历史报告或其他竞品比较 · 覆盖不完整（广告库未取得结果）</div>
+  </div>
+
+  <!-- 概览指标 -->
+  <section class="sec" id="overview">
+    <div class="grid g4" style="margin-bottom:0">
+      <div class="metric"><strong>14</strong><span>个事件记录</span></div>
+      <div class="metric"><strong>5✅ 6⚠️ 1◯</strong><span>确认分布（已确认 / 部分 / 单一）</span></div>
+      <div class="metric blue"><strong>27</strong><span>条信源记录</span></div>
+      <div class="metric faint"><strong>21</strong><span>条渠道台账<br>12完整 5部分 3未覆盖 1不适用</span></div>
+    </div>
+  </section>
+
+  <!-- §1 时间线 -->
+  <section class="sec" id="timeline">
+    <div class="sec-head"><span class="num">§1</span><h2>本期事件时间线</h2></div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>日期</th><th>ID</th><th>已发生事件</th><th>分类</th><th>确认状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2026-05-29</td><td><a href="#e01">E01</a></td><td>官方 X 与 YouTube 同日发布团队日常短内容</td><td>社媒内容</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-01</td><td><a href="#e02">E02</a></td><td>公司在 Trustpilot 集中公开回复至少 5 条历史评论</td><td>客户沟通</td><td style="color:var(--faint)">◯ 单一来源</td></tr>
+          <tr><td>2026-06-02</td><td><a href="#e03">E03</a></td><td>Music Ally 报道公司披露 ARR 已超过 500 万美元</td><td>经营信息</td><td style="color:var(--brand)">✅ 已二次确认</td></tr>
+          <tr><td>2026-06-02</td><td><a href="#e04">E04</a></td><td>Hazel Savage 被任命为战略顾问</td><td>组织动作</td><td style="color:var(--brand)">✅ 已二次确认</td></tr>
+          <tr><td>2026-06-04</td><td><a href="#e05">E05</a></td><td>Neural Frames 进入 SXSW London 官方合作伙伴及议程</td><td>活动 / 合作</td><td style="color:var(--brand)">✅ 已二次确认</td></tr>
+          <tr><td>2026-06-05</td><td><a href="#e06">E06</a></td><td>官网发布两篇 AI 音乐视频工具比较文章</td><td>SEO / 内容</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-06</td><td><a href="#e07">E07</a></td><td>官方发布纽约 Meet+Make 活动公告及 6 月 9 日活动页</td><td>社区活动</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-08</td><td><a href="#e08">E08</a></td><td>官方 X 与 YouTube 发布办公室"人生配乐"短内容</td><td>社媒内容</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-09</td><td><a href="#e09">E09</a></td><td>Sitemap 记录 16 个公开免费工具页同日更新</td><td>官网工具页</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-10</td><td><a href="#e10">E10</a></td><td>正式发布 Short-Form Studio，首发 9 个竖屏音频响应模板</td><td>产品发布</td><td style="color:var(--brand)">✅ 已二次确认</td></tr>
+          <tr><td>2026-06-11</td><td><a href="#e11">E11</a></td><td>Sitemap 记录 8 个语种下 496 个本地化 URL 同日更新</td><td>国际化 / SEO</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-09</td><td><a href="#e13">E13</a></td><td>Reddit 用户在 r/SunoAI 发帖讨论 Neural Frames 进阶使用与 credit 成本</td><td>社区信号</td><td style="color:var(--faint)">◯ 单一信源</td></tr>
+          <tr><td>2026-06-09</td><td><a href="#e14">E14</a></td><td>Reddit 用户在 r/ArtificialInteligence 将 Neural Frames 列为 AI 音乐视频工具案例</td><td>社区信号</td><td style="color:var(--faint)">◯ 单一信源</td></tr>
+          <tr><td>2026-06-11</td><td><a href="#e12">E12</a></td><td>官方转发 Seedance 2 实际演示，官网计价表已列出该模型</td><td>产品能力 / Creator</td><td style="color:var(--brand)">✅ 已二次确认</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- §2 事件详细 -->
+  <section class="sec" id="events">
+    <div class="sec-head"><span class="num">§2</span><h2>事件详细记录</h2></div>
+
+    <!-- E01 -->
+    <div class="ev-card part" id="e01">
+      <div class="ev-hdr">
+        <span class="ev-id">E01</span>
+        <span class="ev-date">2026-05-29</span>
+        <span class="ev-title">官方 X 与 YouTube 同日发布团队日常短内容</span>
+        <span class="ev-stat part">⚠️ 部分确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-blue">社媒内容</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>X 帖子时间与 YouTube Short 的 uploadDate</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>官方 X 发布文字帖："We enjoy working at neural frames indeed."</li>
+          <li>官方 YouTube 发布 Short《We love it here🐿️》。</li>
+          <li>两条记录均发生在 5 月 29 日；现有证据未证明两个页面使用的是完全相同的视频文件。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Neural Frames X 帖子</td><td>Neural Frames YouTube Short</td></tr>
+                <tr><td class="rl">来源归属</td><td>Neural Frames</td><td>Neural Frames</td></tr>
+                <tr><td class="rl">来源类型</td><td>官方社媒原帖</td><td>官方视频原帖</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-05-29 11:18:11 UTC</td><td>2026-05-29 05:00:23 PDT</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://x.com/neuralframes/status/2060319788337877185" target="_blank">打开 →</a></td><td><a href="https://www.youtube.com/shorts/E1dCGAwcqjs" target="_blank">打开 →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>官方账号发布团队日常文字帖</td><td>官方频道发布团队日常 Short</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：两个官方账号在同日发布团队日常内容。</div>
+          <div class="v-no">◎ 未确认：是否为同一素材；实际触达、互动质量或业务效果。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E02 -->
+    <div class="ev-card single" id="e02">
+      <div class="ev-hdr">
+        <span class="ev-id">E02</span>
+        <span class="ev-date">2026-06-01</span>
+        <span class="ev-title">公司在 Trustpilot 集中公开回复至少 5 条历史评论</span>
+        <span class="ev-stat single">◯ 单一来源</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-purple">客户沟通</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>Trustpilot 公司回复日期</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Trustpilot 页面显示 Neural Frames 在 6 月 1 日公开回复了 Kathy、Kev、Peter、Ian 和 Willians 的评论。</li>
+          <li>回复内容分别涉及退款与订阅、支持响应、叙事视频效果、重复生成结果、lip-sync 与角色一致性等问题。</li>
+          <li>回复署名多为创始人 Nico，并在部分回复中提供邮箱、补回 credits、退款或继续协助的处理方式。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Neural Frames Trustpilot 评论页</td><td>未找到</td></tr>
+                <tr><td class="rl">来源归属</td><td>Trustpilot / Neural Frames 企业回复</td><td>—</td></tr>
+                <tr><td class="rl">来源类型</td><td>第三方评论平台原始记录</td><td>—</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-01</td><td>—</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://www.trustpilot.com/review/neuralframes.com" target="_blank">打开 →</a></td><td>—</td></tr>
+                <tr><td class="rl">证明内容</td><td>评论、公司回复、回复日期和公开处理表述</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>无二次信源</div>
+          <div class="v-ok" style="color:var(--faint)">◯ 已确认范围：至少 5 条公开公司回复在 6 月 1 日出现。</div>
+          <div class="v-no">◎ 未确认：邮件、退款、credits 补偿等后续动作是否实际完成。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E03 -->
+    <div class="ev-card done" id="e03">
+      <div class="ev-hdr">
+        <span class="ev-id">E03</span>
+        <span class="ev-date">2026-06-02</span>
+        <span class="ev-title">Music Ally 报道公司披露 ARR 已超过 500 万美元</span>
+        <span class="ev-stat done">✅ 已二次确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-amber">经营信息</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>Music Ally 原创报道发布时间</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Music Ally 报道 Neural Frames 的 annual run rate 已超过 500 万美元。</li>
+          <li>报道同时写明平台已被超过 40,000 名音乐人使用，并累计创建超过 200 万个视频。</li>
+          <li>Hazel Savage 随后在个人 LinkedIn 帖子中公开写明 Neural Frames "Currently at $5m ARR"。</li>
+          <li>ARR、用户数和视频数均属于公司或关联人士公开披露，不是经审计财务数据。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Music Ally 原创报道</td><td>Hazel Savage LinkedIn 原帖</td></tr>
+                <tr><td class="rl">来源归属</td><td>Music Ally</td><td>Hazel Savage</td></tr>
+                <tr><td class="rl">来源类型</td><td>行业媒体原创报道</td><td>当事人个人原帖</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-02 12:30 UTC</td><td>2026-06-04</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://musically.com/2026/06/02/ai-music-videos-startup-neural-frames-hits-5m-annual-run-rate/" target="_blank">打开 →</a></td><td><a href="https://www.linkedin.com/posts/hazelrebeccasavage_ai-audio-startups-activity-7468317951402782722-wxdN" target="_blank">打开 →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>报道 $5M ARR、40,000+ 音乐人和 2M+ 视频</td><td>独立账号重复公开 $5M ARR 口径</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>独立信源</div>
+          <div class="v-ok">✅ 已确认范围：至少两名独立发布者公开发布了 $5M ARR 口径；Music Ally 报道了 40,000+ 音乐人和 2M+ 视频口径。</div>
+          <div class="v-no">◎ 未确认：ARR 计算方式、统计截止时间及数据真实性未获审计材料确认；用户数和视频数没有第二份独立证据。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E04 -->
+    <div class="ev-card done" id="e04">
+      <div class="ev-hdr">
+        <span class="ev-id">E04</span>
+        <span class="ev-date">2026-06-02</span>
+        <span class="ev-title">Hazel Savage 被任命为战略顾问</span>
+        <span class="ev-stat done">✅ 已二次确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-amber">组织动作</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>Music Ally 首次明确报道日期</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Music Ally 明确写明 Musiio 创始人 Hazel Savage 被任命为 Neural Frames 的 strategic advisor。</li>
+          <li>Hazel Savage 在个人 LinkedIn 公开宣布正在与 Neural Frames 合作，并使用 #advisor 标签。</li>
+          <li>Neural Frames 创始人 Nicolai Klemke 在该 LinkedIn 帖子下公开回复欢迎其加入。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Music Ally 原创报道</td><td>Hazel Savage LinkedIn 原帖</td></tr>
+                <tr><td class="rl">来源归属</td><td>Music Ally</td><td>Hazel Savage</td></tr>
+                <tr><td class="rl">来源类型</td><td>行业媒体原创报道</td><td>当事人个人原帖及公开评论</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-02</td><td>2026-06-04</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://musically.com/2026/06/02/ai-music-videos-startup-neural-frames-hits-5m-annual-run-rate/" target="_blank">打开 →</a></td><td><a href="https://www.linkedin.com/posts/hazelrebeccasavage_ai-audio-startups-activity-7468317951402782722-wxdN" target="_blank">打开 →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>明确写明战略顾问任命</td><td>当事人确认合作，创始人公开确认加入</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>独立信源</div>
+          <div class="v-ok">✅ 已确认范围：Hazel Savage 已加入 Neural Frames 并担任顾问角色。</div>
+          <div class="v-no">◎ 未确认：顾问合同期限、具体职责、薪酬和投入时间。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E05 -->
+    <div class="ev-card done" id="e05">
+      <div class="ev-hdr">
+        <span class="ev-id">E05</span>
+        <span class="ev-date">2026-06-04</span>
+        <span class="ev-title">Neural Frames 进入 SXSW London 官方合作伙伴及议程</span>
+        <span class="ev-stat done">✅ 已二次确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-green">活动 / 合作</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>SXSW London 官方议程日期</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>SXSW London 官方合作伙伴页面将 Neural Frames 列为 2026 年 Activation Partner。</li>
+          <li>官方议程列出《MTV to TikTok: How Can Musicians Satisfy the Feed?》Panel Discussion，时间为 6 月 4 日 11:30-12:00。</li>
+          <li>议程列出的 Neural Frames 人员包括 Founder and CEO Nicolai Klemke，以及主持人 Conor Fitzpatrick。</li>
+          <li>SlicedBrand 在 6 月 1 日发布原帖，指向同一 SXSW London 议程并预告 Neural Frames 的 6 月 4 日活动。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>SXSW London 官方合作伙伴与议程页</td><td>SlicedBrand X 原帖</td></tr>
+                <tr><td class="rl">来源归属</td><td>SXSW London</td><td>SlicedBrand</td></tr>
+                <tr><td class="rl">来源类型</td><td>活动方官方记录</td><td>第三方 PR 机构原帖</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-04</td><td>2026-06-01 13:51:48 UTC</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://sxswlondon.com/partners/neural-frames-2ea75183" target="_blank">合作伙伴 →</a> · <a href="https://www.sxswlondon.com/session/mtv-to-tiktok-how-can-musicians-satisfy-the-feed-97c3a622" target="_blank">议程 →</a></td><td><a href="https://x.com/slicedbrand/status/2061445612365627633" target="_blank">打开 →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>合作伙伴身份、议程、时间和人员</td><td>独立账号预告并链接同一议程</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>独立信源</div>
+          <div class="v-ok">✅ 已确认范围：Neural Frames 被 SXSW London 列为 Activation Partner，并进入 6 月 4 日官方议程。</div>
+          <div class="v-no">◎ 未确认：现场实际到场情况、观众人数和活动效果。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E06 -->
+    <div class="ev-card part" id="e06">
+      <div class="ev-hdr">
+        <span class="ev-id">E06</span>
+        <span class="ev-date">2026-06-05</span>
+        <span class="ev-title">官网发布两篇 AI 音乐视频工具比较文章</span>
+        <span class="ev-stat part">⚠️ 部分确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-blue">SEO / 内容</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>官方 Blog 索引显示的发布日期</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>发布《Neural Frames vs Freebeat: Which AI Music Video Generator Should You Use in 2026?》。</li>
+          <li>文章比较 Neural Frames 与 Freebeat 的音频分析、交互方式、lip sync、生成模型、分辨率、输入方式、音乐生成和价格。</li>
+          <li>发布《10 Best AI Music Video Generators for creative control (2026)》。</li>
+          <li>第二篇文章列出 Neural Frames、Kaiber、Runway、LTX Studio、Freebeat、Higgsfield、Pika、Kling、Rotor Videos 和 Revid，并将 Neural Frames 排在第 1 位。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Neural Frames 两篇官方文章</td><td>Neural Frames Blog 索引</td></tr>
+                <tr><td class="rl">来源归属</td><td>Neural Frames</td><td>Neural Frames</td></tr>
+                <tr><td class="rl">来源类型</td><td>官方文章页</td><td>官方内容索引</td></tr>
+                <tr><td class="rl">来源时间</td><td>正文未单独显示</td><td>2026-06-05</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://www.neuralframes.com/post/neural-frames-vs-freebeat-which-ai-music-video-generator-should-you-use-in-2026" target="_blank">Freebeat 对比文 →</a> · <a href="https://www.neuralframes.com/post/10-best-ai-music-video-generators-for-creative-control-2026" target="_blank">Top 10 横评 →</a></td><td><a href="https://www.neuralframes.com/blog" target="_blank">Blog →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>标题、正文、比较项目和榜单内容</td><td>两篇文章进入官方 Blog，日期均为 05/06/2026</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：两篇文章已公开，官方索引将发布日期标为 6 月 5 日。</div>
+          <div class="v-no">◎ 未确认：搜索排名、访问量、转化或实际业务效果。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E07 -->
+    <div class="ev-card part" id="e07">
+      <div class="ev-hdr">
+        <span class="ev-id">E07</span>
+        <span class="ev-date">2026-06-06</span>
+        <span class="ev-title">官方发布纽约 Meet+Make 活动公告及 6 月 9 日活动页</span>
+        <span class="ev-stat part">⚠️ 部分确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-purple">社区活动</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>官方 X 公告时间</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Neural Frames 官方 X 发布："Anybody in NYC? We're hosting a small community meetup next Tuesday."</li>
+          <li>Luma 活动页将活动列为 6 月 9 日 19:00-23:00，地点描述为纽约。</li>
+          <li>活动页描述包括 Short-Form Studio walkthrough、Meet+Make hangout 和产品发布庆祝内容。</li>
+          <li>现有来源证明公告和活动页存在，不足以证明活动实际举办或到场规模。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Neural Frames X 公告</td><td>Luma 活动页</td></tr>
+                <tr><td class="rl">来源归属</td><td>Neural Frames</td><td>Neural Frames 活动组织方控制的页面</td></tr>
+                <tr><td class="rl">来源类型</td><td>官方社媒原帖</td><td>第三方活动平台记录</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-06 07:40:47 UTC</td><td>活动时间 2026-06-09</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://x.com/neuralframes/status/2063164180480307574" target="_blank">打开 →</a></td><td><a href="https://luma.com/7w7957em" target="_blank">打开 →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>公司公开发布纽约 meetup 公告</td><td>活动名称、时间和公开描述</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证（Luma 页由 Neural Frames 自行建立）</div>
+          <div class="v-ok">✅ 已确认范围：公司发布了活动公告，并建立了 6 月 9 日 Luma 活动页。</div>
+          <div class="v-no">◎ 未确认：活动是否按计划举行、实际参与者和现场内容。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E08 -->
+    <div class="ev-card part" id="e08">
+      <div class="ev-hdr">
+        <span class="ev-id">E08</span>
+        <span class="ev-date">2026-06-08</span>
+        <span class="ev-title">官方 X 与 YouTube 发布办公室"人生配乐"短内容</span>
+        <span class="ev-stat part">⚠️ 部分确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-blue">社媒内容</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>X 帖子时间与 YouTube Short 的 uploadDate</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>官方 X 发布办公室提问内容："We asked the office what their life's soundtrack would be. What's yours?"</li>
+          <li>官方 YouTube 同日发布 Short《If life had a soundtrack》。</li>
+          <li>两条内容都围绕办公室成员的"人生配乐"回答展开。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Neural Frames X 帖子</td><td>Neural Frames YouTube Short</td></tr>
+                <tr><td class="rl">来源归属</td><td>Neural Frames</td><td>Neural Frames</td></tr>
+                <tr><td class="rl">来源类型</td><td>官方社媒原帖</td><td>官方视频原帖</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-08 15:05:56 UTC</td><td>2026-06-08 07:44:40 PDT</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://x.com/neuralframes/status/2064000985744216530" target="_blank">打开 →</a></td><td><a href="https://www.youtube.com/shorts/Arvqpas7tF8" target="_blank">打开 →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>官方账号发布办公室提问</td><td>官方频道发布对应主题 Short</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：官方 X 和 YouTube 在同日发布同主题办公室短内容。</div>
+          <div class="v-no">◎ 未确认：跨平台互动、受众触达和转化。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E09 -->
+    <div class="ev-card part" id="e09">
+      <div class="ev-hdr">
+        <span class="ev-id">E09</span>
+        <span class="ev-date">2026-06-09</span>
+        <span class="ev-title">Sitemap 记录 16 个公开免费工具页同日更新</span>
+        <span class="ev-stat part">⚠️ 部分确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-green">官网工具页</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>官方 Sitemap 的 lastmod</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Sitemap 在 6 月 9 日共记录 17 个 /tools/ URL 更新，其中 16 个为公开用户工具页，另 1 个为 ToolsSharedVideo 技术路由。</li>
+          <li>16 个公开工具为：AI Album Cover、AI Cartoon、AI Image Description、AI Lyrics、AI Movie Poster、AI Style Transfer、Album Name、Audio to Video、Band Name、Diss Track、Image to Prompt、MP3 to MP4、Music Visualizer、Rap Lyrics、Song Title、Stable Diffusion Prompt Generator。</li>
+          <li>官网页脚将这些入口列入 Free Tools；抽查工具页可正常访问。</li>
+          <li>lastmod 只能证明官方记录的更新时间，不能证明 6 月 9 日首次上线。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Neural Frames Sitemap</td><td>官网页脚与实际工具页</td></tr>
+                <tr><td class="rl">来源归属</td><td>Neural Frames</td><td>Neural Frames</td></tr>
+                <tr><td class="rl">来源类型</td><td>官方技术记录</td><td>官方导航及工具页面</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-09</td><td>页面未标注发布时间</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://www.neuralframes.com/sitemap-0.xml" target="_blank">Sitemap →</a></td><td><a href="https://www.neuralframes.com/tools/ai-cartoon-generator" target="_blank">AI Cartoon Generator →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>URL 和 lastmod</td><td>工具入口及页面当前可访问状态</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：16 个公开工具页存在，Sitemap 记录其在 6 月 9 日更新。</div>
+          <div class="v-no">◎ 未确认：是否首次上线、每个页面的具体修改内容及使用量。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E10 -->
+    <div class="ev-card done" id="e10">
+      <div class="ev-hdr">
+        <span class="ev-id">E10</span>
+        <span class="ev-date">2026-06-10</span>
+        <span class="ev-title">正式发布 Short-Form Studio，首发 9 个竖屏音频响应模板</span>
+        <span class="ev-stat done">✅ 已二次确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-green">产品发布</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>官方 X 发布帖与独立媒体报道日期</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Neural Frames 官方 X 明确写明 "Today we're launching Short-Form Studio"。</li>
+          <li>官方帖说明首发包含 9 个为竖屏格式构建的 audio-reactive templates。</li>
+          <li>用户可提供角色和环境，也可跳过两项，由产品生成相应内容。</li>
+          <li>The AI Musicpreneur 同日发布独立报道，记录 9 个模板、10-60 秒音频片段选择和竖屏输出。</li>
+          <li>Sitemap 在 6 月 9 日记录 9 个模板根路由及各自 /generate 路由更新，6 月 10 日记录 /shortform-studio 页面更新。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Neural Frames X 发布帖及产品页</td><td>The AI Musicpreneur 原创报道</td></tr>
+                <tr><td class="rl">来源归属</td><td>Neural Frames</td><td>Christopher Wieduwilt / The AI Musicpreneur</td></tr>
+                <tr><td class="rl">来源类型</td><td>官方发布原帖、官方产品页</td><td>独立行业媒体报道</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-10 13:00 UTC</td><td>2026-06-10</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://x.com/neuralframes/status/2064694068643549644" target="_blank">X 原帖 →</a> · <a href="https://www.neuralframes.com/shortform-studio" target="_blank">产品页 →</a></td><td><a href="https://www.aimusicpreneur.com/ai-tools-news/neural-frames-short-form-studio/" target="_blank">打开 →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>正式发布、9 个模板和基本输入方式</td><td>同日确认发布日期、模板数量、片段长度和输出格式</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>独立信源</div>
+          <div class="v-ok">✅ 已确认范围：Short-Form Studio 于 6 月 10 日发布，首发 9 个竖屏音频响应模板。</div>
+          <div class="v-no">◎ 未确认：模板使用量、生成质量、留存、付费转化或发布后的业务效果。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E11 -->
+    <div class="ev-card part" id="e11">
+      <div class="ev-hdr">
+        <span class="ev-id">E11</span>
+        <span class="ev-date">2026-06-11</span>
+        <span class="ev-title">Sitemap 记录 8 个语种下 496 个本地化 URL 同日更新</span>
+        <span class="ev-stat part">⚠️ 部分确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-blue">国际化 / SEO</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>官方 Sitemap 的 lastmod</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Sitemap 在 6 月 11 日共记录 530 个 URL 更新。</li>
+          <li>其中 496 个为本地化 URL：德语、西班牙语、法语、日语、中文、韩语、意大利语和葡萄牙语，每个语种各 62 个 URL。</li>
+          <li>其余 34 个为英文文章或核心页面更新记录。</li>
+          <li>抽查 /de、/zh 及对应本地化页面可访问。</li>
+          <li>该记录只能证明 496 个本地化 URL 在 6 月 11 日出现更新时间，不能证明它们全部在当日首次上线。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Neural Frames Sitemap</td><td>Neural Frames 本地化页面</td></tr>
+                <tr><td class="rl">来源归属</td><td>Neural Frames</td><td>Neural Frames</td></tr>
+                <tr><td class="rl">来源类型</td><td>官方技术记录</td><td>官方本地化页面</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-11</td><td>页面未标注发布时间</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://www.neuralframes.com/sitemap-0.xml" target="_blank">Sitemap →</a></td><td><a href="https://www.neuralframes.com/de" target="_blank">德语首页 →</a> · <a href="https://www.neuralframes.com/zh" target="_blank">中文首页 →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>530 个 URL 的 lastmod，含 496 个本地化 URL</td><td>本地化页面当前存在并可访问</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：8 个语种下各 62 个 URL 存在，Sitemap 记录其在 6 月 11 日更新。</div>
+          <div class="v-no">◎ 未确认：首次上线时间、翻译完成方式、索引状态、自然搜索流量和各市场效果。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E12 -->
+    <div class="ev-card done" id="e12">
+      <div class="ev-hdr">
+        <span class="ev-id">E12</span>
+        <span class="ev-date">2026-06-11</span>
+        <span class="ev-title">官方转发 Seedance 2 实际演示，官网计价表已列出该模型</span>
+        <span class="ev-stat done">✅ 已二次确认</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-green">产品能力 / Creator</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>Creator 原帖及官方引用帖时间</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Creator Ben Nash 发布 Neural Frames 使用演示，并明确写明产品 "now with Seedance 2"。</li>
+          <li>Neural Frames 官方账号在约 39 分钟后引用该 Creator 原帖。</li>
+          <li>官网 Pricing 页当前将 Seedance 2 列入 Autopilot Pricing Calculator，1 分钟示例消耗 2484 credits。</li>
+          <li>多个官网页面出现 "Seedance 2 is now Live on Neural Frames" 顶部提示。</li>
+          <li>证据可确认 Seedance 2 最迟在 6 月 11 日已可被 Neural Frames 用户使用，但不能确认精确首次上线时刻。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Ben Nash X 原帖</td><td>Neural Frames 官方引用帖及 Pricing 页</td></tr>
+                <tr><td class="rl">来源归属</td><td>Ben Nash</td><td>Neural Frames</td></tr>
+                <tr><td class="rl">来源类型</td><td>Creator 原始演示</td><td>官方社媒原帖、官方定价页</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-11 13:58:45 UTC</td><td>2026-06-11 14:37:36 UTC；页面抓取 2026-06-12</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://x.com/bennash/status/2065071242252558428" target="_blank">打开 →</a></td><td><a href="https://x.com/neuralframes/status/2065081016897720567" target="_blank">官方引用 →</a> · <a href="https://www.neuralframes.com/pricing" target="_blank">Pricing →</a></td></tr>
+                <tr><td class="rl">证明内容</td><td>Creator 展示在 Neural Frames 使用 Seedance 2</td><td>官方放大该演示；官网计价表列出 Seedance 2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>独立信源</div>
+          <div class="v-ok">✅ 已确认范围：Seedance 2 最迟于 6 月 11 日已进入 Neural Frames 的公开使用和计价记录。</div>
+          <div class="v-no">◎ 未确认：精确上线日期、适用计划边界、模型质量及 Creator 是否存在付费合作。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E13 -->
+    <div class="ev-card" id="e13">
+      <div class="ev-hdr">
+        <span class="ev-id">E13</span>
+        <span class="ev-date">2026-06-09</span>
+        <span class="ev-title">Reddit 用户在 r/SunoAI 发帖讨论 Neural Frames 进阶使用与 credit 成本</span>
+        <span class="ev-stat">◯ 单一信源</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-purple">社区信号</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>Reddit 帖子原始发布时间戳</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Reddit 用户在 r/SunoAI 发布《Anyone using Neural Frames for more advanced AI music videos?》。</li>
+          <li>帖子内容讨论 Neural Frames 与 Freebeat 的控制能力对比，并提及 credit 成本问题。</li>
+          <li>帖子已公开发布，可证明社区用户在本周期内主动讨论 Neural Frames 的产品体验与定价。</li>
+          <li>无赞助或 Affiliate 披露；帖子作者为普通 Reddit 用户，非官方账号。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Reddit 用户帖子</td><td>未取得</td></tr>
+                <tr><td class="rl">来源归属</td><td>r/SunoAI 用户</td><td>—</td></tr>
+                <tr><td class="rl">来源类型</td><td>用户原帖</td><td>—</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-09 11:02:01 UTC</td><td>—</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://www.reddit.com/r/SunoAI/comments/1u11r5q/anyone_using_neural_frames_for_more_advanced_ai/" target="_blank">打开 →</a></td><td>—</td></tr>
+                <tr><td class="rl">证明内容</td><td>帖子已发布、主题内容和发布时间</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>单一信源</div>
+          <div class="v-ok">◎ 已确认范围：该 Reddit 帖子在 6 月 9 日已公开发布，内容涉及 Neural Frames 的使用讨论。</div>
+          <div class="v-no">◎ 未确认：帖子互动量快照（原始采集时未记录回复数）、讨论结论对用户决策的影响。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E14 -->
+    <div class="ev-card" id="e14">
+      <div class="ev-hdr">
+        <span class="ev-id">E14</span>
+        <span class="ev-date">2026-06-09</span>
+        <span class="ev-title">Reddit 用户在 r/ArtificialInteligence 将 Neural Frames 列为 AI 音乐视频工具案例</span>
+        <span class="ev-stat">◯ 单一信源</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-purple">社区信号</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>Reddit 帖子原始发布时间戳</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>Reddit 用户在 r/ArtificialInteligence 发布《The state of ai music video generation in 2026》。</li>
+          <li>帖子将 Neural Frames 列为"audio-reactive generation"类别的代表工具进行讨论。</li>
+          <li>帖子已公开发布，可证明第三方在本周期内将 Neural Frames 纳入 AI 音乐视频工具分类讨论。</li>
+          <li>无赞助或 Affiliate 披露；帖子作者为普通 Reddit 用户，非官方账号。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Reddit 用户帖子</td><td>未取得</td></tr>
+                <tr><td class="rl">来源归属</td><td>r/ArtificialInteligence 用户</td><td>—</td></tr>
+                <tr><td class="rl">来源类型</td><td>用户原帖</td><td>—</td></tr>
+                <tr><td class="rl">来源时间</td><td>2026-06-09 16:46:24 UTC</td><td>—</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://www.reddit.com/r/ArtificialInteligence/comments/1u1ajd4/the_state_of_ai_music_video_generation_in_2026/" target="_blank">打开 →</a></td><td>—</td></tr>
+                <tr><td class="rl">证明内容</td><td>帖子已发布、Neural Frames 被列为案例及发布时间</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>单一信源</div>
+          <div class="v-ok">◎ 已确认范围：该 Reddit 帖子在 6 月 9 日已公开发布，内容将 Neural Frames 列为 AI 音乐视频工具案例。</div>
+          <div class="v-no">◎ 未确认：帖子互动量快照（原始采集时未记录回复数）、外部讨论对品牌认知的影响。</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- §3 未纳入线索 -->
+  <section class="sec" id="excluded">
+    <div class="sec-head"><span class="num">§3</span><h2>时间未确认或未纳入线索</h2></div>
+    <p style="color:var(--faint);font-size:0.85rem;margin:0 0 1rem"><strong>待跟踪</strong>：发现信号但时间未确认或采集受限，下期继续追踪。<strong>已排除</strong>：经判断确认不纳入，不再追踪。</p>
+    <h3 style="font-size:0.95rem;margin:0 0 0.5rem;color:var(--fg)">3A. 待跟踪线索</h3>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>线索</th><th>信号内容</th><th>原因</th><th>建议下期动作</th></tr></thead>
+        <tbody>
+          <tr><td>Trustpilot 对 Jason 评论的公司回复</td><td>页面显示"A day ago"（调研日 6 月 12 日）</td><td>页面未给出绝对回复日期，不能精确写入时间线</td><td>下期直访 Trustpilot 页面，确认回复绝对日期</td></tr>
+          <tr><td>Instagram 官方账号本周期内容</td><td>账号可访问，SXSW 摘要可检索</td><td>帖子网格未完整加载，无法系统核验时间线</td><td>下期重新采集，使用浏览器滚动完整加载帖子列表</td></tr>
+          <tr><td>TikTok 官方账号</td><td>官网链接指向 @neuralframes</td><td>访问时页面返回账号不可用</td><td>下期检查账号是否已恢复或迁移</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="font-size:0.95rem;margin:1rem 0 0.5rem;color:var(--fg)">3B. 已排除线索</h3>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>线索</th><th>排除理由</th></tr></thead>
+        <tbody>
+          <tr><td>Product Hunt 产品页</td><td>索引页显示 4 次历史 Launch，最近在 2023 年；未取得本周期 Launch 证据，不生成事件</td></tr>
+          <tr><td>当前订阅价格和 Free tier</td><td>只有 6 月 12 日当前 Pricing 快照，没有周期前版本证据，不能判断价格变化，不生成变价事件</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- §4 GIQ 核对 -->
+  <section class="sec" id="giq">
+    <div class="sec-head"><span class="num">§4</span><h2>GIQ 核对</h2></div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>问题</th><th>结果</th><th>事件 ID / 说明</th></tr></thead>
+        <tbody>
+          <tr><td>本周期有哪些新 SEO 落地页或内容发布？</td><td style="color:var(--brand)">有已确认事件</td><td>E06、E09、E10、E11；其中 Sitemap 事件只确认更新时间</td></tr>
+          <tr><td>付费广告素材或落地页有变化吗？</td><td style="color:var(--faint)">未覆盖</td><td>Meta Ad Library 被真人验证拦截；Google Ads Transparency 未返回可审计结果</td></tr>
+          <tr><td>定价 / Free tier 有调整吗？</td><td style="color:var(--faint)">未采集到</td><td>取得 6 月 12 日当前价格快照，但没有本周期历史版本证据</td></tr>
+          <tr><td>有没有新的 KOL/Creator 合作或社媒高互动内容？</td><td style="color:var(--brand)">有已确认事件</td><td>E12 确认 Creator 演示被官方引用；未取得付费合作披露，互动效果不作判断</td></tr>
+          <tr><td>产品有新版本或重大功能更新吗？</td><td style="color:var(--brand)">有已确认事件</td><td>E10 正式发布 Short-Form Studio；E12 确认 Seedance 2 最迟于 6 月 11 日可用</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- §5 信源总表 -->
+  <section class="sec" id="sources">
+    <div class="sec-head"><span class="num">§5</span><h2>信源总表（27 条）</h2></div>
+    <!-- S26/S27 已更新为 E13/E14 -->
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>ID</th><th>信源与链接</th><th>归属</th><th>类型</th><th>来源时间</th><th>获取时间</th><th>支撑事件</th><th>证明内容</th></tr></thead>
+        <tbody>
+          <tr><td>S01</td><td><a href="https://x.com/neuralframes/status/2060319788337877185" target="_blank">X：团队日常</a></td><td>Neural Frames</td><td>官方原帖</td><td>2026-05-29</td><td>2026-06-12</td><td>E01</td><td>帖子正文和发布时间</td></tr>
+          <tr><td>S02</td><td><a href="https://www.youtube.com/shorts/E1dCGAwcqjs" target="_blank">YouTube：We love it here</a></td><td>Neural Frames</td><td>官方 Short</td><td>2026-05-29</td><td>2026-06-12</td><td>E01</td><td>标题和上传时间</td></tr>
+          <tr><td>S03</td><td><a href="https://www.trustpilot.com/review/neuralframes.com" target="_blank">Trustpilot</a></td><td>Trustpilot / NF 企业回复</td><td>评论平台原始记录</td><td>2026-06-01 等</td><td>2026-06-12</td><td>E02</td><td>评论、公司回复和日期</td></tr>
+          <tr><td>S04</td><td><a href="https://musically.com/2026/06/02/ai-music-videos-startup-neural-frames-hits-5m-annual-run-rate/" target="_blank">Music Ally：$5M ARR</a></td><td>Music Ally</td><td>原创行业报道</td><td>2026-06-02</td><td>2026-06-12</td><td>E03、E04</td><td>ARR、用户数、视频数和顾问任命</td></tr>
+          <tr><td>S05</td><td><a href="https://www.linkedin.com/posts/hazelrebeccasavage_ai-audio-startups-activity-7468317951402782722-wxdN" target="_blank">Hazel Savage LinkedIn</a></td><td>Hazel Savage</td><td>当事人原帖</td><td>2026-06-04</td><td>2026-06-12</td><td>E03、E04</td><td>$5M ARR 口径、顾问合作和创始人评论</td></tr>
+          <tr><td>S06</td><td><a href="https://sxswlondon.com/partners/neural-frames-2ea75183" target="_blank">SXSW 合作伙伴页</a></td><td>SXSW London</td><td>活动方官方记录</td><td>2026-06-04</td><td>2026-06-12</td><td>E05</td><td>Activation Partner 身份</td></tr>
+          <tr><td>S07</td><td><a href="https://www.sxswlondon.com/session/mtv-to-tiktok-how-can-musicians-satisfy-the-feed-97c3a622" target="_blank">SXSW 议程</a></td><td>SXSW London</td><td>活动方官方记录</td><td>2026-06-04</td><td>2026-06-12</td><td>E05</td><td>Panel 时间、地点和人员</td></tr>
+          <tr><td>S08</td><td><a href="https://x.com/slicedbrand/status/2061445612365627633" target="_blank">SlicedBrand X</a></td><td>SlicedBrand</td><td>第三方原帖</td><td>2026-06-01</td><td>2026-06-12</td><td>E05</td><td>活动预告及官方议程链接</td></tr>
+          <tr><td>S09</td><td><a href="https://www.neuralframes.com/post/neural-frames-vs-freebeat-which-ai-music-video-generator-should-you-use-in-2026" target="_blank">Neural Frames vs Freebeat</a></td><td>Neural Frames</td><td>官方文章</td><td>2026-06-05</td><td>2026-06-12</td><td>E06</td><td>对比文章正文</td></tr>
+          <tr><td>S10</td><td><a href="https://www.neuralframes.com/post/10-best-ai-music-video-generators-for-creative-control-2026" target="_blank">10 Best AI Music Video Generators</a></td><td>Neural Frames</td><td>官方文章</td><td>2026-06-05</td><td>2026-06-12</td><td>E06</td><td>榜单文章正文</td></tr>
+          <tr><td>S11</td><td><a href="https://www.neuralframes.com/blog" target="_blank">Blog</a></td><td>Neural Frames</td><td>官方内容索引</td><td>2026-06-05</td><td>2026-06-12</td><td>E06、E09</td><td>文章日期及 Free Tools 导航</td></tr>
+          <tr><td>S12</td><td><a href="https://x.com/neuralframes/status/2063164180480307574" target="_blank">X：NYC meetup</a></td><td>Neural Frames</td><td>官方原帖</td><td>2026-06-06</td><td>2026-06-12</td><td>E07</td><td>活动公告和发布时间</td></tr>
+          <tr><td>S13</td><td><a href="https://luma.com/7w7957em" target="_blank">Luma：Meet+Make</a></td><td>NF 活动组织方</td><td>活动平台记录</td><td>2026-06-09</td><td>2026-06-12</td><td>E07</td><td>活动时间和描述</td></tr>
+          <tr><td>S14</td><td><a href="https://x.com/neuralframes/status/2064000985744216530" target="_blank">X：人生配乐</a></td><td>Neural Frames</td><td>官方原帖</td><td>2026-06-08</td><td>2026-06-12</td><td>E08</td><td>帖子正文和发布时间</td></tr>
+          <tr><td>S15</td><td><a href="https://www.youtube.com/shorts/Arvqpas7tF8" target="_blank">YouTube：If life had a soundtrack</a></td><td>Neural Frames</td><td>官方 Short</td><td>2026-06-08</td><td>2026-06-12</td><td>E08</td><td>标题和上传时间</td></tr>
+          <tr><td>S16</td><td><a href="https://www.neuralframes.com/sitemap-0.xml" target="_blank">Sitemap</a></td><td>Neural Frames</td><td>官方技术记录</td><td>2026-06-09 至 06-11</td><td>2026-06-12</td><td>E09、E10、E11</td><td>URL、数量和 lastmod</td></tr>
+          <tr><td>S17</td><td><a href="https://www.neuralframes.com/tools/ai-cartoon-generator" target="_blank">AI Cartoon Generator</a></td><td>Neural Frames</td><td>官方工具页</td><td>页面未标注</td><td>2026-06-12</td><td>E09</td><td>工具页当前存在</td></tr>
+          <tr><td>S18</td><td><a href="https://x.com/neuralframes/status/2064694068643549644" target="_blank">X：Short-Form Studio 发布</a></td><td>Neural Frames</td><td>官方发布原帖</td><td>2026-06-10</td><td>2026-06-12</td><td>E10</td><td>正式发布和 9 个模板</td></tr>
+          <tr><td>S19</td><td><a href="https://www.neuralframes.com/shortform-studio" target="_blank">Short-Form Studio</a></td><td>Neural Frames</td><td>官方产品页</td><td>2026-06-10 更新</td><td>2026-06-12</td><td>E10</td><td>当前产品内容</td></tr>
+          <tr><td>S20</td><td><a href="https://www.aimusicpreneur.com/ai-tools-news/neural-frames-short-form-studio/" target="_blank">The AI Musicpreneur 报道</a></td><td>The AI Musicpreneur</td><td>独立行业报道</td><td>2026-06-10</td><td>2026-06-12</td><td>E10</td><td>发布日期、模板数和产品流程</td></tr>
+          <tr><td>S21</td><td><a href="https://www.neuralframes.com/de" target="_blank">德语首页</a></td><td>Neural Frames</td><td>官方本地化页面</td><td>页面未标注</td><td>2026-06-12</td><td>E11</td><td>德语页面当前存在</td></tr>
+          <tr><td>S22</td><td><a href="https://www.neuralframes.com/zh" target="_blank">中文首页</a></td><td>Neural Frames</td><td>官方本地化页面</td><td>页面未标注</td><td>2026-06-12</td><td>E11</td><td>中文页面当前存在</td></tr>
+          <tr><td>S23</td><td><a href="https://x.com/bennash/status/2065071242252558428" target="_blank">Ben Nash X 演示</a></td><td>Ben Nash</td><td>Creator 原帖</td><td>2026-06-11 13:58 UTC</td><td>2026-06-12</td><td>E12</td><td>Neural Frames + Seedance 2 使用表述</td></tr>
+          <tr><td>S24</td><td><a href="https://x.com/neuralframes/status/2065081016897720567" target="_blank">Neural Frames 官方引用</a></td><td>Neural Frames</td><td>官方引用帖</td><td>2026-06-11 14:37 UTC</td><td>2026-06-12</td><td>E12</td><td>官方转发 Creator 演示</td></tr>
+          <tr><td>S25</td><td><a href="https://www.neuralframes.com/pricing" target="_blank">Pricing</a></td><td>Neural Frames</td><td>官方定价页</td><td>当前快照</td><td>2026-06-12</td><td>E12</td><td>Seedance 2 credits 和价格计算</td></tr>
+          <tr><td>S26</td><td><a href="https://www.reddit.com/r/ArtificialInteligence/comments/1u1ajd4/the_state_of_ai_music_video_generation_in_2026/" target="_blank">Reddit：AI 音乐视频工具现状讨论</a></td><td>Reddit 用户</td><td>用户原帖</td><td>2026-06-09 16:46 UTC</td><td>2026-06-12</td><td>E14</td><td>帖子发布时间及 Neural Frames 被列为案例</td></tr>
+          <tr><td>S27</td><td><a href="https://www.reddit.com/r/SunoAI/comments/1u11r5q/anyone_using_neural_frames_for_more_advanced_ai/" target="_blank">Reddit：Neural Frames 进阶使用讨论</a></td><td>Reddit 用户</td><td>用户原帖</td><td>2026-06-09 11:02 UTC</td><td>2026-06-12</td><td>E13</td><td>帖子发布时间及产品对比讨论内容</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-wrap" style="margin-top:12px">
+      <table class="tbl">
+        <thead><tr><th>信源类型</th><th>本报告如何使用</th><th>不能证明什么</th></tr></thead>
+        <tbody>
+          <tr><td>官方文章、产品页和社媒</td><td>确认官方公开发布的文字、页面和产品口径</td><td>不能独立证明产品效果、流量、转化或用户接受度</td></tr>
+          <tr><td>Sitemap</td><td>确认 URL、数量和官方记录的更新时间</td><td>lastmod 不能自动等同首次上线时间</td></tr>
+          <tr><td>独立媒体原创报道</td><td>确认媒体在指定日期发布的事实和采访口径</td><td>不能替代经营数据审计</td></tr>
+          <tr><td>当事人或 Creator 原帖</td><td>确认其公开陈述、演示和发布时间</td><td>不能自动证明无商业合作或观点具有代表性</td></tr>
+          <tr><td>评论和社区平台</td><td>确认帖子、评论、企业回复及公开日期</td><td>不能证明用户身份、实际使用过程或评价真实性</td></tr>
+          <tr><td>活动平台和活动方页面</td><td>确认议程、合作伙伴记录和活动页内容</td><td>不能单独证明实际到场、执行规模或活动效果</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- §6 信源采集执行台账 -->
+  <section class="sec" id="ledger">
+    <div class="sec-head"><span class="num">§6</span><h2>信源采集执行台账（21 条）</h2></div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>ID</th><th>信源/平台</th><th>入口或账号</th><th>检索动作</th><th>执行时间</th><th style="text-align:right">候选数</th><th>状态</th><th>事件/失败原因</th></tr></thead>
+        <tbody>
+          <tr><td>L01</td><td>官网 / 产品 / Pricing</td><td>neuralframes.com</td><td>访问首页、产品页、Pricing；核对 Short-Form Studio、Seedance 2 和当前价格</td><td>2026-06-12</td><td style="text-align:right">2</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E10、E12；当前价格无历史版本，不生成变价事件</td></tr>
+          <tr><td>L02</td><td>Blog</td><td>/blog、/post/</td><td>检查周期内文章日期、正文及 Blog 索引</td><td>2026-06-12</td><td style="text-align:right">2</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E06</td></tr>
+          <tr><td>L03</td><td>Sitemap</td><td>/sitemap-0.xml</td><td>解析周期内全部 lastmod，按日期、路径和语言统计</td><td>2026-06-12</td><td style="text-align:right">581</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E09、E10、E11；数量是 URL 更新记录，不是事件数</td></tr>
+          <tr><td>L04</td><td>Help / RSS / Changelog / Newsletter</td><td>Help Center、/rss.xml、/changelog</td><td>访问 Help Center；探测 RSS、Changelog 和公开 Newsletter 归档</td><td>2026-06-12</td><td style="text-align:right">0</td><td><span class="led-full">已覆盖-未采集到事件</span></td><td>Help Center 可访问；RSS、Feed、Changelog 返回 404；未找到公开 Newsletter 归档</td></tr>
+          <tr><td>L05</td><td>X</td><td>@neuralframes</td><td>使用账号时间线及 from: + 周期高级检索，核对原帖时间</td><td>2026-06-12</td><td style="text-align:right">7</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E01、E07、E08、E10、E12</td></tr>
+          <tr><td>L06</td><td>YouTube</td><td>@neuralframes</td><td>检查 Shorts 和长视频列表，读取视频页 uploadDate</td><td>2026-06-12</td><td style="text-align:right">2</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E01、E08；周期内未发现新长视频</td></tr>
+          <tr><td>L07</td><td>LinkedIn</td><td>Neural Frames 公司页、Hazel Savage</td><td>访问公司动态页并检索品牌、活动和顾问任命</td><td>2026-06-12</td><td style="text-align:right">2</td><td><span class="led-part">部分覆盖</span></td><td>E03、E04、E07；公司 Feed 未完整加载，主要依赖可索引原帖</td></tr>
+          <tr><td>L08</td><td>Instagram</td><td>@neural_frames</td><td>访问官方账号并检索周期内品牌内容</td><td>2026-06-12</td><td style="text-align:right">1</td><td><span class="led-part">部分覆盖</span></td><td>账号可访问且检索到 SXSW 摘要，但帖子网格未完整加载，未用于核心二次确认</td></tr>
+          <tr><td>L09</td><td>TikTok</td><td>@neuralframes</td><td>访问官网指向的官方账号并检索品牌名</td><td>2026-06-12</td><td style="text-align:right">0</td><td><span class="led-none">未覆盖</span></td><td>页面返回账号不可用，无法读取本周期时间线</td></tr>
+          <tr><td>L10</td><td>Reddit</td><td>全站 + 配置 Subreddit</td><td>全站检索 neuralframes、"neural frames"，按新帖排序并核对原帖时间</td><td>2026-06-12</td><td style="text-align:right">4</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E13（r/SunoAI）、E14（r/ArtificialInteligence）；两帖均为用户原帖，已按 community_signal 入账</td></tr>
+          <tr><td>L11</td><td>Hacker News</td><td>Algolia HN Search</td><td>分别检索 neuralframes、neural frames，限定 2026-05-29 至 2026-06-12</td><td>2026-06-12</td><td style="text-align:right">0</td><td><span class="led-full">已覆盖-未采集到事件</span></td><td>两个查询均为 0</td></tr>
+          <tr><td>L12</td><td>Trustpilot</td><td>trustpilot.com/review/neuralframes.com</td><td>检查周期内评论及公司回复绝对日期</td><td>2026-06-12</td><td style="text-align:right">6</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E02；另有 1 条相对日期回复进入时间未确认线索</td></tr>
+          <tr><td>L13</td><td>G2 / Capterra</td><td>Neural Frames 产品页</td><td>检索产品页和评论索引，尝试核对周期内评论</td><td>2026-06-12</td><td style="text-align:right">2</td><td><span class="led-part">部分覆盖</span></td><td>两个平台均有产品索引，但未完整取得本周期评论时间线</td></tr>
+          <tr><td>L14</td><td>Product Hunt</td><td>Neural Frames 产品页</td><td>直访产品页并检索 Launch、Reviews、Maker 内容</td><td>2026-06-12</td><td style="text-align:right">0</td><td><span class="led-part">部分覆盖</span></td><td>直访被 Cloudflare 验证拦截；索引页显示历史 4 次 Launch，未发现本期 Launch</td></tr>
+          <tr><td>L15</td><td>App Store / Google Play</td><td>品牌名、域名</td><td>检索官方站点移动端入口及两大应用商店</td><td>2026-06-12</td><td style="text-align:right">0</td><td><span class="led-na">不适用</span></td><td>官网无移动应用入口，应用商店未找到可确认的官方应用</td></tr>
+          <tr><td>L16</td><td>合作方 / 活动</td><td>SXSW London、Luma</td><td>检查合作伙伴页、官方议程和活动页</td><td>2026-06-12</td><td style="text-align:right">3</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E05、E07</td></tr>
+          <tr><td>L17</td><td>媒体 / Newsletter</td><td>Music Ally、The AI Musicpreneur 等</td><td>检索品牌 + ARR、revenue、launch、release、interview</td><td>2026-06-12</td><td style="text-align:right">3</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E03、E04、E10</td></tr>
+          <tr><td>L18</td><td>Creator 内容</td><td>Ben Nash、Hazel Savage、第三方社媒</td><td>检索品牌、产品名和周期内原帖，检查合作披露</td><td>2026-06-12</td><td style="text-align:right">2</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E04、E12；未发现明确 sponsored 或 paid partnership 披露</td></tr>
+          <tr><td>L19</td><td>Meta Ad Library</td><td>品牌名、广告主名、域名</td><td>打开广告库并以 NeuralFrames 检索</td><td>2026-06-12</td><td style="text-align:right">0</td><td><span class="led-none">未覆盖</span></td><td>Facebook 触发"验证你是真人"检查点，无法取得广告 ID 或结果页</td></tr>
+          <tr><td>L20</td><td>Google Ads Transparency</td><td>品牌名 NeuralFrames</td><td>打开透明度中心、输入品牌名并尝试提交查询</td><td>2026-06-12</td><td style="text-align:right">0</td><td><span class="led-none">未覆盖</span></td><td>页面可访问，但动态界面未返回可审计结果或明确零结果状态</td></tr>
+          <tr><td>L21</td><td>公开技术记录</td><td>API、Docs、Status、公开仓库</td><td>检查官网 API 入口、常见 docs/status 子域和配置中的仓库状态</td><td>2026-06-12</td><td style="text-align:right">1</td><td><span class="led-part">部分覆盖</span></td><td>官网仅提供 API 申请表；无配置公开仓库；未取得公开 release、SDK changelog 或状态记录</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- §7 调研覆盖与缺口 -->
+  <section class="sec" id="gaps">
+    <div class="sec-head"><span class="num">§7</span><h2>调研覆盖与缺口</h2></div>
+    <div class="tbl-wrap" style="margin-bottom:16px">
+      <table class="tbl">
+        <thead><tr><th>信源组</th><th>必查渠道</th><th style="text-align:right">已覆盖</th><th style="text-align:right">部分/未覆盖</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>官网与自有内容</td><td>官网、产品、Pricing、Blog、Sitemap、Help、RSS、Changelog、Newsletter</td><td style="text-align:right">4</td><td style="text-align:right">0</td><td>已覆盖；缺失入口按 404 或无公开归档记录</td></tr>
+          <tr><td>官方社媒与视频</td><td>X、YouTube、LinkedIn、Instagram、TikTok</td><td style="text-align:right">2</td><td style="text-align:right">3</td><td>LinkedIn、Instagram 部分覆盖；TikTok 未覆盖</td></tr>
+          <tr><td>社区与评论</td><td>Reddit、HN、Trustpilot、G2、Capterra、App Stores</td><td style="text-align:right">3</td><td style="text-align:right">2</td><td>G2/Capterra 部分覆盖；App Stores 不适用</td></tr>
+          <tr><td>发布、合作与媒体</td><td>Product Hunt、合作活动、媒体、Creator</td><td style="text-align:right">3</td><td style="text-align:right">1</td><td>Product Hunt 直访被验证拦截</td></tr>
+          <tr><td>付费广告</td><td>Meta Ad Library、Google Ads Transparency</td><td style="text-align:right">0</td><td style="text-align:right">2</td><td>两个广告库均未取得可审计结果</td></tr>
+          <tr><td>开发者与技术记录</td><td>API、公开仓库、SDK、Status</td><td style="text-align:right">0</td><td style="text-align:right">1</td><td>仅确认 API 申请表，未取得公开更新记录</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="gap-list">
+      <li>Meta Ad Library 和 Google Ads Transparency 没有形成可审计结果，不能判断本周期广告动作。</li>
+      <li>TikTok 官方账号无法访问；Instagram 和 LinkedIn 时间线未完整加载。</li>
+      <li>Product Hunt、G2、Capterra 未取得完整的本周期评论或发布列表。</li>
+      <li>Pricing 只有当前快照，不能判断价格或 Free tier 是否在本周期变化。</li>
+      <li>Sitemap 的大规模更新时间不能替代首次上线时间或具体改动内容。</li>
+    </ul>
+  </section>
+
+</main>
+<script>(function(){function applyTheme(t){document.documentElement.setAttribute('data-theme',t);var b=document.getElementById('theme-toggle');if(b)b.textContent=t==='light'?'◑':'☀';}var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');applyTheme(s);window.toggleTheme=function(){var t=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';localStorage.setItem('theme',t);applyTheme(t);};})();</script>
+</body>
+</html>

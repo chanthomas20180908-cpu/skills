@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>竞品增长情报系统 · 设计文档</title>
+<style>
+  :root {
+    --bg: #101010;
+    --bg2: #181818;
+    --bg3: #222222;
+    --border: #2e2e2e;
+    --accent: #BEFA00;
+    --accent2: #7ec800;
+    --text: #e8e8e8;
+    --muted: #888;
+    --red: #ff5a5a;
+    --yellow: #f5c542;
+    --green: #BEFA00;
+    --blue: #5ab4ff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* Layout */
+  .page { max-width: 960px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* Header */
+  .header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+  .header-tag { font-size: 11px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: #fff; line-height: 1.3; }
+  .header-meta { margin-top: 12px; color: var(--muted); font-size: 12px; display: flex; gap: 24px; }
+
+  /* Section */
+  .section { margin-bottom: 48px; }
+  .section-label {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+  h2 { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 16px; }
+  h3 { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 10px; margin-top: 20px; }
+  p { color: #bbb; margin-bottom: 12px; }
+
+  /* Callout */
+  .callout {
+    background: var(--bg2); border-left: 3px solid var(--accent);
+    padding: 16px 20px; border-radius: 4px; margin-bottom: 20px;
+  }
+  .callout.red { border-color: var(--red); }
+  .callout.blue { border-color: var(--blue); }
+  .callout strong { color: #fff; }
+
+  /* Two-col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+
+  /* Card */
+  .card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px;
+  }
+  .card h3 { margin-top: 0; }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    background: var(--bg3); color: var(--muted); font-size: 11px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border);
+  }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: #ccc; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg3); }
+  .tag {
+    display: inline-block; padding: 2px 8px; border-radius: 12px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+  }
+  .tag-red { background: rgba(255,90,90,0.15); color: var(--red); }
+  .tag-yellow { background: rgba(245,197,66,0.15); color: var(--yellow); }
+  .tag-green { background: rgba(190,250,0,0.15); color: var(--green); }
+  .tag-blue { background: rgba(90,180,255,0.15); color: var(--blue); }
+  .tag-muted { background: var(--bg3); color: var(--muted); }
+
+  /* Signal blocks */
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+  .signal-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px;
+  }
+  .signal-card .signal-title {
+    font-size: 12px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+  }
+  .signal-card ul { padding-left: 14px; }
+  .signal-card li { color: #aaa; font-size: 12px; line-height: 1.8; }
+
+  /* Priority */
+  .priority-row {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 0; border-bottom: 1px solid var(--border);
+  }
+  .priority-row:last-child { border-bottom: none; }
+  .priority-dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 5px;
+  }
+  .dot-red { background: var(--red); }
+  .dot-yellow { background: var(--yellow); }
+  .dot-green { background: var(--green); }
+  .priority-content strong { color: #fff; font-size: 13px; display: block; margin-bottom: 4px; }
+  .priority-content span { color: var(--muted); font-size: 12px; }
+
+  /* Code / template */
+  .code-block {
+    background: #0d0d0d; border: 1px solid var(--border); border-radius: 6px;
+    padding: 20px; font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 12px; line-height: 1.8; color: #c5c5c5; overflow-x: auto;
+    white-space: pre; margin-bottom: 20px;
+  }
+  .code-block .cm { color: var(--muted); }
+  .code-block .ck { color: var(--accent); }
+  .code-block .cv { color: var(--blue); }
+  .code-block .cs { color: #e88; }
+
+  /* Cycle diagram */
+  .cycle {
+    display: flex; align-items: center; gap: 0; margin-bottom: 20px;
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 20px; overflow-x: auto;
+  }
+  .cycle-step {
+    flex-shrink: 0; text-align: center; padding: 0 16px;
+  }
+  .cycle-step .icon {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--bg3);
+    border: 1px solid var(--accent); display: flex; align-items: center;
+    justify-content: center; margin: 0 auto 8px; font-size: 16px;
+  }
+  .cycle-step .label { font-size: 11px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .cycle-step .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .cycle-arrow { color: var(--border); font-size: 20px; flex-shrink: 0; padding: 0 4px; margin-bottom: 20px; }
+
+  /* Report template */
+  .report-mock {
+    background: #0d0d0d; border: 1px solid var(--border); border-radius: 8px;
+    padding: 24px; font-size: 13px; line-height: 1.8;
+  }
+  .report-mock .r-title { color: #fff; font-size: 16px; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; }
+  .report-mock .r-tldr { background: rgba(190,250,0,0.07); border-left: 3px solid var(--accent); padding: 10px 14px; margin-bottom: 20px; border-radius: 2px; color: #ccc; font-style: italic; }
+  .report-mock .r-section { margin-bottom: 20px; }
+  .report-mock .r-section-title { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .report-mock .r-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; }
+  .report-mock .r-source { flex-shrink: 0; background: var(--bg3); border-radius: 4px; padding: 1px 7px; font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: 0.5px; margin-top: 2px; }
+  .report-mock .r-text { color: #bbb; font-size: 12px; }
+  .report-mock .r-action { background: rgba(190,250,0,0.07); border: 1px solid rgba(190,250,0,0.2); border-radius: 6px; padding: 12px 16px; margin-top: 16px; }
+  .report-mock .r-action strong { color: var(--accent); font-size: 12px; display: block; margin-bottom: 6px; }
+  .report-mock .r-action li { color: #aaa; font-size: 12px; list-style: none; padding-left: 0; }
+  .report-mock .r-action li::before { content: "→ "; color: var(--accent); }
+
+  /* Arch */
+  .arch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+  .arch-box {
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px; text-align: center;
+  }
+  .arch-box .arch-icon { font-size: 24px; margin-bottom: 8px; }
+  .arch-box .arch-name { font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+  .arch-box .arch-desc { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+  /* Roadmap */
+  .roadmap { display: flex; flex-direction: column; gap: 0; }
+  .roadmap-step {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 20px 0; border-bottom: 1px solid var(--border);
+  }
+  .roadmap-step:last-child { border-bottom: none; }
+  .roadmap-num {
+    width: 32px; height: 32px; border-radius: 50%; background: var(--bg3);
+    border: 1px solid var(--accent); display: flex; align-items: center;
+    justify-content: center; font-size: 13px; font-weight: 700; color: var(--accent);
+    flex-shrink: 0;
+  }
+  .roadmap-content strong { color: #fff; display: block; margin-bottom: 4px; }
+  .roadmap-content p { color: var(--muted); font-size: 12px; margin: 0; }
+  .roadmap-content ul { margin-top: 6px; padding-left: 16px; }
+  .roadmap-content li { color: #aaa; font-size: 12px; line-height: 1.8; }
+
+  @media (max-width: 640px) {
+    .two-col, .signal-grid, .arch-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">Design Document · v1.2</div>
+    <h1>竞品增长情报系统<br><span style="color:var(--muted);font-size:20px;font-weight:400">Competitor Growth Intelligence</span></h1>
+    <div class="header-meta">
+      <span>路径：tools/competitor_intel/</span>
+      <span>创建：2026-06-12</span>
+      <span>状态：全信源覆盖 + 可审计采集方案</span>
+    </div>
+  </div>
+
+  <!-- 1. 战略定位 -->
+  <div class="section">
+    <div class="section-label">01 · 战略定位</div>
+    <h2>这个工具解决什么问题</h2>
+    <div class="callout">
+      <strong>核心目标：</strong>在固定双周时间窗内，系统记录竞品在<strong>获客侧</strong>和<strong>产品侧</strong>实际发生的动作。报告按时间排序，每个事件提供主信源、二次信源、确认状态与确认边界。
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <h3>🔴 P0 · 获客情报</h3>
+        <p style="color:var(--muted);font-size:12px;">竞品怎么把人拉进来？</p>
+        <ul style="padding-left:16px;">
+          <li style="color:#aaa;font-size:12px;line-height:2;">SEO / 内容策略</li>
+          <li style="color:#aaa;font-size:12px;line-height:2;">付费广告动作</li>
+          <li style="color:#aaa;font-size:12px;line-height:2;">社交媒体 &amp; KOL</li>
+          <li style="color:#aaa;font-size:12px;line-height:2;">渠道 &amp; 分发入口</li>
+          <li style="color:#aaa;font-size:12px;line-height:2;">PLG / 免费策略</li>
+          <li style="color:#aaa;font-size:12px;line-height:2;">定价杠杆变化</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🟡 P1 · 留存情报</h3>
+        <p style="color:var(--muted);font-size:12px;">竞品怎么让人留下来？</p>
+        <ul style="padding-left:16px;">
+          <li style="color:#aaa;font-size:12px;line-height:2;">版本 &amp; 功能发布</li>
+          <li style="color:#aaa;font-size:12px;line-height:2;">产品能力方向</li>
+          <li style="color:#aaa;font-size:12px;line-height:2;">用户痛点修复</li>
+          <li style="color:#aaa;font-size:12px;line-height:2;">技术护城河变化</li>
+        </ul>
+        <div style="margin-top:12px;padding:8px 12px;background:var(--bg3);border-radius:4px;font-size:11px;color:var(--muted);">
+          记录边界：只写来源能够直接证明的产品变化
+        </div>
+      </div>
+    </div>
+    <div class="callout red">
+      <strong>禁止写入：</strong>无法由来源直接证明的目的、目标人群、战略意图、预期效果；周期外事件不进入正文时间线。
+    </div>
+  </div>
+
+  <!-- 2. 方法论 -->
+  <div class="section">
+    <div class="section-label">02 · 方法论</div>
+    <h2>双周事实调查流程</h2>
+
+    <div class="cycle">
+      <div class="cycle-step">
+        <div class="icon">🎯</div>
+        <div class="label">确定周期</div>
+        <div class="sub">固定 14 天窗口</div>
+      </div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-step">
+        <div class="icon">🔍</div>
+        <div class="label">发现事件</div>
+        <div class="sub">多信源采集</div>
+      </div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-step">
+        <div class="icon">⚡</div>
+        <div class="label">二次核验</div>
+        <div class="sub">交叉确认事实</div>
+      </div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-step">
+        <div class="icon">📄</div>
+        <div class="label">事件账本</div>
+        <div class="sub">统一事实字段</div>
+      </div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-step">
+        <div class="icon">🚀</div>
+        <div class="label">时间排序</div>
+        <div class="sub">先发生后发生</div>
+      </div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-step">
+        <div class="icon">🔄</div>
+        <div class="label">报告输出</div>
+        <div class="sub">事件卡 + 信源表</div>
+      </div>
+    </div>
+
+    <h3>GIQ — Growth Intelligence Questions</h3>
+    <p style="color:var(--muted);font-size:12px;margin-bottom:12px;">GIQ 只定义调查覆盖面，不允许替代证据或引导主观推断。</p>
+    <div class="code-block"><span class="cm"># 示例 GIQ（每个竞品 3-5 个）</span>
+<span class="ck">GIQ-01:</span> <span class="cv">竞品本周期在 SEO 侧发布或更新了哪些内容/落地页？</span>
+<span class="ck">GIQ-02:</span> <span class="cv">竞品有没有新的付费广告素材或落地页变化？</span>
+<span class="ck">GIQ-03:</span> <span class="cv">竞品有没有开始做 Influencer/KOL 合作？</span>
+<span class="ck">GIQ-04:</span> <span class="cv">竞品的免费策略/定价有没有变化？</span>
+<span class="ck">GIQ-05:</span> <span class="cv">竞品本周期公开发布了哪些产品能力变化？</span></div>
+  </div>
+
+  <!-- 3. 信号全图谱 -->
+  <div class="section">
+    <div class="section-label">03 · 信号图谱</div>
+    <h2>P0 获客信号 · 6 大维度</h2>
+
+    <div class="signal-grid">
+      <div class="signal-card">
+        <div class="signal-title"><span style="color:var(--accent)">📈</span> SEO &amp; 内容</div>
+        <ul>
+          <li>新博客 / 落地页发布</li>
+          <li>工具页 / 对比页 / 场景页</li>
+          <li>关键词排名变化</li>
+          <li>反链增长（渠道信号）</li>
+          <li>内容主题偏移</li>
+        </ul>
+      </div>
+      <div class="signal-card">
+        <div class="signal-title"><span style="color:var(--accent)">💰</span> 付费广告</div>
+        <ul>
+          <li>新广告素材（创意变化）</li>
+          <li>落地页 CTA / 卖点变化</li>
+          <li>品牌词抢占</li>
+          <li>投放量级信号</li>
+          <li>新渠道开户</li>
+        </ul>
+      </div>
+      <div class="signal-card">
+        <div class="signal-title"><span style="color:var(--accent)">📱</span> 社交 &amp; KOL</div>
+        <ul>
+          <li>发布频率变化</li>
+          <li>高互动内容（>500 互动）</li>
+          <li>KOL / Creator 合作</li>
+          <li>病毒性内容 / UGC 活动</li>
+          <li>社区运营启动</li>
+        </ul>
+      </div>
+      <div class="signal-card">
+        <div class="signal-title"><span style="color:var(--accent)">🔗</span> 渠道 &amp; 分发</div>
+        <ul>
+          <li>ProductHunt 新发布</li>
+          <li>Marketplace 上架</li>
+          <li>合作伙伴公告</li>
+          <li>媒体报道 / HN 出现</li>
+          <li>联合营销活动</li>
+        </ul>
+      </div>
+      <div class="signal-card">
+        <div class="signal-title"><span style="color:var(--accent)">🎁</span> PLG 信号</div>
+        <ul>
+          <li>Free tier 变化</li>
+          <li>Referral 计划上线</li>
+          <li>Onboarding 调整</li>
+          <li>对外 API / 集成扩展</li>
+          <li>试用转化优化</li>
+        </ul>
+      </div>
+      <div class="signal-card">
+        <div class="signal-title"><span style="color:var(--accent)">🏷️</span> 定价杠杆</div>
+        <ul>
+          <li>定价页结构变化</li>
+          <li>新套餐 / 降价</li>
+          <li>免费席位增加</li>
+          <li>限时折扣活动</li>
+          <li>教育版 / 开发者版</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>P1 留存信号 · 产品侧</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>信号</th><th>来源</th><th>关注点</th><th>频率</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>版本发布</td><td>GitHub releases / Changelog</td><td>版本号、发布日期、变更项</td><td>双周</td></tr>
+          <tr><td>功能公告</td><td>官方博客 / 社媒</td><td>公告时间、功能名称、公开内容</td><td>双周</td></tr>
+          <tr><td>用户评论趋势</td><td>G2 / Reddit / AppStore</td><td>体验短板修复情况</td><td>月度</td></tr>
+          <tr><td>性能 / 质量改进</td><td>GitHub issues closed</td><td>关闭时间、问题描述、修复说明</td><td>双周</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 4. 证据核验 -->
+  <div class="section">
+    <div class="section-label">04 · 双信源核验</div>
+    <h2>确认状态与证据边界</h2>
+    <div class="card">
+      <div class="priority-row">
+        <div class="priority-dot dot-red"></div>
+        <div class="priority-content">
+          <strong>✅ 已二次确认</strong>
+          <span>两份相互独立的证据共同支持事件核心事实</span>
+        </div>
+      </div>
+      <div class="priority-row">
+        <div class="priority-dot dot-yellow"></div>
+        <div class="priority-content">
+          <strong>⚠️ 部分确认</strong>
+          <span>二次信源仅确认部分内容，或只能确认页面更新时间而非首次上线时间</span>
+        </div>
+      </div>
+      <div class="priority-row">
+        <div class="priority-dot dot-green"></div>
+        <div class="priority-content">
+          <strong>◯ 单一来源 / ❌ 来源冲突</strong>
+          <span>只有一个有效来源时保留事件但降级；来源冲突时并列记录差异，不自行裁决</span>
+        </div>
+      </div>
+    </div>
+    <div class="callout blue" style="margin-top:16px;">
+      <strong>二次信源独立性：</strong><br>
+      只有不同组织或独立发布者形成的第二份原始证据，才能标记“已二次确认”。官方文章 + 官方产品页、官方社媒 + 官方 sitemap 均属于同源佐证，最高标记“部分确认”；同一新闻稿转载、缓存副本和聚合复述不算二次确认。
+    </div>
+  </div>
+
+  <!-- 5. 信源矩阵 -->
+  <div class="section">
+    <div class="section-label">05 · 信源矩阵</div>
+    <h2>必查信源 × 最低采集动作 × 核验边界</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>信源组</th><th>必查入口</th><th>最低采集动作</th><th>优先级</th><th>核验边界</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>官网与自有内容</td>
+            <td>首页、产品、Pricing、Blog、Changelog、Help、Sitemap、RSS、Newsletter</td>
+            <td>逐入口访问 + sitemap/RSS 时间筛选 + site:domain 补查</td>
+            <td><span class="tag tag-red">P0</span></td>
+            <td>官方内部页面只构成同源佐证</td>
+          </tr>
+          <tr>
+            <td>官方社媒</td>
+            <td>X、YouTube、LinkedIn、TikTok、Instagram</td>
+            <td>官方账号时间线 + 品牌/别名/域名/产品词搜索</td>
+            <td><span class="tag tag-red">P0</span></td>
+            <td>多个官方账号仍属于同源佐证</td>
+          </tr>
+          <tr>
+            <td>付费广告</td>
+            <td>Meta Ad Library、Google Ads Transparency</td>
+            <td>品牌名 + 广告主 + 域名检索；记录广告 ID、日期、素材、CTA、落地页</td>
+            <td><span class="tag tag-red">P0</span></td>
+            <td>访问失败必须记为未覆盖</td>
+          </tr>
+          <tr>
+            <td>社区</td>
+            <td>Reddit 全站 + Subreddit、Hacker News</td>
+            <td>品牌/别名/域名全站搜索，不得只查指定社区</td>
+            <td><span class="tag tag-yellow">P1</span></td>
+            <td>用户陈述不构成产品客观事实</td>
+          </tr>
+          <tr>
+            <td>评论与 Creator</td>
+            <td>G2、Trustpilot、Capterra、App Store、第三方视频/帖子</td>
+            <td>周期内评论筛选 + sponsored/优惠码/合作披露检索</td>
+            <td><span class="tag tag-yellow">P1</span></td>
+            <td>只证明评论或内容已发布</td>
+          </tr>
+          <tr>
+            <td>发布与分发</td>
+            <td>Product Hunt、Marketplace、插件商店、集成目录</td>
+            <td>产品页、Launch、Maker 评论、上架日期和合作入口核验</td>
+            <td><span class="tag tag-yellow">P1</span></td>
+            <td>平台页与官网需判断组织独立性</td>
+          </tr>
+          <tr>
+            <td>媒体与合作</td>
+            <td>原创报道、采访、Podcast、行业 Newsletter、合作方原文</td>
+            <td>品牌 + launch/release/partnership/funding/ARR 等组合检索</td>
+            <td><span class="tag tag-yellow">P1</span></td>
+            <td>转载新闻稿不计独立信源</td>
+          </tr>
+          <tr>
+            <td>开发者与技术记录</td>
+            <td>公开仓库、Release、API/SDK、扩展商店、Status Page</td>
+            <td>按适用性检查；闭源也要记录不适用依据</td>
+            <td><span class="tag tag-muted">P2</span></td>
+            <td>不适用不能直接省略</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 6. 双周报告模板 -->
+  <div class="section">
+    <div class="section-label">06 · 交付物模板</div>
+    <h2>双周竞品动作报告 · 事件卡模板</h2>
+    <div class="report-mock">
+      <div class="r-title">{竞品名} 双周竞品动作报告 · {日期范围}</div>
+      <div class="r-tldr">事实口径：按可证明的发生时间升序；不推断目的、人群或战略意图。</div>
+
+      <div class="r-section">
+        <div class="r-section-title"><span style="color:var(--red)">●</span> 事件时间线</div>
+        <table style="font-size:12px;">
+          <thead><tr><th>日期</th><th>ID</th><th>已发生事件</th><th>分类</th><th>二次确认</th></tr></thead>
+          <tbody>
+            <tr><td>06-05</td><td>E01</td><td>官网发布两篇文章</td><td>SEO / 内容</td><td>⚠️</td></tr>
+            <tr><td>06-09</td><td>E02</td><td>Sitemap 记录一批工具页更新时间</td><td>产品页面</td><td>⚠️</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="r-section" style="border-top:1px solid var(--border);padding-top:16px;">
+        <div class="r-section-title"><span style="color:var(--yellow)">E01｜2026-06-05｜官网发布两篇文章</span></div>
+        <div class="r-item">
+          <span class="r-source">事实</span>
+          <span class="r-text">文章 A 标题、发布日期与页面内容；文章 B 标题、发布日期与页面内容。</span>
+        </div>
+        <table style="font-size:12px;">
+          <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+          <tbody>
+            <tr><td>来源</td><td>官方文章页</td><td>官方博客索引</td></tr>
+            <tr><td>证明内容</td><td>文章内容与发布日期</td><td>文章进入公开列表及日期</td></tr>
+            <tr><td>来源关系</td><td colspan="2">同源佐证</td></tr>
+            <tr><td>确认状态</td><td colspan="2">⚠️ 部分确认</td></tr>
+          </tbody>
+        </table>
+        <div class="r-item" style="margin-top:12px;">
+          <span class="r-source">边界</span>
+          <span class="r-text">确认文章发布事实；不推断发布目的、目标人群或流量效果。</span>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <div class="r-section-title">报告底部：信源总表、执行台账与覆盖缺口</div>
+        <div class="r-item">
+          <span class="r-source">台账</span>
+          <span class="r-text">信源表记录归属与证明内容；执行台账逐渠道记录入口、检索动作、执行时间、候选数、状态和失败原因。缺少台账的渠道视为未执行，报告不得宣称完整覆盖。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. 工具架构 -->
+  <div class="section">
+    <div class="section-label">07 · 工具架构</div>
+    <h2>系统设计</h2>
+
+    <div class="arch-grid">
+      <div class="arch-box">
+        <div class="arch-icon">⚙️</div>
+        <div class="arch-name">Config</div>
+        <div class="arch-desc">competitors.yaml<br>竞品 + GIQ + 信源配置</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-icon">🔍</div>
+        <div class="arch-name">Collectors</div>
+        <div class="arch-desc">按信源组并行<br>官网 / 社媒 / 社区 / 广告 / 媒体</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-icon">🗄️</div>
+        <div class="arch-name">Audit Ledgers</div>
+        <div class="arch-desc">采集执行台账 + 事件账本<br>覆盖证据 + 来源关系</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-icon">📄</div>
+        <div class="arch-name">Report</div>
+        <div class="arch-desc">reports/{name}_{date}.md<br>结构化双周报告落盘</div>
+      </div>
+    </div>
+
+    <h3>目录结构</h3>
+    <div class="code-block"><span class="ck">tools/competitor_intel/</span>
+<span class="cv">├── design.html</span>              <span class="cm"># 本文件</span>
+<span class="cv">├── config/</span>
+<span class="cv">│   └── competitors.yaml</span>      <span class="cm"># 竞品 + GIQ + 全信源配置</span>
+<span class="cv">├── state/</span>
+<span class="cv">│   └── {competitor}.json</span>     <span class="cm"># 可选采集缓存，不决定报告纳入</span>
+<span class="cv">└── reports/</span>
+<span class="cv">    └── {competitor}_{date}.md</span> <span class="cm"># 输出双周报告</span></div>
+
+    <h3>competitors.yaml 结构</h3>
+    <div class="code-block"><span class="ck">competitors:</span>
+  <span class="ck">- name:</span> <span class="cv">neuralframes</span>
+    <span class="ck">display:</span> <span class="cv">NeuralFrames</span>
+    <span class="ck">giq:</span>
+      <span class="cv">- "本周期有哪些 SEO 落地页或内容发布/更新？"</span>
+      <span class="cv">- "付费广告素材或落地页有变化吗？"</span>
+      <span class="cv">- "定价 / Free tier 有调整吗？"</span>
+    <span class="ck">sources:</span>
+      <span class="ck">website:</span>
+        <span class="ck">pages:</span>
+          <span class="cv">- https://www.neuralframes.com/</span>
+          <span class="cv">- https://www.neuralframes.com/pricing</span>
+          <span class="cv">- https://www.neuralframes.com/blog</span>
+      <span class="ck">social:</span>
+        <span class="ck">x / youtube / linkedin / tiktok / instagram:</span>
+          <span class="ck">account_url:</span> <span class="cv">null</span>
+          <span class="ck">search_terms:</span> <span class="cv">["NeuralFrames", "neuralframes.com"]</span>
+      <span class="ck">launch_and_distribution:</span>
+        <span class="ck">product_hunt_url:</span> <span class="cv">null</span>
+      <span class="ck">reviews:</span>
+        <span class="ck">g2_url / trustpilot_url / capterra_url:</span> <span class="cv">null</span>
+      <span class="ck">media:</span>
+        <span class="ck">search_terms:</span> <span class="cv">["NeuralFrames interview", "NeuralFrames ARR"]</span>
+      <span class="ck">github:</span>
+        <span class="ck">repo:</span> <span class="cv">null</span>          <span class="cm"># 闭源则跳过</span>
+      <span class="ck">reddit:</span>
+        <span class="ck">keywords:</span> <span class="cv">["neuralframes", "neural frames"]</span>
+        <span class="ck">subreddits:</span> <span class="cv">["AIVideo", "artificial", "VideoEditing"]</span>
+      <span class="ck">ads:</span>
+        <span class="ck">meta_page_id:</span> <span class="cv">"..."</span>
+      <span class="ck">hn:</span>
+        <span class="ck">keywords:</span> <span class="cv">["neuralframes"]</span></div>
+  </div>
+
+  <!-- 8. 实现路线图 -->
+  <div class="section">
+    <div class="section-label">08 · 实现路线图</div>
+    <h2>分阶段交付</h2>
+    <div class="roadmap">
+      <div class="roadmap-step">
+        <div class="roadmap-num">1</div>
+        <div class="roadmap-content">
+          <strong>MVP — 手动触发，完整信源台账</strong>
+          <p>先保证每个必查渠道有执行证据</p>
+          <ul>
+            <li>competitors.yaml 配置结构</li>
+            <li>官网、社媒、社区、广告、媒体、评论平台全覆盖</li>
+            <li>每个渠道记录入口、动作、结果数和状态</li>
+            <li>缺失台账时报告标记覆盖不完整</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="roadmap-num">2</div>
+        <div class="roadmap-content">
+          <strong>双信源核验与事件账本</strong>
+          <p>明确主信源、二次信源和确认边界</p>
+          <ul>
+            <li>统一事件事实字段</li>
+            <li>独立信源 / 同源佐证 / 转述副本判断</li>
+            <li>按可证明时间升序输出</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="roadmap-num">3</div>
+        <div class="roadmap-content">
+          <strong>多竞品 + 自动化调度</strong>
+          <p>规模化到 3-5 个竞品，接入 /schedule</p>
+          <ul>
+            <li>并发采集多竞品</li>
+            <li>接入 CC /schedule 每两周自动触发</li>
+            <li>GIQ 驱动的覆盖检查</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. 实现方式 -->
+  <div class="section">
+    <div class="section-label">09 · 实现方式</div>
+    <h2>基于 Skill 的 Agent 驱动架构</h2>
+
+    <div class="callout">
+      <strong>核心原则：</strong>不写固定爬虫。采集层由 Agent 根据平台选择可用的浏览、搜索和结构化接口；SKILL.md 规定必查信源、最低动作、核验边界和台账门槛。
+    </div>
+
+    <h3>参考模式：hv-analysis skill</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>设计维度</th><th>hv-analysis</th><th>competitor_intel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Skill 形式</td><td>纯 SKILL.md 指令文件，零代码</td><td>同，纯 SKILL.md</td></tr>
+          <tr><td>采集方式</td><td>搜索发现 → 页面提取 → 浏览器核验动态页</td><td>按平台选择可用工具并保留执行台账</td></tr>
+          <tr><td>并行策略</td><td>子 Agent 按信息类型并行</td><td>子 Agent 按信源并行</td></tr>
+          <tr><td>触发方式</td><td>一次性深度研究</td><td>每两周定期运行</td></tr>
+          <tr><td>状态管理</td><td>无（每次全量）</td><td>state 仅作采集缓存，报告按固定周期独立调查</td></tr>
+          <tr><td>采集目标</td><td>开放式信息收集</td><td>GIQ 驱动定向采集</td></tr>
+          <tr><td>输出</td><td>PDF 研究报告</td><td>Markdown 双周报告落盘</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>工具链原则</h3>
+    <div class="card" style="margin-bottom:20px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span class="tag tag-red" style="flex-shrink:0;margin-top:2px;">首选</span>
+          <div>
+            <strong style="color:#fff;font-size:13px;">真实浏览器</strong>
+            <p style="margin:4px 0 0;font-size:12px;color:var(--muted);">用于动态渲染、登录态、广告透明度和社媒时间线；访问失败要记录具体原因。</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span class="tag tag-yellow" style="flex-shrink:0;margin-top:2px;">次选</span>
+          <div>
+            <strong style="color:#fff;font-size:13px;">静态页面或结构化接口</strong>
+            <p style="margin:4px 0 0;font-size:12px;color:var(--muted);">用于官网、sitemap、RSS、Reddit、HN、公开 Release 和评论平台可访问页面。</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span class="tag tag-muted" style="flex-shrink:0;margin-top:2px;">补充</span>
+          <div>
+            <strong style="color:#fff;font-size:13px;">搜索引擎补查</strong>
+            <p style="margin:4px 0 0;font-size:12px;color:var(--muted);">使用品牌、别名、域名、产品词和动作词组合发现导航外页面与第三方原始内容。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>完整项目文件结构</h2>
+    <div class="code-block"><span class="cm"># Skill 指令层（user-level，跨项目可用）</span>
+<span class="ck">~/.claude/skills/competitor_intel/</span>
+<span class="cv">└── SKILL.md</span>                    <span class="cm"># agent 读取并自主执行的唯一入口</span>
+
+<span class="cm"># 数据层（项目内，归版本管理）</span>
+<span class="ck">tools/competitor_intel/</span>
+<span class="cv">├── design.html</span>                 <span class="cm"># 本设计文档</span>
+<span class="cv">├── config/</span>
+<span class="cv">│   └── competitors.yaml</span>        <span class="cm"># 竞品 + GIQ + 信源配置</span>
+<span class="cv">├── state/</span>
+<span class="cv">│   └── {competitor}.json</span>       <span class="cm"># 可选采集缓存，不作为新增证据</span>
+<span class="cv">└── reports/</span>
+<span class="cv">    └── {competitor}_{date}.md</span>  <span class="cm"># 双周报告，由 agent 落盘</span></div>
+
+    <h3>SKILL.md 核心指令结构</h3>
+    <div class="code-block"><span class="ck">Step 1</span> <span class="cm">确定双周窗口</span>
+  <span class="cv">→ 读 competitors.yaml，获取目标竞品、GIQ、信源列表</span>
+  <span class="cv">→ 以报告结束日向前 14 天建立独立调查区间</span>
+
+<span class="ck">Step 2</span> <span class="cm">子 Agent 并行采集（按信源拆分）</span>
+  <span class="cv">→ A：官网、Blog、产品、Pricing、Help、Changelog、Sitemap、RSS</span>
+  <span class="cv">→ B：X、YouTube、LinkedIn、TikTok、Instagram</span>
+  <span class="cv">→ C：Reddit、HN、评论平台和第三方 Creator</span>
+  <span class="cv">→ D：Product Hunt、Marketplace、合作方和媒体原创内容</span>
+  <span class="cv">→ E：Meta / Google 广告透明度</span>
+  <span class="cv">→ F：公开仓库、API/SDK、扩展商店和 Status Page（如适用）</span>
+
+<span class="ck">Step 3</span> <span class="cm">执行台账 + 事件账本 + 二次核验</span>
+  <span class="cv">→ 每个必查渠道记录入口、检索动作、候选数、状态和失败原因</span>
+  <span class="cv">→ 合并候选事件，记录事实、发生时间和时间依据</span>
+  <span class="cv">→ 判断独立信源/同源佐证/转述副本，再标记确认状态</span>
+
+<span class="ck">Step 4</span> <span class="cm">时间排序 + 输出报告</span>
+  <span class="cv">→ 时间线在前，结构化事件卡居中</span>
+  <span class="cv">→ 底部输出信源总表、采集执行台账、GIQ 覆盖和缺口</span></div>
+
+    <h3>事件账本字段</h3>
+    <div class="code-block"><span class="ck">event_id:</span> <span class="cv">E01</span>
+<span class="ck">event_name:</span> <span class="cv">来源可直接证明的事件名称</span>
+<span class="ck">category:</span> <span class="cv">SEO / 产品 / 广告 / 社区 / 定价</span>
+<span class="ck">occurred_at:</span> <span class="cv">2026-06-05</span>
+<span class="ck">time_basis:</span> <span class="cv">官方文章发布时间</span>
+<span class="ck">facts:</span> <span class="cv">仅记录来源直接支持的事实列表</span>
+<span class="ck">primary_source:</span> <span class="cv">主信源 + 证明内容</span>
+<span class="ck">secondary_source:</span> <span class="cv">二次信源 + 证明内容</span>
+<span class="ck">source_relationship:</span> <span class="cv">独立信源 / 同源佐证 / 转述副本</span>
+<span class="ck">verification_status:</span> <span class="cv">已确认 / 部分确认 / 单一来源 / 冲突</span>
+<span class="ck">verified_scope:</span> <span class="cv">已确认范围</span>
+<span class="ck">unverified_scope:</span> <span class="cv">未确认事项</span></div>
+  </div>
+
+  <!-- Footer -->
+  <div style="border-top:1px solid var(--border);padding-top:24px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;">
+    <span>tools/competitor_intel/design.html</span>
+    <span>Overseas Growth · tangyuan · 2026-06-12</span>
+  </div>
+
+</div>
+</body>
+</html>

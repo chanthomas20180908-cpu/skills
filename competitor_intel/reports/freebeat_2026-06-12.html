@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Freebeat B1 · 双周竞品动作报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'));</script>
+<style>
+:root{--bg:#050b07;--bg-grid:rgba(155,220,42,.045);--panel:#0b140e;--panel2:#0f1b13;--panel3:#111f16;--line:#213124;--line-soft:#17231a;--text:#dce6d7;--muted:#788574;--faint:#4d5a4b;--brand:#9bdc2a;--blue:#60a5fa;--amber:#e6a72a;--red:#ef6f6c;--purple:#a78bfa;}
+[data-theme="light"]{--bg:#ffffff;--bg-grid:rgba(26,127,55,.025);--panel:#f6f8fa;--panel2:#eaeef2;--panel3:#dde3ea;--line:#d0d7de;--line-soft:#eaeef2;--text:#1f2328;--muted:#656d76;--faint:#818c98;--brand:#1a7f37;--blue:#0969da;--amber:#b45309;--red:#cf222e;--purple:#7c3aed;}
+[data-theme="light"] body{background:var(--bg);}[data-theme="light"] body::before{opacity:.1;}[data-theme="light"] .top{background:rgba(246,248,250,.97);border-bottom-color:var(--line);}[data-theme="light"] .page-nav a{background:var(--panel);border-color:var(--line);}[data-theme="light"] .ev-meta{background:rgba(26,127,55,.04);}[data-theme="light"] .ev-verdict{background:rgba(26,127,55,.06);}
+#theme-toggle{background:none;border:1px solid var(--line);color:var(--muted);cursor:pointer;border-radius:6px;padding:2px 9px;font-size:13px;font-family:inherit;transition:all .12s;flex-shrink:0;}#theme-toggle:hover{border-color:var(--brand);color:var(--brand);}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg);overscroll-behavior:none}
+body{margin:0;background:radial-gradient(circle at 18% -10%,rgba(96,165,250,.07),transparent 32%),linear-gradient(180deg,#07100a 0%,var(--bg) 38%,#030604 100%);color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'PingFang SC',monospace;font-size:14px;line-height:1.65;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(var(--bg-grid) 1px,transparent 1px),linear-gradient(90deg,var(--bg-grid) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.18));}
+a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:3px;opacity:.9}
+.top{position:sticky;top:0;z-index:20;background:rgba(5,11,7,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.top-in{padding:12px 40px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.breadcrumb{font-size:12px;color:var(--faint);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.breadcrumb a{color:var(--faint);font-weight:700}.breadcrumb a:hover{color:var(--brand);text-decoration:none}.breadcrumb .sep{color:var(--line)}.breadcrumb .current{color:var(--blue);font-weight:950;font-family:'JetBrains Mono',monospace}
+.page-nav{display:flex;gap:4px;align-items:center}.page-nav a{padding:6px 12px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--muted);font-size:12px;font-weight:850;white-space:nowrap;transition:all .14s}.page-nav a:hover{background:var(--panel2);color:var(--brand);border-color:rgba(191,255,0,.3);text-decoration:none}
+.wrap{padding:32px 40px 80px;position:relative;z-index:1}
+.page-title{margin-bottom:28px}.page-title h1{font-size:20px;font-weight:950;margin:0 0 6px;letter-spacing:-.02em;color:var(--text)}.page-title .meta{font-size:11px;color:var(--faint)}
+.rpt-ident{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.rpt-product{font-size:30px;font-weight:950;color:var(--blue);letter-spacing:-.03em;font-family:'JetBrains Mono',monospace;line-height:1}
+.rpt-period{font-size:15px;font-weight:800;padding:4px 12px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.32);border-radius:5px;color:var(--blue);font-family:'JetBrains Mono',monospace;line-height:1.4;flex-shrink:0}
+.rpt-range{font-size:14px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.01em}
+.sec{margin:0 0 40px}.sec[id]{scroll-margin-top:70px}.sec-head{display:flex;align-items:center;gap:10px;padding-bottom:11px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.num{display:inline-flex;align-items:center;padding:2px 8px;font-size:11px;font-weight:800;color:var(--brand);letter-spacing:.06em;background:rgba(191,255,0,.08);border:1px solid rgba(191,255,0,.22);border-radius:5px;font-family:'JetBrains Mono',monospace}
+h2{font-size:17px;margin:0;letter-spacing:-.01em}
+.grid{display:grid;gap:10px}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.metric{padding:14px 16px;background:var(--panel2);border:1px solid var(--line);border-top:3px solid var(--faint);border-radius:8px}.metric strong{display:block;font-size:30px;line-height:1;margin-bottom:5px;color:var(--brand);font-family:'JetBrains Mono',monospace;letter-spacing:-.03em}.metric span{font-size:11px;color:var(--muted)}
+.metric.amber strong{color:var(--amber)}.metric.amber{border-top-color:var(--amber)}.metric.blue strong{color:var(--blue)}.metric.blue{border-top-color:var(--blue)}.metric.faint strong{color:var(--faint)}.metric.faint{border-top-color:var(--faint)}
+.tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--line)}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}.tbl th{text-align:left;padding:8px 12px;font-size:10px;font-weight:800;color:var(--faint);background:var(--panel3);border-bottom:1px solid var(--line);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}.tbl td{padding:8px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--text)}.tbl tr:last-child td{border-bottom:none}.tbl tr:hover td{background:rgba(255,255,255,.012)}
+.ev-card{margin-bottom:14px;border-radius:8px;border:1px solid var(--line);overflow:hidden}.ev-card.done{border-left:3px solid rgba(155,220,42,.42)}.ev-card.part{border-left:3px solid rgba(230,167,42,.42)}.ev-card.single{border-left:3px solid rgba(77,90,75,.38)}
+.ev-hdr{padding:11px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel3);border-bottom:1px solid var(--line-soft)}
+.ev-id{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;padding:2px 8px;background:rgba(96,165,250,.07);border:1px solid rgba(96,165,250,.18);border-radius:4px;color:var(--blue);flex-shrink:0}
+.ev-date{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;flex-shrink:0}.ev-title{font-size:13px;font-weight:700;color:var(--text);flex:1;min-width:180px}
+.ev-stat{font-size:11px;font-weight:800;padding:2px 7px;border-radius:4px;flex-shrink:0}.ev-stat.done{background:rgba(155,220,42,.08);border:1px solid rgba(155,220,42,.2);color:var(--brand)}.ev-stat.part{background:rgba(230,167,42,.07);border:1px solid rgba(230,167,42,.2);color:var(--amber)}.ev-stat.single{background:rgba(77,90,75,.06);border:1px solid rgba(77,90,75,.18);color:var(--faint)}
+.ev-meta{padding:5px 16px;display:flex;flex-wrap:wrap;gap:18px;background:rgba(0,0,0,.1);border-bottom:1px solid var(--line-soft)}.ev-mi{font-size:11px;color:var(--faint)}.ev-mi strong{color:var(--muted);font-weight:700}.cat-tag{display:inline-block;font-size:11px;font-weight:800;padding:1px 7px;border-radius:4px;letter-spacing:.03em;vertical-align:middle;line-height:1.6}.cat-green{background:rgba(155,220,42,.1);border:1px solid rgba(155,220,42,.35);color:var(--brand)}.cat-blue{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.35);color:var(--blue)}.cat-amber{background:rgba(230,167,42,.1);border:1px solid rgba(230,167,42,.35);color:var(--amber)}.cat-purple{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.35);color:var(--purple)}[data-theme="light"] .cat-green{background:rgba(26,127,55,.08);border-color:rgba(26,127,55,.3);color:var(--brand)}[data-theme="light"] .cat-blue{background:rgba(9,105,218,.08);border-color:rgba(9,105,218,.3);color:var(--blue)}[data-theme="light"] .cat-amber{background:rgba(180,83,9,.08);border-color:rgba(180,83,9,.3);color:var(--amber)}[data-theme="light"] .cat-purple{background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.3);color:var(--purple)}
+.ev-body{padding:14px 16px}.ev-body ul{margin:4px 0 10px;padding-left:16px;line-height:1.85}.ev-body li{margin:2px 0;color:var(--text);font-size:13px}
+.src-details{margin-top:10px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.src-details summary{padding:6px 12px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;background:rgba(230,167,42,.07);list-style:none;display:flex;align-items:center;gap:6px;user-select:none;outline:none}.src-details summary::-webkit-details-marker{display:none}.src-details summary::before{content:"▶";font-size:9px;color:var(--faint);transition:transform .1s;flex-shrink:0}.src-details[open] summary::before{transform:rotate(90deg)}.src-details summary:hover{color:var(--brand)}[data-theme="light"] .src-details summary{background:rgba(180,83,9,.06)}
+.src-inner{overflow-x:auto}.src-tbl{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}.src-tbl th{padding:6px 10px;font-size:10px;font-weight:800;color:var(--faint);background:rgba(230,167,42,.07);letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line);text-align:left;word-break:break-word}[data-theme="light"] .src-tbl th{background:rgba(180,83,9,.06)}.src-tbl th:first-child{width:88px}.src-tbl td{padding:6px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--text);word-break:break-word;overflow-wrap:break-word}.src-tbl tr:last-child td{border-bottom:none}.src-tbl .rl{font-size:10px;color:var(--faint);font-weight:700;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.ev-verdict{margin-top:10px;padding:10px 12px;background:rgba(0,0,0,.14);border-radius:6px;display:flex;flex-direction:column;gap:4px}.v-rel{font-size:11px;color:var(--faint)}.v-rel strong{color:var(--muted)}.v-ok{font-size:12px;color:var(--brand);line-height:1.65}.v-no{font-size:12px;color:var(--muted);line-height:1.65}
+.led-full{color:var(--brand);font-weight:700}.led-part{color:var(--amber);font-weight:700}.led-none{color:var(--faint);font-weight:700}.led-na{color:var(--faint);opacity:.5;font-weight:700}
+.gap-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;counter-reset:gap}.gap-list li{padding:10px 14px;background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:6px;font-size:13px;color:var(--muted);line-height:1.6;counter-increment:gap}.gap-list li::before{content:counter(gap)". ";color:var(--amber);font-weight:700}
+@media(max-width:900px){.top-in,.wrap{padding-left:18px;padding-right:18px}.g4{grid-template-columns:repeat(2,1fr)}.ev-hdr{flex-direction:column;align-items:flex-start;gap:5px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div class="breadcrumb">
+      <a href="../../../record_center/site/index.html">增长记录中心</a>
+      <span class="sep">/</span>
+      <a href="../../../record_center/site/domains/d00-competitive-intelligence.html">竞品情报 D00</a>
+      <span class="sep">/</span>
+      <a href="../../../record_center/site/domains/d00-intel-reports.html">报告档案</a>
+      <span class="sep">/</span>
+      <span class="current">FB · B1</span>
+    </div>
+    <nav class="page-nav">
+      <a href="../../../record_center/site/domains/d00-intel-reports.html">← 报告矩阵</a>
+      <a href="freebeat_2026-06-12.md" target="_blank">MD 原文</a>
+      <button id="theme-toggle" onclick="toggleTheme()" title="切换亮/暗色">☀</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-title">
+    <div class="rpt-ident">
+      <span class="rpt-product">Freebeat</span>
+      <span class="rpt-period">B1</span>
+      <span class="rpt-range">2026-05-29 ~ 2026-06-12</span>
+    </div>
+    <h1>双周竞品动作报告</h1>
+    <div class="meta">调研时间：2026-06-12 · 独立调查，不与历史报告或其他竞品比较 · 覆盖不完整（广告库未取得结果）</div>
+  </div>
+
+  <section class="sec" id="overview">
+    <div class="grid g4" style="margin-bottom:0">
+      <div class="metric"><strong>6</strong><span>个事件记录</span></div>
+      <div class="metric"><strong>1✅ 3⚠️</strong><span>确认分布（已确认 / 部分）</span></div>
+      <div class="metric blue"><strong>16</strong><span>条信源记录</span></div>
+      <div class="metric faint"><strong>21</strong><span>条渠道台账<br>13完整 5部分 2未覆盖 1不适用</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="timeline">
+    <div class="sec-head"><span class="num">§1</span><h2>本期事件时间线</h2></div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr><th>日期</th><th>ID</th><th>已发生事件</th><th>分类</th><th>确认状态</th></tr></thead>
+        <tbody>
+          <tr><td>2026-05-29</td><td><a href="#e01">E01</a></td><td>发布 Real-time Music Video Generator</td><td>产品发布</td><td style="color:var(--brand)">✅ 已二次确认</td></tr>
+          <tr><td>2026-05-29 ~ 2026-06-08</td><td><a href="#e02">E02</a></td><td>Articles Sitemap 中 17 个页面的日期发生变化</td><td>SEO / 内容</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>2026-06-05</td><td><a href="#e03">E03</a></td><td>官方发布"Make Any Photo Sing"功能演示</td><td>产品内容 / 社媒</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+          <tr><td>约 2026-06-01</td><td><a href="#e05">E05</a></td><td>Digital Art Creation 发布 Freebeat Affiliate 教程（13K 播放，有赞助披露）</td><td>Creator 合作</td><td style="color:var(--faint)">◯ 单一信源</td></tr>
+          <tr><td>2026-05-29 ~ 06-11</td><td><a href="#e06">E06</a></td><td>Trustpilot 周期内新增 14 条用户评论（全 1 星，公司 0 回复）</td><td>社区信号</td><td style="color:var(--faint)">◯ 单一信源</td></tr>
+          <tr><td>2026-06-12</td><td><a href="#e04">E04</a></td><td>四组 Sitemap 记录 8,294 个 URL 同日更新</td><td>SEO / 网站更新</td><td style="color:var(--amber)">⚠️ 部分确认</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec" id="events">
+    <div class="sec-head"><span class="num">§2</span><h2>事件详细记录</h2></div>
+
+    <!-- E01 -->
+    <div class="ev-card done" id="e01">
+      <div class="ev-hdr"><span class="ev-id">E01</span><span class="ev-date">2026-05-29</span><span class="ev-title">发布 Real-time Music Video Generator</span><span class="ev-stat done">✅ 已二次确认</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-green cat-tag">产品发布</span></span><span class="ev-mi"><strong>时间依据：</strong>Forbes 报道日期及发布表述</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>Forbes 在 5 月 29 日报道 Freebeat 发布实时 AI 音乐视频产品。</li>
+          <li>当前官方页面将产品命名为 Real-time Music Video Generation，公开展示上传音乐、播放时同步生成、15 credits/秒和 limited beta spots。</li>
+          <li>Rolling Stone UK 在 6 月 4 日再次报道该发布，并描述上传歌曲后通过浏览器实时生成视频的流程。</li>
+          <li>两篇媒体文章包含公司人员和公司口径；它们不是独立产品性能测试。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>Forbes 报道 + Freebeat 产品页</td><td>Rolling Stone UK 报道</td></tr>
+          <tr><td class="rl">来源归属</td><td>Forbes / Freebeat</td><td>Rolling Stone UK</td></tr>
+          <tr><td class="rl">来源类型</td><td>媒体报道、官方产品页</td><td>媒体报道</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-05-29；页面抓取 2026-06-12</td><td>2026-06-04</td></tr>
+          <tr><td class="rl">链接</td><td><a href="https://www.forbes.com/sites/viviantoh/2026/05/29/how-freebeatai-made-music-videos-live/" target="_blank">Forbes →</a> · <a href="https://freebeat.ai/realtime" target="_blank">产品页 →</a></td><td><a href="https://www.rollingstone.co.uk/culture/how-freebeat-ai-made-music-videos-live-61878/" target="_blank">Rolling Stone UK →</a></td></tr>
+          <tr><td class="rl">证明内容</td><td>发布日期、产品名称和当前公开流程</td><td>独立媒体再次记录发布及产品流程</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>独立信源</div>
+          <div class="v-ok">✅ 已确认范围：Freebeat 在本周期发布并公开提供实时音乐视频生成页面。</div>
+          <div class="v-no">◎ 未确认：实时延迟、生成质量、用户规模、转化率和媒体文中经营数据。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E02 -->
+    <div class="ev-card part" id="e02">
+      <div class="ev-hdr"><span class="ev-id">E02</span><span class="ev-date">2026-05-29 ~ 2026-06-08</span><span class="ev-title">Articles Sitemap 中 17 个页面的日期发生变化</span><span class="ev-stat part">⚠️ 部分确认</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-blue cat-tag">SEO / 内容</span></span><span class="ev-mi"><strong>时间依据：</strong>官方 Articles Sitemap 的 lastmod</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>Articles Sitemap 给 17 个文章页面标出了本周期内的日期：5 月 29 日 1 篇、6 月 1 日 3 篇、6 月 2 日 3 篇、6 月 3 日 6 篇、6 月 4 日 1 篇、6 月 5 日 2 篇、6 月 8 日 1 篇。</li>
+          <li>主题包括 AI music video generator、audio-to-video、lyric video、Suno-to-video、music visualizer、album cover、device、team collaboration、creative control 和 export speed。</li>
+          <li>抽查发现，部分页面内部记录的首次发布日期早于 Sitemap 日期，说明至少部分文章并不是在 Sitemap 标注当天新建。</li>
+          <li>Sitemap 日期只能说明这些页面的日期记录发生了变化。由于没有变化前的页面版本，无法判断是修改正文、调整日期、重新发布，还是首次上线。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>Freebeat Articles Sitemap</td><td>17 个实际文章页</td></tr>
+          <tr><td class="rl">来源归属</td><td>Freebeat</td><td>Freebeat</td></tr>
+          <tr><td class="rl">来源类型</td><td>官方技术记录</td><td>官方文章</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-05-29 ~ 2026-06-08</td><td>抽查页面的展示日期与 Sitemap 接近，但部分内部首次发布日期更早</td></tr>
+          <tr><td class="rl">链接</td><td><a href="https://freebeat.ai/articles/sitemap.xml" target="_blank">Sitemap →</a></td><td><a href="https://freebeat.ai/articles/best-ai-music-video-generator-for-creative-control-in-2026" target="_blank">Creative Control →</a> · <a href="https://freebeat.ai/articles/best-ai-music-video-generators-in-2026-8-tools-tested-for-beat-sync-visual-quality-and-full-song-output" target="_blank">8 Tools Tested →</a></td></tr>
+          <tr><td class="rl">证明内容</td><td>17 个 URL 及其 Sitemap 日期</td><td>页面当前存在；部分页面并非 Sitemap 标注当天首次发布</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：17 个文章页面存在，Sitemap 为它们标出了 5 月 29 日至 6 月 8 日的日期；至少部分页面此前已经发布。</div>
+          <div class="v-no">◎ 未确认：17 个页面中有多少是首次上线、有多少是旧文调整，以及正文、标题或链接具体改了什么；自然搜索收录、排名、流量和转化也未确认。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E03 -->
+    <div class="ev-card part" id="e03">
+      <div class="ev-hdr"><span class="ev-id">E03</span><span class="ev-date">2026-06-05</span><span class="ev-title">官方发布"Make Any Photo Sing"功能演示</span><span class="ev-stat part">⚠️ 部分确认</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-blue cat-tag">产品内容 / 社媒</span></span><span class="ev-mi"><strong>时间依据：</strong>YouTube uploadDate 与 Instagram 原帖日期</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>官方 YouTube 发布 26 秒视频《Make Any Photo Sing》。</li>
+          <li>官方 Instagram 同日发布演示，说明上传照片、选择歌曲后生成带 lip-sync 的唱歌视频。</li>
+          <li>当前官网存在 Lip Sync 产品入口。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>Freebeat YouTube 视频</td><td>Freebeat Instagram Reel</td></tr>
+          <tr><td class="rl">来源归属</td><td>Freebeat</td><td>Freebeat</td></tr>
+          <tr><td class="rl">来源类型</td><td>官方视频</td><td>官方社媒原帖</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-06-05 02:43:46 PDT</td><td>2026-06-05</td></tr>
+          <tr><td class="rl">链接</td><td><a href="https://www.youtube.com/watch?v=WyQfCy56uH8" target="_blank">YouTube →</a></td><td><a href="https://www.instagram.com/freebeat.ai/reel/DZMw5vvxN5v/" target="_blank">Instagram →</a></td></tr>
+          <tr><td class="rl">证明内容</td><td>视频标题、内容和上传日期</td><td>同日功能说明及演示内容</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：Freebeat 在本周期通过两个官方渠道公开演示照片唱歌与 lip-sync 流程。</div>
+          <div class="v-no">◎ 未确认：功能首次上线日期、准确率、支持语言和使用量。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E04 -->
+    <div class="ev-card part" id="e04">
+      <div class="ev-hdr"><span class="ev-id">E04</span><span class="ev-date">2026-06-12</span><span class="ev-title">四组 Sitemap 记录 8,294 个 URL 同日更新</span><span class="ev-stat part">⚠️ 部分确认</span></div>
+      <div class="ev-meta"><span class="ev-mi"><strong>分类：</strong><span class="cat-blue cat-tag">SEO / 网站更新</span></span><span class="ev-mi"><strong>时间依据：</strong>官方 Sitemap lastmod</span><span class="ev-mi"><strong>发现时间：</strong>2026-06-12</span></div>
+      <div class="ev-body">
+        <ul>
+          <li>pages/sitemap.xml 记录 766 个 URL 在 6 月 12 日更新。</li>
+          <li>tool-details/sitemap.xml 记录 6,699 个 URL 在 6 月 12 日更新。</li>
+          <li>seo-landings/sitemap.xml 记录 715 个 URL 在 6 月 12 日更新。</li>
+          <li>blogs/sitemap.xml 记录 114 个 URL 在 6 月 12 日更新。</li>
+          <li>合计为 8,294 条 URL 更新记录，包含多语言页面、工具详情、模型落地页、SEO 页面和旧 Blog。</li>
+          <li>当前首页还公开展示 Realtime Music Video NEW、MCP &amp; CLI NEW、SeedDance 2.0、GPT Image 2 等入口。</li>
+        </ul>
+        <details class="src-details"><summary>信源核验</summary><div class="src-inner"><table class="src-tbl"><thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead><tbody>
+          <tr><td class="rl">来源名称</td><td>Freebeat Sitemap Index 与四个子 Sitemap</td><td>Freebeat 当前首页及抽查页面</td></tr>
+          <tr><td class="rl">来源归属</td><td>Freebeat</td><td>Freebeat</td></tr>
+          <tr><td class="rl">来源类型</td><td>官方技术记录</td><td>官方页面</td></tr>
+          <tr><td class="rl">来源时间</td><td>2026-06-12</td><td>页面抓取 2026-06-12</td></tr>
+          <tr><td class="rl">链接</td><td><a href="https://freebeat.ai/sitemap.xml" target="_blank">总 Sitemap →</a> · <a href="https://freebeat.ai/pages/sitemap.xml" target="_blank">Pages →</a> · <a href="https://freebeat.ai/tool-details/sitemap.xml" target="_blank">Tools →</a></td><td><a href="https://freebeat.ai/" target="_blank">首页 →</a> · <a href="https://freebeat.ai/cli" target="_blank">MCP &amp; CLI →</a></td></tr>
+          <tr><td class="rl">证明内容</td><td>URL 数量和更新时间</td><td>页面当前可访问及首页公开入口</td></tr>
+        </tbody></table></div></details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>同源佐证</div>
+          <div class="v-ok">✅ 已确认范围：8,294 条 URL 在官方 Sitemap 中具有 6 月 12 日更新时间。</div>
+          <div class="v-no">◎ 未确认：这些 URL 是否首次上线、每页具体修改内容、索引状态和搜索效果。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- E05 -->
+    <div class="ev-card" id="e05">
+      <div class="ev-hdr">
+        <span class="ev-id">E05</span>
+        <span class="ev-date">约 2026-06-01</span>
+        <span class="ev-title">Digital Art Creation 发布 Freebeat Affiliate 教程（13K 播放，有赞助披露）</span>
+        <span class="ev-stat">◯ 单一信源</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-amber">Creator 合作</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>YouTube 相对时间推算（采集时显示"2 周前"，采集日 2026-06-15，±7 天）</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-15（补采）</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>YouTube 频道 Digital Art Creation（33.4 万订阅）发布《Turn ANY Song Into an AI Music Video in ONE Click | freebeat Full Tutorial》。</li>
+          <li>视频截至采集时获得约 13,000 次播放。</li>
+          <li>视频描述含 Affiliate 链接 freebeat.ai/?via=e100b0 及优惠码 DIGIAI（10% off Pro）。</li>
+          <li>标签含 #freebeatAI；属明确 Affiliate 或赞助合作披露。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Digital Art Creation YouTube 教程</td><td>未取得</td></tr>
+                <tr><td class="rl">来源归属</td><td>Digital Art Creation</td><td>—</td></tr>
+                <tr><td class="rl">来源类型</td><td>第三方 YouTube 视频</td><td>—</td></tr>
+                <tr><td class="rl">来源时间</td><td>约 2026-06-01（±7 天）</td><td>—</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://www.youtube.com/watch?v=xLa4K1Ql-Ok" target="_blank">YouTube →</a></td><td>—</td></tr>
+                <tr><td class="rl">证明内容</td><td>教程已发布、Affiliate 链接和优惠码存在</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>单一信源</div>
+          <div class="v-ok">◎ 已确认范围：视频已公开发布，含明确 Affiliate 链接和优惠码。</div>
+          <div class="v-no">◎ 未确认：精确发布日期（±7 天）、点击转化量、Freebeat 是否主动招募该 Creator。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E06 -->
+    <div class="ev-card" id="e06">
+      <div class="ev-hdr">
+        <span class="ev-id">E06</span>
+        <span class="ev-date">2026-05-29 ~ 2026-06-11</span>
+        <span class="ev-title">Trustpilot 周期内新增 14 条用户评论（全 1 星，公司 0 回复）</span>
+        <span class="ev-stat">◯ 单一信源</span>
+      </div>
+      <div class="ev-meta">
+        <span class="ev-mi"><strong>分类：</strong><span class="cat-tag cat-purple">社区信号</span></span>
+        <span class="ev-mi"><strong>时间依据：</strong>Trustpilot 各评论页面日期</span>
+        <span class="ev-mi"><strong>发现时间：</strong>2026-06-15（补采）</span>
+      </div>
+      <div class="ev-body">
+        <ul>
+          <li>周期内 Trustpilot 新增 14 条用户评论，全部 1 星（仅 1 条 2 星）。</li>
+          <li>总量快照：全站累计 170 条评论，TrustScore 1.7/5（Bad）。</li>
+          <li>高频投诉：credits 消耗不可控/超预算、AI 忽略明确指令、取消订阅入口隐藏、客服无响应。</li>
+          <li>代表性评论（6/9）：用户设置预算上限，AI 完全无视，最终消耗超出预算 22 倍。</li>
+          <li>代表性评论（6/11）：一年订阅后被锁账号，重新登录后账号不存在。</li>
+          <li>Freebeat 对以上 14 条评论均无回复（公司历史总回复率约 6%）。</li>
+        </ul>
+        <details class="src-details">
+          <summary>信源核验</summary>
+          <div class="src-inner">
+            <table class="src-tbl">
+              <thead><tr><th>项目</th><th>主信源</th><th>二次信源</th></tr></thead>
+              <tbody>
+                <tr><td class="rl">来源名称</td><td>Trustpilot Freebeat 评论页</td><td>未取得</td></tr>
+                <tr><td class="rl">来源归属</td><td>Trustpilot 平台用户</td><td>—</td></tr>
+                <tr><td class="rl">来源类型</td><td>评论平台原始记录</td><td>—</td></tr>
+                <tr><td class="rl">来源时间</td><td>5/29~6/11 共 14 个日期</td><td>—</td></tr>
+                <tr><td class="rl">链接</td><td><a href="https://www.trustpilot.com/review/freebeat.ai" target="_blank">打开 →</a></td><td>—</td></tr>
+                <tr><td class="rl">证明内容</td><td>评论日期、评分（全 1 星）、原文摘要及公司零回复状态</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="ev-verdict">
+          <div class="v-rel"><strong>来源关系：</strong>单一信源</div>
+          <div class="v-ok">◎ 已确认范围：14 条评论在指定日期已公开发布，内容和评分可读取。</div>
+          <div class="v-no">◎ 未确认：评论者身份、实际使用过程、是否存在刷评行为。</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="sec" id="excluded">
+    <div class="sec-head"><span class="num">§3</span><h2>时间未确认或未纳入线索</h2></div>
+    <p style="color:var(--faint);font-size:0.85rem;margin:0 0 1rem"><strong>待跟踪</strong>：发现信号但时间未确认或采集受限，下期继续追踪。<strong>已排除</strong>：经判断确认不纳入，不再追踪。</p>
+    <h3 style="font-size:0.95rem;margin:0 0 0.5rem;color:var(--fg)">3A. 待跟踪线索</h3>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>线索</th><th>信号内容</th><th>原因</th><th>建议下期动作</th></tr></thead><tbody>
+      <tr><td>Yamaha Creator Pass</td><td>官网和社媒存在合作入口</td><td>现有材料显示合作早于本周期，时间无法确认</td><td>下期搜索合作官方公告日期，或查 Wayback Machine 历史快照</td></tr>
+      <tr><td>Pricing 30% OFF</td><td>当前页面显示折扣</td><td>仅有 6 月 12 日快照，没有周期前价格证据</td><td>下期用 Wayback Machine 对比周期前定价页快照</td></tr>
+      <tr><td>Simple Ai Guy Creator 教程</td><td>约 6/1 发布，364 播放，103 订阅，无赞助披露</td><td>影响力极低，确认时间有 ±7 天不确定性</td><td>下期若类似小规模教程持续增多，评估是否形成批量信号</td></tr>
+    </tbody></table></div>
+    <h3 style="font-size:0.95rem;margin:1rem 0 0.5rem;color:var(--fg)">3B. 已排除线索</h3>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>线索</th><th>排除理由</th></tr></thead><tbody>
+      <tr><td>Reddit 中 Freebeat 相关讨论</td><td>补采后确认：窗口期（5/29–6/12）内无可证实帖子；找到的讨论帖均发布于 2026 年 1 月至 4 月，不在本期</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="sec" id="giq">
+    <div class="sec-head"><span class="num">§4</span><h2>GIQ 核对</h2></div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>问题</th><th>结果</th><th>事件 ID / 说明</th></tr></thead><tbody>
+      <tr><td>本周期有哪些新 SEO 落地页或内容发布？</td><td style="color:var(--amber)">未确认新增</td><td>E02、E04 只确认 Sitemap 日期记录发生变化，不能据此判断页面新建或正文更新</td></tr>
+      <tr><td>付费广告素材或卖点有变化吗？</td><td style="color:var(--faint)">未覆盖</td><td>Meta 被真人验证拦截；Google Ads 未返回可审计结果</td></tr>
+      <tr><td>定价 / Free tier 有调整吗？</td><td style="color:var(--faint)">未采集到</td><td>只有当前价格和折扣快照</td></tr>
+      <tr><td>有没有新的社媒营销动作或高互动内容？</td><td style="color:var(--brand)">有已确认事件</td><td>E03；E05 确认 Affiliate Creator 教程（13K 播放，有优惠码披露）</td></tr>
+      <tr><td>产品有新功能或能力更新吗？</td><td style="color:var(--brand)">有已确认事件</td><td>E01、E03</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="sec" id="sources">
+    <div class="sec-head"><span class="num">§5</span><h2>信源总表（16 条）</h2></div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>ID</th><th>信源与链接</th><th>归属</th><th>类型</th><th>来源时间</th><th>支撑事件</th><th>证明内容</th></tr></thead><tbody>
+      <tr><td>S01</td><td><a href="https://www.forbes.com/sites/viviantoh/2026/05/29/how-freebeatai-made-music-videos-live/" target="_blank">Forbes</a></td><td>Forbes</td><td>媒体报道</td><td>2026-05-29</td><td>E01</td><td>实时产品发布</td></tr>
+      <tr><td>S02</td><td><a href="https://www.rollingstone.co.uk/culture/how-freebeat-ai-made-music-videos-live-61878/" target="_blank">Rolling Stone UK</a></td><td>Rolling Stone UK</td><td>媒体报道</td><td>2026-06-04</td><td>E01</td><td>产品流程和发布记录</td></tr>
+      <tr><td>S03</td><td><a href="https://freebeat.ai/realtime" target="_blank">Realtime 产品页</a></td><td>Freebeat</td><td>官方产品页</td><td>当前页面</td><td>E01</td><td>当前功能、计费与 beta 说明</td></tr>
+      <tr><td>S04</td><td><a href="https://freebeat.ai/articles/sitemap.xml" target="_blank">Articles Sitemap</a></td><td>Freebeat</td><td>官方技术记录</td><td>2026-05-29 ~ 2026-06-08</td><td>E02</td><td>17 个 URL 的 Sitemap 日期记录</td></tr>
+      <tr><td>S05</td><td><a href="https://freebeat.ai/articles/best-ai-music-video-generator-for-creative-control-in-2026" target="_blank">Creative Control Article</a></td><td>Freebeat</td><td>官方文章</td><td>2026-05-29</td><td>E02</td><td>页面内容</td></tr>
+      <tr><td>S06</td><td><a href="https://freebeat.ai/articles/best-ai-music-video-generators-in-2026-8-tools-tested-for-beat-sync-visual-quality-and-full-song-output" target="_blank">8 Tools Tested</a></td><td>Freebeat</td><td>官方文章</td><td>页面展示 2026-06-01；内部初始日期 2026-05-29</td><td>E02</td><td>页面早于 Sitemap 日期存在的例证</td></tr>
+      <tr><td>S07</td><td><a href="https://www.youtube.com/watch?v=WyQfCy56uH8" target="_blank">YouTube：Make Any Photo Sing</a></td><td>Freebeat</td><td>官方视频</td><td>2026-06-05</td><td>E03</td><td>功能演示</td></tr>
+      <tr><td>S08</td><td><a href="https://www.instagram.com/freebeat.ai/reel/DZMw5vvxN5v/" target="_blank">Instagram：Make Any Photo Sing</a></td><td>Freebeat</td><td>官方原帖</td><td>2026-06-05</td><td>E03</td><td>同日功能说明</td></tr>
+      <tr><td>S09</td><td><a href="https://freebeat.ai/sitemap.xml" target="_blank">总 Sitemap</a></td><td>Freebeat</td><td>官方技术记录</td><td>2026-06-12</td><td>E04</td><td>子 Sitemap 清单</td></tr>
+      <tr><td>S10</td><td><a href="https://freebeat.ai/pages/sitemap.xml" target="_blank">Pages Sitemap</a></td><td>Freebeat</td><td>官方技术记录</td><td>2026-06-12</td><td>E04</td><td>766 条记录</td></tr>
+      <tr><td>S11</td><td><a href="https://freebeat.ai/tool-details/sitemap.xml" target="_blank">Tool Details Sitemap</a></td><td>Freebeat</td><td>官方技术记录</td><td>2026-06-12</td><td>E04</td><td>6,699 条记录</td></tr>
+      <tr><td>S12</td><td><a href="https://freebeat.ai/seo-landings/sitemap.xml" target="_blank">SEO Landings Sitemap</a></td><td>Freebeat</td><td>官方技术记录</td><td>2026-06-12</td><td>E04</td><td>715 条记录</td></tr>
+      <tr><td>S13</td><td><a href="https://freebeat.ai/blogs/sitemap.xml" target="_blank">Blogs Sitemap</a></td><td>Freebeat</td><td>官方技术记录</td><td>2026-06-12</td><td>E04</td><td>114 条记录</td></tr>
+      <tr><td>S14</td><td><a href="https://www.trustpilot.com/review/freebeat.ai" target="_blank">Trustpilot</a></td><td>Trustpilot 用户</td><td>评论记录</td><td>本周期多日</td><td>未纳入</td><td>用户评论及日期</td></tr>
+      <tr><td>S15</td><td><a href="https://freebeat.ai/articles/best-album-cover-generators-for-ai-music-videos" target="_blank">Album Covers Article</a></td><td>Freebeat</td><td>官方文章</td><td>本周期</td><td>E02</td><td>页面存在及文章内容</td></tr>
+      <tr><td>S16</td><td><a href="https://freebeat.ai/cli" target="_blank">MCP &amp; CLI</a></td><td>Freebeat</td><td>官方开发者页</td><td>当前页面</td><td>E04</td><td>当前 CLI 入口</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="sec" id="ledger">
+    <div class="sec-head"><span class="num">§6</span><h2>信源采集执行台账（21 条）</h2></div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>ID</th><th>信源/平台</th><th>检索动作</th><th style="text-align:right">候选数</th><th>状态</th><th>事件/失败原因</th></tr></thead><tbody>
+      <tr><td>L01</td><td>官网 / 产品</td><td>访问首页、Realtime、CLI、工具和产品入口</td><td style="text-align:right">3</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E01、E03、E04</td></tr>
+      <tr><td>L02</td><td>Blog / Articles</td><td>检查 Blog、Articles 和文章页</td><td style="text-align:right">17</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E02</td></tr>
+      <tr><td>L03</td><td>Sitemap</td><td>解析总 Sitemap 和全部业务子 Sitemap</td><td style="text-align:right">8294+</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E02、E04</td></tr>
+      <tr><td>L04</td><td>Help / RSS / Changelog / Newsletter</td><td>探测公开入口</td><td style="text-align:right">0</td><td><span class="led-full">已覆盖-未采集到事件</span></td><td>未发现周期内公开记录</td></tr>
+      <tr><td>L05</td><td>X</td><td>检查 @freebeat10 周期时间线</td><td style="text-align:right">0</td><td><span class="led-full">已覆盖-未采集到事件</span></td><td>高级检索无周期内原帖</td></tr>
+      <tr><td>L06</td><td>YouTube</td><td>检查官方频道视频及上传时间</td><td style="text-align:right">1</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E03</td></tr>
+      <tr><td>L07</td><td>LinkedIn</td><td>检查公司页及品牌检索</td><td style="text-align:right">0</td><td><span class="led-part">部分覆盖</span></td><td>公司页存在，动态时间线未完整加载</td></tr>
+      <tr><td>L08</td><td>Instagram</td><td>检查官方账号及周期帖子日期</td><td style="text-align:right">10</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E03；另有多条品牌内容</td></tr>
+      <tr><td>L09</td><td>TikTok</td><td>访问官方账号</td><td style="text-align:right">0</td><td><span class="led-part">部分覆盖</span></td><td>账号可访问，视频列表加载失败</td></tr>
+      <tr><td>L10</td><td>Reddit</td><td>全站搜索品牌、域名和相关讨论</td><td style="text-align:right">3</td><td><span class="led-full">已覆盖-发现事件</span></td><td>仅外部讨论，未纳入主时间线</td></tr>
+      <tr><td>L11</td><td>Hacker News</td><td>Algolia 周期检索</td><td style="text-align:right">0</td><td><span class="led-full">已覆盖-未采集到事件</span></td><td>无匹配结果</td></tr>
+      <tr><td>L12</td><td>Trustpilot</td><td>检查周期内评论和公司回复</td><td style="text-align:right">10+</td><td><span class="led-full">已覆盖-发现事件</span></td><td>用户评论进入线索区；未见周期内公司回复</td></tr>
+      <tr><td>L13</td><td>G2 / Capterra</td><td>检索产品和评论页</td><td style="text-align:right">0</td><td><span class="led-part">部分覆盖</span></td><td>未取得可核验的本周期评论页</td></tr>
+      <tr><td>L14</td><td>Product Hunt</td><td>直访产品页并搜索 Launch</td><td style="text-align:right">0</td><td><span class="led-part">部分覆盖</span></td><td>直访返回 403 / Cloudflare</td></tr>
+      <tr><td>L15</td><td>App Store / Google Play</td><td>检索官方移动应用</td><td style="text-align:right">0</td><td><span class="led-na">不适用</span></td><td>官网无官方移动应用入口</td></tr>
+      <tr><td>L16</td><td>媒体 / 合作</td><td>检索 launch、release、partnership</td><td style="text-align:right">2</td><td><span class="led-full">已覆盖-发现事件</span></td><td>E01</td></tr>
+      <tr><td>L17</td><td>Creator 内容</td><td>检查第三方教程和短链</td><td style="text-align:right">2</td><td><span class="led-full">已覆盖-发现事件</span></td><td>未取得付费合作披露，放入线索区</td></tr>
+      <tr><td>L18</td><td>Meta Ad Library</td><td>品牌名、广告主名和域名检索</td><td style="text-align:right">0</td><td><span class="led-none">未覆盖</span></td><td>Facebook 真人验证拦截</td></tr>
+      <tr><td>L19</td><td>Google Ads Transparency</td><td>品牌名与域名检索</td><td style="text-align:right">0</td><td><span class="led-none">未覆盖</span></td><td>动态页面未返回可审计结果</td></tr>
+      <tr><td>L20</td><td>公开技术记录</td><td>检查 API、CLI、GitHub、Status</td><td style="text-align:right">1</td><td><span class="led-part">部分覆盖</span></td><td>发现 CLI 页面；未找到可审计 release/changelog</td></tr>
+      <tr><td>L21</td><td>Pricing</td><td>获取当前价格与折扣快照</td><td style="text-align:right">1</td><td><span class="led-full">已覆盖-未采集到事件</span></td><td>无历史价格证据</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="sec" id="gaps">
+    <div class="sec-head"><span class="num">§7</span><h2>调研覆盖与缺口</h2></div>
+    <ul class="gap-list">
+      <li>广告透明度平台未成功采集，不能判断付费广告变化。</li>
+      <li>LinkedIn、TikTok、Product Hunt、G2/Capterra 和公开技术发布时间未完整覆盖。</li>
+      <li>大规模 Sitemap 更新时间不能证明页面首次上线。</li>
+      <li>当前 Pricing 的 30% 折扣没有周期前快照，不能写成新增促销。</li>
+    </ul>
+  </section>
+</main>
+<script>(function(){function applyTheme(t){document.documentElement.setAttribute('data-theme',t);var b=document.getElementById('theme-toggle');if(b)b.textContent=t==='light'?'◑':'☀';}var s=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');applyTheme(s);window.toggleTheme=function(){var t=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';localStorage.setItem('theme',t);applyTheme(t);};})();</script>
+</body>
+</html>

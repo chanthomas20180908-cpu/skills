@@ -1,0 +1,175 @@
+{
+  "last_run": "2026-06-15",
+  "website": {
+    "homepage": {
+      "tagline": "AI Music Video Agent for Suno, Udio & Spotify Artists",
+      "tagline_meta": "Paste your Suno link, get a professional MV. VidMuse is the AI Agent that auto-generates storytelling videos, viral Shorts, and Spotify Canvases from your lyrics and audio.",
+      "cta": "Create",
+      "note": "SPA — logged-in users land on /en studio; public tagline from og:description"
+    },
+    "pricing": {
+      "snapshot_date": "2026-06-15",
+      "currency": "USD",
+      "billing": "monthly_and_yearly",
+      "free_tier": true,
+      "plans": {
+        "Free": {
+          "price_per_month": 0,
+          "credits": "1,000 (one-time)",
+          "resolution": "720P",
+          "watermark": true,
+          "commercial_use": false,
+          "model_access": "limited trial",
+          "support": "none listed"
+        },
+        "Pro": {
+          "price_per_month_monthly": 39,
+          "price_per_month_yearly": 33,
+          "credits_monthly": 4000,
+          "resolution": "1080P",
+          "watermark": false,
+          "commercial_use": true,
+          "model_access": "all models",
+          "early_access": true,
+          "topup_discount": "25% off",
+          "support": "team support within 3 business days",
+          "note": "Covers 3-5 polished 1-min final video projects/month"
+        },
+        "Studio": {
+          "price_per_month_monthly": 159,
+          "price_per_month_yearly": 133,
+          "credits_monthly": 18000,
+          "resolution": "1080P",
+          "watermark": false,
+          "commercial_use": true,
+          "model_access": "all models",
+          "early_access": true,
+          "topup_discount": "25% off",
+          "support": "1V1 support within 3 business days",
+          "note": "Covers 10-20 polished 1-min final video projects/month. Built for creative studios and teams."
+        }
+      },
+      "addon_credits": {
+        "2400_credits": 30,
+        "4800_credits": 60,
+        "8000_credits": 100,
+        "16000_credits": 200,
+        "note": "Credits require active subscription, valid for 12 months"
+      },
+      "pro_models_unlocked": [
+        "Suno V5",
+        "Nano Banana Pro",
+        "GPT Image 2.0",
+        "Seedream 5.0 Lite",
+        "Seedance 2.0 Pro/Fast",
+        "Kling V3.0",
+        "Kling O1",
+        "Veo 3.1",
+        "Grok Imagine Image/Video",
+        "Kling AI Avatar v2 Pro",
+        "OmniHuman V1.5",
+        "Wan V2.6",
+        "Gaga 2 Avatar",
+        "Hailuo 2.3 Pro",
+        "Vidu Q3",
+        "Midjourney V7",
+        "ElevenLabs Music"
+      ]
+    },
+    "blog_posts": [
+      "https://vidmuse.ai/blog/kling-o1-vidmuse-ai",
+      "https://vidmuse.ai/blog/best-ai-music-generator",
+      "https://vidmuse.ai/blog/lyric-video-generator",
+      "https://vidmuse.ai/blog/vidu-q3-x-vidmuse-ai",
+      "https://vidmuse.ai/blog/claude-fable-5",
+      "https://vidmuse.ai/blog/flux-2-x-vidmuse-ai",
+      "https://vidmuse.ai/blog/sondo-ai-review",
+      "https://vidmuse.ai/blog/ideogram-4-0",
+      "https://vidmuse.ai/blog/midjourney-v7",
+      "https://vidmuse.ai/blog/how-to-make-a-music-video-with-pictures",
+      "https://vidmuse.ai/blog/best-ai-music-video-generator-for-suno",
+      "https://vidmuse.ai/blog/soundful-ai-review",
+      "https://vidmuse.ai/blog/how-to-make-ai-music",
+      "https://vidmuse.ai/blog/kling-26",
+      "https://vidmuse.ai/blog/spotify-canvas-guide",
+      "https://vidmuse.ai/blog/freebeat-ai-review-2026",
+      "https://vidmuse.ai/blog/vidu-ai-review",
+      "https://vidmuse.ai/blog/grok-imagine-x-vidmuse-ai-guide",
+      "https://vidmuse.ai/blog/lyric-video-making",
+      "https://vidmuse.ai/blog/vidmuse-2-0-release",
+      "https://vidmuse.ai/blog/best-ai-music-video-generator",
+      "https://vidmuse.ai/blog/udio-ai-music-generator",
+      "https://vidmuse.ai/blog/veo-3-1",
+      "https://vidmuse.ai/blog/find-the-tempo-of-a-song",
+      "https://vidmuse.ai/blog/vidmuse-ai-video-templates",
+      "https://vidmuse.ai/blog/ltx-studio-review",
+      "https://vidmuse.ai/blog/music-visualizer",
+      "https://vidmuse.ai/blog/seedream-5-0-lite",
+      "https://vidmuse.ai/blog/chatgpt-image-prompts-guide",
+      "https://vidmuse.ai/blog/kling-3-0-omni",
+      "https://vidmuse.ai/blog/suno-ai-music-generator",
+      "https://vidmuse.ai/blog/ai-music-video-copyright",
+      "https://vidmuse.ai/blog/free-ai-music-video-generator",
+      "https://vidmuse.ai/blog/kling-3-0",
+      "https://vidmuse.ai/blog/nano-banana-prompts",
+      "https://vidmuse.ai/blog/nano-banana-image-generation",
+      "https://vidmuse.ai/blog/gemini-omini",
+      "https://vidmuse.ai/blog/nano-banana-2",
+      "https://vidmuse.ai/blog/nano-banana-pro",
+      "https://vidmuse.ai/blog/seedance-2-0",
+      "https://vidmuse.ai/blog/wan-2-7-features-release-guide",
+      "https://vidmuse.ai/blog/happy-horse-1-0-vidmuse-ai-integration",
+      "https://vidmuse.ai/blog/chatgpt-image-2-0-release",
+      "https://vidmuse.ai/blog/commercial-licensing-agreement",
+      "https://vidmuse.ai/blog/vidmuse-disclaimer",
+      "https://vidmuse.ai/blog/pricing-faq",
+      "https://vidmuse.ai/blog/the-ultimate-guide-to-vidmuse-cn",
+      "https://vidmuse.ai/blog/the-ultimate-guide-to-vidmuse",
+      "https://vidmuse.ai/blog/see-your-rhythm-videmuse-global-search",
+      "https://vidmuse.ai/blog/introducing-vidmuse-ai",
+      "https://vidmuse.ai/blog/vidmuse-faq-to-professional-ueser-guide-chinese",
+      "https://vidmuse.ai/blog/vidmuse-faq-to-professional-user-guide",
+      "https://vidmuse.ai/blog/unlock-cinematic-visuals-seedream-45-integration-elevates-vidmuseais-ai-video-creation",
+      "https://vidmuse.ai/blog/unleash-cinematic-visuals-seedream-45-now-available-on-vidmuseai"
+    ],
+    "sitemap": {
+      "snapshot_date": "2026-06-15",
+      "sitemap_url": "https://vidmuse.ai/sitemap.xml",
+      "sitemap_type": "inline (not sub-sitemap index)",
+      "tool_pages": [],
+      "template_pages": [],
+      "key_pages": [
+        "https://vidmuse.ai/en",
+        "https://vidmuse.ai/en/pricing",
+        "https://vidmuse.ai/en/skill",
+        "https://vidmuse.ai/en/cli",
+        "https://vidmuse.ai/blog",
+        "https://vidmuse.ai/en/terms-of-service",
+        "https://vidmuse.ai/en/privacy-policy",
+        "https://vidmuse.ai/en/dispute-policy",
+        "https://vidmuse.ai/en/use-policy"
+      ],
+      "share_pages_count": 40,
+      "i18n_locales": ["en", "es", "ja", "ko", "zh-CN", "zh-TW", "fr", "it", "pt", "de", "th", "vi", "id"],
+      "lastmod_notes": {
+        "all_pages": "2026-06-12T04:06:10.569Z",
+        "note": "All sitemap entries share identical lastmod — likely auto-generated timestamp, not per-page update tracking"
+      },
+      "notes": "No /tools/ or /templates/ URL patterns found. Key feature sections: /skill (AI skill marketplace), /cli (CLI tool). Share pages are user-generated content embeds."
+    }
+  },
+  "github": {
+    "last_release": null,
+    "last_issue_checked": null
+  },
+  "reddit": {
+    "last_post_ts": null
+  },
+  "hn": {
+    "last_story_id": null,
+    "last_story_id_ts": null
+  },
+  "ads": {
+    "last_seen_ad_ids": []
+  }
+}
